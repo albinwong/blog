@@ -85,11 +85,11 @@
     <header class="container">
         <div class="site-branding">
             <h1 class="site-title">
-                <a href="index.html">
-                    <span>Justice</span>
+                <a href="/">
+                    <span>Albin</span>
                 </a>
             </h1>
-            <h2 class="site-description">Welcome to Us !</h2>
+            <h2 class="site-description">Welcome!</h2>
         </div>
         <div class="social-links">
             <ul class="list-inline">

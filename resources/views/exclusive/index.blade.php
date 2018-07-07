@@ -1,6 +1,42 @@
 @extends('layout.exclusive',['title' => 'AlbinWong'])
 @section('css')
 @endsection
+@section('lunbo')
+<div id="carousel-example-generic" class="carousel slide hidden-xs" data-ride="carousel" data-interval="4000">
+    <div class="carousel-inner">
+        <div class="item active">
+            <img src="/exclusive/images/banner1.jpg" alt="...">
+            <div class="container">
+            <div class="header-text hidden-xs">
+                <div class="col-md-12 text-center">
+                    <h1>Free Bootstrap Themes Html5xCss3 dot com</h1>
+                    <hr>
+                    <p>Nunc eu velit metus. Donec in massa libero. Donec bibendum orci a lorem scelerisque luctus. Aliquam et ante quis erat semper pretium.</p>
+                    <a href="" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="item">
+            <img src="/exclusive/images/banner2.jpg" alt="...">
+            <div class="header-text hidden-xs">
+                <div class="col-md-12 text-center">
+                    <h1>Free Bootstrap Themes Html5xCss3 dot com</h1>
+                    <hr>
+                    <p>Suspendisse porttitor sapien ac lectus euismod imperdiet. Curabitur nec nibh at massa pellentesque accumsan eu id nibh. Donec accumsan ut mi.</p>
+                    <a href="" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
+@endsection
 @section('content')
 <div id="page-content">
 	<section class="box-content box-1">

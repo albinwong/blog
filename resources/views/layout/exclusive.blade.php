@@ -42,46 +42,13 @@
                         <a class="page-scroll" href="/contact">联系</a>
                     </li>
                     <li>
-                        <a class="page-scroll" target="_blank" href="https://github.com/albinwong">GitHub</a>
+                        <a class="page-scroll" style="text-transform: none;" target="_blank" href="https://github.com/albinwong">GitHub</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div id="carousel-example-generic" class="carousel slide hidden-xs" data-ride="carousel" data-interval="4000">
-        <div class="carousel-inner">
-            <div class="item active">
-                <img src="/exclusive/images/banner1.jpg" alt="...">
-                <div class="container">
-                <div class="header-text hidden-xs">
-                    <div class="col-md-12 text-center">
-                        <h1>Free Bootstrap Themes Html5xCss3 dot com</h1>
-                        <hr>
-                        <p>Nunc eu velit metus. Donec in massa libero. Donec bibendum orci a lorem scelerisque luctus. Aliquam et ante quis erat semper pretium.</p>
-                        <a href="" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
-                    </div>
-                </div>
-                </div>
-            </div>
-            <div class="item">
-                <img src="/exclusive/images/banner2.jpg" alt="...">
-                <div class="header-text hidden-xs">
-                    <div class="col-md-12 text-center">
-                        <h1>Free Bootstrap Themes Html5xCss3 dot com</h1>
-                        <hr>
-                        <p>Suspendisse porttitor sapien ac lectus euismod imperdiet. Curabitur nec nibh at massa pellentesque accumsan eu id nibh. Donec accumsan ut mi.</p>
-                        <a href="" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
-    </div>
+    @yield('lunbo')
     <header class="container">
         <div class="site-branding">
             <h1 class="site-title">

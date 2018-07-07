@@ -25,6 +25,13 @@ if(isset($_POST['submitcontact']))
 @section('css')
 @endsection
 @section('content')
+<div class="site-gradients">
+	<div class="site-gradients-media">
+		<figure>
+			<img src="Another%20Yosemite%20short%20movie%20project%20%E2%80%93%20Modern_files/PcLGXNjMTdiFVKTrElCl__DSC2245.jpg" alt="PcLGXNjMTdiFVKTrElCl__DSC2245" srcset="https://themedemos.webmandesign.eu/modern/wp-content/uploads/sites/8/2014/11/PcLGXNjMTdiFVKTrElCl__DSC2245.jpg 1920w, https://themedemos.webmandesign.eu/modern/wp-content/uploads/sites/8/2014/11/PcLGXNjMTdiFVKTrElCl__DSC2245-420x280.jpg 420w, https://themedemos.webmandesign.eu/modern/wp-content/uploads/sites/8/2014/11/PcLGXNjMTdiFVKTrElCl__DSC2245-744x497.jpg 744w, https://themedemos.webmandesign.eu/modern/wp-content/uploads/sites/8/2014/11/PcLGXNjMTdiFVKTrElCl__DSC2245-1200x801.jpg 1200w" sizes="(max-width: 1617px) 100vw, 1617px" height="1080" width="1617">
+		</figure>
+	</div>
+</div>
 <div id="page-content" class="single-page">
 	<div class="container">
 		<div class="row">
@@ -89,6 +96,9 @@ if(isset($_POST['submitcontact']))
 </div>
 @endsection
 @section('js')
+	<script type="text/javascript">
+		$("body").attr('class','sub-page');
+	</script>
 	<!-- Google Map -->
 	<script>
 		$('.maps').click(function () {

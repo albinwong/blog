@@ -6,7 +6,7 @@
     <meta name="description" content="Free Bootstrap Themes by HTML5XCSS3 dot com - Free Responsive Html5 Templates">
     <meta name="author" content="#">
     <meta name="_token" content="{{csrf_token()}}">
-    <title>@yield('title','AlbinWong')</title>
+    <title>@yield('title','AlbinWong---Pencil do the thinking!')</title>
     <link rel="stylesheet" href="/exclusive/css/bootstrap.min.css"  type="text/css">
     <link href="/exclusive/owl-carousel/owl.carousel.css" rel="stylesheet">
     <link href="/exclusive/owl-carousel/owl.theme.css" rel="stylesheet">
@@ -48,8 +48,8 @@
             </div>
         </div>
     </nav>
-    @yield('lunbo')
-    <header class="container">
+    @yield('header')
+    <header class="container" style="visibility: hidden;">
         <div class="site-branding">
             <h1 class="site-title">
                 <a href="/">
@@ -74,12 +74,11 @@
             <div class="container">
                 <div class="row"> 
                     <div class="col-footer col-md-3">
-                        <h2 class="footer-title">About Us</h2>
-                        <div class="textwidget">Aenean feugiat in ante et blandit. Vestibulum posuere molestie risus, ac interdum magna porta non. Pellentesque rutrum fringilla elementum. Curabitur tincidunt porta lorem vitae accumsan. <br> <br> 
-                        Aenean feugiat in ante et blandit. Vestibulum posuere molestie risus, ac interdum magna porta non. Pellentesque rutrum fringilla elementum. Curabitur tincidunt porta lorem vitae accumsan.</div>
+                        <h2 class="footer-title">关于我</h2>
+                        <div class="textwidget">独自穿越人群看着两岸的灯火<br>其实所有漂泊的人 <br>不过是为了有一天能够不再漂泊 <br> 能用自己的力量撑起天空 </div>
                     </div> 
                     <div class="col-footer col-md-3 widget_recent_entries">
-                        <h2 class="footer-title">Recent Posts</h2>
+                        <h2 class="footer-title">最新文章</h2>
                         <ul>
                             <li><a href="#">MOST VISITED COUNTRIES</a></li>
                             <li><a href="#">5 PLACES THAT MAKE A GREAT HOLIDAY</a></li>
@@ -88,15 +87,15 @@
                         </ul>
                     </div>
                     <div class="col-footer col-md-3">
-                        <h2 class="footer-title">NEWS LETTER</h2>
-                        If you want to receive our latest news send directly to your email, please leave your email address bellow. Subscription is free and you can cancel anytime.
+                        <h2 class="footer-title">文章订阅</h2>
+                        如果您想接收我的最新消息直接发送到您的电子邮件，请留下您的电子邮件地址。订阅是免费的，您可以随时取消。
                         <form action="#" method="post">
                             <input type="text" name="your-name" value="" size="40" placeholder="Your Email" />
-                            <input type="submit" value="SUBSCRIBE" class="btn btn-skin" />
+                            <input type="submit" value="订阅" class="btn btn-skin" />
                         </form>
                     </div>
                     <div class="col-footer col-md-3">
-                        <h2 class="footer-title">Tags</h2>
+                        <h2 class="footer-title" style="text-transform: none;">Tags</h2>
                         <div class="footer-tags">
                             <a href="#">PHP</a>
                             <a href="#">html</a>
@@ -119,25 +118,25 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
-                        <p> &copy; 2016-2018 Albinwong.com 版权所有 <br>  <a href="javascript:viod(0)" target="_blank" title="">ICP证：京ICP备17026115号</a> </p>
+                        <p> Copyright &copy; 2016-2018 Albinwong.com All Rights Reserved. <br>  <a href="javascript:viod(0)" target="_blank" title="">ICP证：京ICP备17026115号</a> </p>
                     </div>
                     <div class="col-md-4">
                         <ul class="list-inline social-buttons">
-                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            <li><a target="_blank" href="https://weibo.com/319333577"><i class="fa fa-weibo"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            <li><a href="https://www.facebook.com/100014758775849"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            <li><a href="mailto:albinwong@sina.com"><i class="fa fa-mail-forward"></i></a>
                             </li>
-                            <li><a href="#"><i class="fa fa-pinterest"></i></a>
+                            <li><a href="https://github.com/albinwong"><i class="fa fa-github"></i></a>
                             </li>
                         </ul>
                     </div>
                     <div class="col-md-4">
                         <ul class="list-inline quicklinks">
-                            <li><a href="#">Privacy Policy</a>
+                            <li><a href="#">隐私策略</a>
                             </li>
-                            <li><a href="#">Terms of Use</a>
+                            <li><a href="#">服务条款</a>
                             </li>
                         </ul>
                     </div>

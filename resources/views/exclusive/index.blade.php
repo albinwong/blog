@@ -1,7 +1,7 @@
 @extends('layout.exclusive',['title' => 'AlbinWong'])
 @section('css')
 @endsection
-@section('lunbo')
+@section('header')
 <div id="carousel-example-generic" class="carousel slide hidden-xs" data-ride="carousel" data-interval="4000">
     <div class="carousel-inner">
         <div class="item active">

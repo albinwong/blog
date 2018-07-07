@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () { return view('exclusive/index');});
+Route::get('/archive', function () { return view('exclusive/archive');});
+Route::get('/about', function () { return view('exclusive/single');});
+Route::get('/contact', function () { return view('exclusive/contact');});
+
+
+Route::get('/user','UserController@index');

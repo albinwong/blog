@@ -1,4 +1,4 @@
-@extends('layout.exclusive',['title' => 'AlbinWong - Free Bootstrap Themes'])
+@extends('layout.exclusive',['title' => '博客 - AlbinWong --- Pencil do the thinking!'])
 @section('css')
 @endsection
 @section('content')

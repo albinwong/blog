@@ -1,4 +1,4 @@
-@extends('layout.exclusive',['title' => 'AlbinWong'])
+@extends('layout.exclusive',['title' => '关于 - AlbinWong --- Pencil do the thinking!'])
 @section('css')
 @endsection
 @section('content')
@@ -10,11 +10,12 @@
 	</div>
 </div>
 <div id="page-content" class="single-page">
+
 	<div class="container">
 		<div class="row">
 			<div id="main-content">
 				<article>
-					<img src="/exclusive/images/banner1.jpg" />
+					<!-- <img src="/exclusive/images/banner1.jpg" /> -->
 					<div class="art-content">
 						<h1>Sharing Your Explorer’s Story: Man and Mother Nature</h1>
 						<div class="info">By <a href="#">Danny</a> on April 14, 2015</div>
@@ -84,6 +85,7 @@
 </div>
 @endsection
 @section('js')
+<script src="https://gist.github.com/dragonir/b3b43d791c259b597907069020f4b754.js"></script>
 	<script type="text/javascript">
 		$("body").attr('class','sub-page');
 	</script>

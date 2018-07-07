@@ -6,7 +6,7 @@
     <meta name="description" content="Free Bootstrap Themes by HTML5XCSS3 dot com - Free Responsive Html5 Templates">
     <meta name="author" content="#">
     <meta name="_token" content="{{csrf_token()}}">
-    <title>@yield('title','AlbinWong---Pencil do the thinking!')</title>
+    <title>{{$title}}</title>
     <link rel="stylesheet" href="/exclusive/css/bootstrap.min.css"  type="text/css">
     <link href="/exclusive/owl-carousel/owl.carousel.css" rel="stylesheet">
     <link href="/exclusive/owl-carousel/owl.theme.css" rel="stylesheet">

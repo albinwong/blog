@@ -12,7 +12,7 @@
     <link href="/exclusive/owl-carousel/owl.theme.css" rel="stylesheet">
     <link rel="stylesheet" href="/exclusive/css/style.css">
     <link rel="stylesheet" href="/exclusive/font-awesome-4.4.0/css/font-awesome.min.css"  type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Asap:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Asap:400,700' rel='stylesheet' type='text/css'>
     @yield('css')
 </head>
 <body class="index-page">

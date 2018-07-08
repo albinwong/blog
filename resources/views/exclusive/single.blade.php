@@ -85,7 +85,7 @@
 </div>
 @endsection
 @section('js')
-<script src="https://gist.github.com/dragonir/b3b43d791c259b597907069020f4b754.js"></script>
+<!-- <script src="https://gist.github.com/dragonir/b3b43d791c259b597907069020f4b754.js"></script> -->
 	<script type="text/javascript">
 		$("body").attr('class','sub-page');
 	</script>

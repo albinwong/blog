@@ -3,8 +3,9 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Free Bootstrap Themes by HTML5XCSS3 dot com - Free Responsive Html5 Templates">
-    <meta name="author" content="#">
+    <meta name="keywords" content="albinwong,Pencil do the thinking,王彬"/>
+    <meta name="description" content="Albin,albinwong,blog">
+    <meta name="author" content="albinwong">
     <meta name="_token" content="{{csrf_token()}}">
     <title>{{$title}}</title>
     <link rel="stylesheet" href="/exclusive/css/bootstrap.min.css"  type="text/css">
@@ -118,7 +119,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
-                        <p> Copyright &copy; 2016-2018 Albinwong.com All Rights Reserved. <br>  <a href="javascript:viod(0)" target="_blank" title="">ICP证：京ICP备17026115号</a> </p>
+                        <p> &copy; 2016-2018 Albinwong.com All Rights Reserved. <br>  <a href="javascript:viod(0)" target="_blank" title="">ICP证：京ICP备17026115号</a> </p>
                     </div>
                     <div class="col-md-4">
                         <ul class="list-inline social-buttons">
@@ -134,10 +135,8 @@
                     </div>
                     <div class="col-md-4">
                         <ul class="list-inline quicklinks">
-                            <li><a href="#">隐私策略</a>
-                            </li>
-                            <li><a href="#">服务条款</a>
-                            </li>
+                            <li><a href="#">隐私策略</a></li>
+                            <li><a href="#">服务条款</a></li>
                         </ul>
                     </div>
                 </div>

@@ -119,17 +119,27 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-4">
-                        <p> &copy; 2016-2018 Albinwong.com All Rights Reserved. <br>  <a href="javascript:viod(0)" target="_blank" title="">ICP证：京ICP备17026115号</a> </p>
+                        <p> &copy; 2016-2019 Albinwong.com All Rights Reserved. <br>  <a href="javascript:viod(0)" target="_blank" title="">ICP证：京ICP备17026115号</a> </p>
                     </div>
                     <div class="col-md-4">
                         <ul class="list-inline social-buttons">
-                            <li><a target="_blank" href="https://weibo.com/319333577"><i class="fa fa-weibo"></i></a>
+                            <li>
+                                <a target="_blank" href="https://weibo.com/319333577"><i class="fa fa-weibo"></i></a>
                             </li>
-                            <li><a href="https://www.facebook.com/100014758775849"><i class="fa fa-facebook"></i></a>
+                            <li>
+                                <a href="https://www.facebook.com/100014758775849"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="mailto:albinwong@sina.com"><i class="fa fa-mail-forward"></i></a>
+                            <li>
+                                <a href="mailto:albinwong@sina.com"><i class="fa fa-mail-forward"></i></a>
                             </li>
-                            <li><a href="https://github.com/albinwong"><i class="fa fa-github"></i></a>
+                            <li>
+                                <a href="https://github.com/albinwong"><i class="fa fa-github"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/Albin_Wong"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/in/albinwong/"><i class="fa fa-linkedin"></i></a>
                             </li>
                         </ul>
                     </div>

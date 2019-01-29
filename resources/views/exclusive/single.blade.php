@@ -1,5 +1,6 @@
 @extends('layout.exclusive',['title' => '关于 - AlbinWong --- Pencil do the thinking!'])
 @section('css')
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
 @endsection
 @section('content')
 <div class="site-gradients">
@@ -10,12 +11,11 @@
 	</div>
 </div>
 <div id="page-content" class="single-page">
-
 	<div class="container">
 		<div class="row">
 			<div id="main-content">
 				<article>
-					<!-- <img src="/exclusive/images/banner1.jpg" /> -->
+					<img src="/exclusive/images/banner1.jpg" />
 					<div class="art-content">
 						<h1>Sharing Your Explorer’s Story: Man and Mother Nature</h1>
 						<div class="info">By <a href="#">Danny</a> on April 14, 2015</div>
@@ -54,6 +54,11 @@
 						<p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores.</p>
 					</div>
 				</article>
+				<pre>
+					<code class="php">
+					$var = '111';
+					</code>
+				</pre>
 				<div class="widget wid-related">
 					<div class="heading"><h4>Related Post</h4></div>
 					<div class="content">
@@ -85,8 +90,16 @@
 </div>
 @endsection
 @section('js')
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
 <!-- <script src="https://gist.github.com/dragonir/b3b43d791c259b597907069020f4b754.js"></script> -->
 	<script type="text/javascript">
+		// hljs.initHighlightingOnLoad();
+
+		$(document).ready(function() {
+		  $('pre code').each(function(i, block) {
+		    hljs.highlightBlock(block);
+		  });
+		});
 		$("body").attr('class','sub-page');
 	</script>
 @endsection

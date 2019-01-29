@@ -3,9 +3,9 @@
 		<i class="fa fa-tachometer"></i> <span>首页</span>
 		<div class="clearfix"></div>
 	</a>
-</li> 
+</li> 	
 <li>
-	<a href="gallery.html"><i class="fa fa-picture-o" aria-hidden="true"></i><span>Gallery</span>
+	<a href="/admin/gallery"><i class="fa fa-picture-o" aria-hidden="true"></i><span>图集</span>
 		<div class="clearfix"></div>
 	</a>
 </li> 

@@ -1,4 +1,4 @@
-(function() {
+$(document).ready(function() {
     "use strict";
 
     // custom scrollbar
@@ -14,7 +14,7 @@
         $(".scrollbar1").getNiceScroll().hide();
     }
 
-})(jQuery);
+});
 
                      
      

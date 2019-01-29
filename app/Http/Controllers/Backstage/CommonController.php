@@ -11,4 +11,9 @@ class CommonController extends Controller
     {
         return view('backstage.index');
     }
+
+    public function gallery()
+    {
+    	return view('backstage.gallery');
+    }
 }

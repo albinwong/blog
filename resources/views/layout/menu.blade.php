@@ -8,14 +8,19 @@
 	<a href="/admin/gallery"><i class="fa fa-picture-o" aria-hidden="true"></i><span>图集</span>
 		<div class="clearfix"></div>
 	</a>
-</li> 
-
+</li>
 <li id="menu-academico">
-	<a href="inbox.html">
-		<i class="fa fa-envelope nav_icon"></i><span>Inbox</span>
+	<a href="/admin/message">
+		<i class="fa fa-envelope nav_icon"></i><span>消息列表</span>
 		<div class="clearfix"></div>
 	</a>
-</li> 
+</li>
+<li id="menu-academico">
+	<a href="/admin/tags">
+		<i class="fa fa-bookmark nav_icon"></i><span>标签管理</span>
+		<div class="clearfix"></div>
+	</a>
+</li>
 <li id="menu-academico">
 	<a href="charts.html">
 		<i class="fa fa-bar-chart"></i>

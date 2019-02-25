@@ -241,7 +241,7 @@
 					<!--heder end here--> 
 					<ol class="breadcrumb"> 
 						<li class="breadcrumb-item"><a href="/admin">Home</a> <i class="fa fa-angle-right"></i>@yield('breadcrumb')</li> 
-					</ol> 
+					</ol>
 					@yield('content')
 					 
 					<!--//w3-agileits-pane--> 

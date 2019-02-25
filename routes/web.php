@@ -11,7 +11,7 @@
 |
 */
 
-// 前台用户组
+// Front-end Routers Group
 Route::get('/', function () {
     return view('exclusive/index');
 });
@@ -28,15 +28,23 @@ Route::get('/user', 'UserController@index');
 
 
 
-//后台路由组
+// Back-end Routers Group
 Route::prefix('admin')->group(function () {
+
+    // Login Page
     Route::match(['get', 'post'], '/login', 'Backstage\LoginController@index');
 
     Route:: group(['middleware'=>'login'], function () {
+        // Back-end Homepage
         Route::get('/', 'Backstage\CommonController@index');
+
+        // Image Management
         Route::get('/gallery', 'Backstage\CommonController@gallery');
-        /*Route::get('/admin', function () {
-            return view('admin');
-        });*/
+
+        // Message Management
+        Route::get('/message', 'Backstage\CommonController@mess');
+
+        // Tags Management
+        Route::get('/tags', 'Backstage\TagsController@index');
     });
 });

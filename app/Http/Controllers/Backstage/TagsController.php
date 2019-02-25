@@ -13,39 +13,38 @@ class TagsController extends Controller
     {
         $data = Types::paginate(10);
         return view('backstage.tags', compact('data'));
-        /*if ($request->isMethod('post')) {
-            if ($request->input('_token') == csrf_token()) {
-                $data['icon'] = $request->input('icon') ? $request->input('icon') : '';
-                $data['type_name'] = $request->input('className');
-                $data['level'] = $request->input('level') ? $request->input('level') : 1;
-                $data['path'] = $request->input('path') ?  $request->input('path') : 0;
-                if ($request->input('id')) {
-                    $res = Type::findOrFail($request->input('id'));
-                    if ($res->update($data)) {
-                        if (\Cache::has('type_nav_index')) {
-                            \Cache::forget('type_nav_index');
-                        }
-                        return back()->with('info', '分类修改成功!');
-                    } else {
-                        return back()->with('error', '分类修改失败!');
+    }
+
+    public function edit(Request $request)
+    {
+        if ($request->input('_token') == csrf_token()) {
+            $data['icon'] = $request->input('icon') ? $request->input('icon') : '';
+            $data['type_name'] = $request->input('className');
+            $data['level'] = $request->input('level') ? $request->input('level') : 1;
+            $data['path'] = $request->input('path') ?  $request->input('path') : 0;
+            if ($request->input('id')) {
+                $res = Type::findOrFail($request->input('id'));
+                if ($res->update($data)) {
+                    if (\Cache::has('type_nav_index')) {
+                        \Cache::forget('type_nav_index');
                     }
+                    return back()->with('info', '分类修改成功!');
                 } else {
-                    if (Type::create($data)) {
-                        if (\Cache::has('type_nav_index')) {
-                            \Cache::forget('type_nav_index');
-                        }
-                        return back()->with('info', '分类添加成功!');
-                    } else {
-                        return back()->with('error', '分类添加失败!');
-                    }
+                    return back()->with('error', '分类修改失败!');
                 }
             } else {
-                return back()->with('error', '参数错误!');
+                if (Type::create($data)) {
+                    if (\Cache::has('type_nav_index')) {
+                        \Cache::forget('type_nav_index');
+                    }
+                    return back()->with('info', '分类添加成功!');
+                } else {
+                    return back()->with('error', '分类添加失败!');
+                }
             }
         } else {
-            $data = Type::where('level', 1)->select('id', 'type_name', 'icon')->get();
-            return view('backstage.tags', compact('data'));
-        }*/
+            return back()->with('info', '参数错误!');
+        }
     }
 
     /**

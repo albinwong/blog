@@ -7,7 +7,15 @@
 @endsection
 @section('content')
 <div class="gallery-grids">
-    <h3>Two Axis Styling</h3>
+    <?php if (session('info')) : ?>
+    <div class="w3ls">
+        <div class="alert alert-info" role="alert">
+            {{session('info')}}<br>
+        </div>
+    </div>
+	<?php endif ?>
+    <h3>标签列表</h3>
+    <a href="{{url('/admin/tags/edit')}}" class="hvr-icon-float-away pull-right">添加标签</a>
     <table id="table-two-axis" class="two-axis">
         <thead>
             <tr>
@@ -18,19 +26,19 @@
             </tr>
         </thead>
         <tbody>
-		<?php foreach ($data as $key => $value) : ?>
+        <?php foreach ($data as $value) : ?>
             <tr>
                 <td>{{$value['name']}}</td>
                 <td>{{$value['frequency']}}</td>
                 <td>{{$value['created_at']}}</td>
                 <td>{{$value['updated_at']}}</td>
             </tr>
-		<?php endforeach ?>
+        <?php endforeach ?>
         </tbody>
     </table>
     <div class="pull-right">
         <nav>
-        	{{$data->links()}}
+            {!!$data->links()!!}
         </nav>
     </div>
     <div class="clearfix"></div>

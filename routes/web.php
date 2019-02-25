@@ -45,6 +45,17 @@ Route::prefix('admin')->group(function () {
         Route::get('/message', 'Backstage\CommonController@mess');
 
         // Tags Management
-        Route::get('/tags', 'Backstage\TagsController@index');
+        Route::prefix('tags')->group(function () {
+            Route::get('/', 'Backstage\TagsController@index');
+            Route::get('/edit', 'Backstage\TagsController@edit');
+            Route::get('/del', 'Backstage\TagsController@del');
+        });
+
+        // Posts Management
+        Route::prefix('posts')->group(function () {
+            Route::get('/index', 'Backstage\PostsController@index');
+            Route::get('/edit', 'Backstage\PostsController@edit');
+            Route::get('/del', 'Backstage\PostsController@del');
+        });
     });
 });

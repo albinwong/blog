@@ -1,27 +1,44 @@
 <li>
 	<a href="/admin" title="首页">
-		<i class="fa fa-tachometer"></i> <span>首页</span>
+		<i class="fa fa-tachometer"></i>
+		<span>首页</span>
 		<div class="clearfix"></div>
 	</a>
 </li> 	
 <li>
-	<a href="/admin/gallery"><i class="fa fa-picture-o" aria-hidden="true"></i><span>图集</span>
+	<a href="/admin/gallery">
+		<i class="fa fa-picture-o" aria-hidden="true"></i>
+		<span>图集</span>
 		<div class="clearfix"></div>
 	</a>
 </li>
 <li id="menu-academico">
 	<a href="/admin/message">
-		<i class="fa fa-envelope nav_icon"></i><span>消息列表</span>
+		<i class="fa fa-envelope nav_icon"></i>
+		<span>消息列表</span>
 		<div class="clearfix"></div>
 	</a>
 </li>
 <li id="menu-academico">
 	<a href="/admin/tags">
-		<i class="fa fa-bookmark nav_icon"></i><span>标签管理</span>
+		<i class="fa fa-bookmark nav_icon"></i>
+		<span>标签管理</span>
 		<div class="clearfix"></div>
 	</a>
 </li>
 <li id="menu-academico">
+	<a href="/admin/posts">
+		<i class="fa fa-file-text" aria-hidden="true"></i>
+		<span>文章管理</span>
+		<span class="fa fa-angle-right" style="float: right"></span>
+		<div class="clearfix"></div>
+	</a> 
+	<ul id="menu-academico-sub"> 
+		<li id="menu-academico-avaliacoes"><a href="/admin/posts/index">文章列表</a></li> 
+		<li id="menu-academico-avaliacoes"><a href="/admin/posts/edit">添加文章</a></li> 
+	</ul>
+</li> 
+<!-- <li id="menu-academico">
 	<a href="charts.html">
 		<i class="fa fa-bar-chart"></i>
 		<span>Charts</span>
@@ -99,4 +116,4 @@
 			<a href="validation.html">Validation</a>
 		</li> 
 	</ul> 
-</li> 
+</li> -->

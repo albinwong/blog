@@ -9,7 +9,7 @@ use App\Types;
 
 class TagsController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         $data = Types::paginate(10);
         return view('backstage.tags.index', compact('data'));
@@ -18,14 +18,35 @@ class TagsController extends Controller
     public function edit(Request $request)
     {
         if ($request->isMethod('post')) {
+            $this->validate($request, [
+                'name'=>'required',
+                'status'=>'required',
+                'frequency'=>'required',
+            ], [
+                'name.required'=>'标签名必填!',
+                'status.required'=>'状态必选!',
+                'frequency.required'=>'权重必填!',
+            ]);
             $data = $request->except(['_token']);
-            if (Types::create($data)) {
-                return redirect('/admin/tags')->with('info', '分类添加成功!');
+            if ($request->input('id')) {
+                if (Types::where('id', $request->input('id'))->update($data)) {
+                    return redirect('/admin/tags')->with('info', '标签更新成功!');
+                } else {
+                    return redirect('/admin/tags')->with('info', 'Oops, 标签更新失败!');
+                }
             } else {
-                return back()->with('info', 'Oops, 标签添加失败!');
+                if (Types::create($data)) {
+                    return redirect('/admin/tags')->with('info', '标签添加成功!');
+                } else {
+                    return back()->with('info', 'Oops, 标签添加失败!');
+                }
             }
+        } else {
+            if ($request->input('id')) {
+                $res = Types::find($request->input('id'));
+            }
+            return view('backstage.tags.edit', compact('res'));
         }
-        return view('backstage.tags.edit');
     }
 
     /**
@@ -50,15 +71,4 @@ class TagsController extends Controller
         }
     }
 
-    /**
-     * 二级分类
-     */
-    public function subClass(Request $request)
-    {
-        $data = Type::where('level', 1)->select('id', 'type_name')->get();
-        foreach ($data as $k => $v) {
-            $data[$k]['child'] = Type::where('level', '2')->where('path', '0-'.$v['id'])->select('id', 'type_name')->get();
-        }
-        return view('vendor.ustars.cates.subclass', compact('data'));
-    }
 }

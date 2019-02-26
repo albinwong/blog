@@ -14,7 +14,7 @@ class AddStatusColumnToTypes extends Migration
     public function up()
     {
         Schema::table('types', function (Blueprint $table) {
-            $table->enum('status',['1','0']);
+            $table->enum('status', ['1','0']);
         });
     }
 

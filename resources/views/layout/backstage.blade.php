@@ -240,7 +240,8 @@
 					</div> 
 					<!--heder end here--> 
 					<ol class="breadcrumb"> 
-						<li class="breadcrumb-item"><a href="/admin">Home</a> <i class="fa fa-angle-right"></i>@yield('breadcrumb')</li> 
+						<li class="breadcrumb-item"><a href="/admin">Home</a></li>
+						@yield('breadcrumb')
 					</ol>
 					@yield('content')
 					 

@@ -53,9 +53,9 @@ Route::prefix('admin')->group(function () {
 
         // Posts Management
         Route::prefix('posts')->group(function () {
-            Route::get('/index', 'Backstage\PostsController@index');
-            Route::any('/edit', 'Backstage\PostsController@edit');
-            Route::get('/del', 'Backstage\PostsController@del');
+            Route::get('/index', 'Backstage\PostController@index');
+            Route::any('/edit', 'Backstage\PostController@edit');
+            Route::get('/del', 'Backstage\PostController@del');
         });
     });
 });

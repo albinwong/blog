@@ -34,8 +34,12 @@
 		<div class="clearfix"></div>
 	</a> 
 	<ul id="menu-academico-sub"> 
-		<li id="menu-academico-avaliacoes"><a href="/admin/posts/index">文章列表</a></li> 
-		<li id="menu-academico-avaliacoes"><a href="/admin/posts/edit">添加文章</a></li> 
+		<li id="menu-academico-avaliacoes">
+			<a href="/admin/posts/index">文章列表</a>
+		</li> 
+		<li id="menu-academico-avaliacoes">
+			<a href="/admin/posts/edit">添加文章</a>
+		</li> 
 	</ul>
 </li> 
 <li id="menu-academico">
@@ -46,8 +50,12 @@
 		<div class="clearfix"></div>
 	</a> 
 	<ul id="menu-academico-sub"> 
-		<li id="menu-academico-avaliacoes"><a href="/admin/posts/index">文章列表</a></li> 
-		<li id="menu-academico-avaliacoes"><a href="/admin/posts/edit">添加文章</a></li> 
+		<li id="menu-academico-avaliacoes">
+			<a href="/admin/posts/index">文章列表</a>
+		</li> 
+		<li id="menu-academico-avaliacoes">
+			<a href="/admin/posts/edit">添加文章</a>
+		</li> 
 	</ul>
 </li> 
 <li id="menu-academico">
@@ -58,8 +66,12 @@
 		<div class="clearfix"></div>
 	</a> 
 	<ul id="menu-academico-sub"> 
-		<li id="menu-academico-avaliacoes"><a href="/admin/posts/index">文章列表</a></li> 
-		<li id="menu-academico-avaliacoes"><a href="/admin/posts/edit">添加文章</a></li> 
+		<li id="menu-academico-avaliacoes">
+			<a href="/admin/posts/index">文章列表</a>
+		</li> 
+		<li id="menu-academico-avaliacoes">
+			<a href="/admin/posts/edit">添加文章</a>
+		</li> 
 	</ul>
 </li> 
 <!-- <li id="menu-academico">

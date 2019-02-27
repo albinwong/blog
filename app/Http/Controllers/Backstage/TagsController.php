@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backstage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Types;
+use App\Model\Types;
 
 class TagsController extends Controller
 {
@@ -67,7 +67,7 @@ class TagsController extends Controller
      * @param  Number  $id    Primary Key of Tag Record
      * @return Json           Status/Message
      */
-    public function del(Request $request, $id)
+    public function del(Request $request, $id = 0)
     {
         if ($request->ajax() && $request->input('_token') == csrf_token()) {
             /*$exists = Org_Type::where('tid', $request->input('id'))->first();

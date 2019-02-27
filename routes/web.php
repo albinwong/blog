@@ -48,7 +48,7 @@ Route::prefix('admin')->group(function () {
         Route::prefix('tags')->group(function () {
             Route::get('/', 'Backstage\TagsController@index');
             Route::any('/edit', 'Backstage\TagsController@edit');
-            Route::get('/del', 'Backstage\TagsController@del');
+            Route::delete('/del/{id}', 'Backstage\TagsController@del')->where('id', '\d+');
         });
 
         // Posts Management

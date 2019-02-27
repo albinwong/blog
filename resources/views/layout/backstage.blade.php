@@ -4,6 +4,7 @@
 		<title>{{$title}}</title> 
 		<meta name="viewport" content="width=device-width, initial-scale=1" /> 
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+		<meta name="csrf_token" content="{{csrf_token()}}">
 		<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script> 
 		<link href="/backstage/css/bootstrap.min.css" rel="stylesheet" type="text/css" /> 
 		<link href="/backstage/css/style.css" rel="stylesheet" type="text/css" /> 
@@ -299,7 +300,7 @@
 			});
 		</script> 
 	    @yield('js')
-	    
+	    <script type="text/javascript" src="/js/layer/layer.js"></script>
 		<script src="/backstage/js/scripts.js"></script> 
 		<script src="/backstage/js/bootstrap.min.js"></script>
 	</body>

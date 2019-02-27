@@ -22,14 +22,38 @@
 <li id="menu-academico">
 	<a href="/admin/tags">
 		<i class="fa fa-bookmark nav_icon"></i>
-		<span>标签管理</span>
+		<span>标签</span>
 		<div class="clearfix"></div>
 	</a>
 </li>
 <li id="menu-academico">
 	<a href="/admin/posts">
 		<i class="fa fa-file-text" aria-hidden="true"></i>
-		<span>文章管理</span>
+		<span>文章</span>
+		<span class="fa fa-angle-right" style="float: right"></span>
+		<div class="clearfix"></div>
+	</a> 
+	<ul id="menu-academico-sub"> 
+		<li id="menu-academico-avaliacoes"><a href="/admin/posts/index">文章列表</a></li> 
+		<li id="menu-academico-avaliacoes"><a href="/admin/posts/edit">添加文章</a></li> 
+	</ul>
+</li> 
+<li id="menu-academico">
+	<a href="/admin/posts">
+		<i class="fa fa-file-text" aria-hidden="true"></i>
+		<span>用户</span>
+		<span class="fa fa-angle-right" style="float: right"></span>
+		<div class="clearfix"></div>
+	</a> 
+	<ul id="menu-academico-sub"> 
+		<li id="menu-academico-avaliacoes"><a href="/admin/posts/index">文章列表</a></li> 
+		<li id="menu-academico-avaliacoes"><a href="/admin/posts/edit">添加文章</a></li> 
+	</ul>
+</li> 
+<li id="menu-academico">
+	<a href="/admin/posts">
+		<i class="fa fa-file-text" aria-hidden="true"></i>
+		<span>设置</span>
 		<span class="fa fa-angle-right" style="float: right"></span>
 		<div class="clearfix"></div>
 	</a> 

@@ -9,12 +9,23 @@ use App\Types;
 
 class TagsController extends Controller
 {
+	/**
+	 * Tags List
+	 * @author Albin Wong 2019-02-27
+	 * @return
+	 */
     public function index()
     {
         $data = Types::paginate(10);
         return view('backstage.tags.index', compact('data'));
     }
 
+    /**
+     * Edit or Create Some of Tag
+     * @author Albin Wong 2019-02-27
+     * @param  Request $request [description]
+     * @return
+     */
     public function edit(Request $request)
     {
         if ($request->isMethod('post')) {
@@ -50,25 +61,28 @@ class TagsController extends Controller
     }
 
     /**
-     * 删除分类
+     * Del Tag
+     * @author Albin Wong 2019-02-27
+     * @param  Request $request [description]
+     * @param  Number  $id    Primary Key of Tag Record
+     * @return Json           Status/Message
      */
-    public function del(Request $request)
+    public function del(Request $request, $id)
     {
         if ($request->ajax() && $request->input('_token') == csrf_token()) {
-            $exists = Org_Type::where('tid', $request->input('id'))->first();
+            /*$exists = Org_Type::where('tid', $request->input('id'))->first();
             if ($exists) {
-                return response()->json(['status'=>false,'mesg'=>'该分类下已被机构选择,不能删除!']);
+                return response()->json(['status'=>false,'mesg'=>'该标签下已存在文章,不能删除!']);
+            } else {*/
+            $data = Types::findOrFail($id);
+            if (Types::destroy($data->id)) {
+                return response()->json(['status'=>true,'msg'=>'标签删除成功!']);
             } else {
-                $data = Type::findOrFail($request->input('id'));
-                if (Type::destroy($data->id)) {
-                    return response()->json(['status'=>true,'mesg'=>'分类删除成功!']);
-                } else {
-                    return response()->json(['status'=>false,'mesg'=>'分类删除失败!']);
-                }
+                return response()->json(['status'=>false,'msg'=>'标签删除失败!']);
             }
+            // }
         } else {
             return response()->json(['status'=>false,'mesg'=>'非法请求!']);
         }
     }
-
 }

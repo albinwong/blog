@@ -9,11 +9,11 @@ use App\Types;
 
 class TagsController extends Controller
 {
-	/**
-	 * Tags List
-	 * @author Albin Wong 2019-02-27
-	 * @return
-	 */
+    /**
+     * Tags List
+     * @author Albin Wong 2019-02-27
+     * @return
+     */
     public function index()
     {
         $data = Types::paginate(10);

@@ -221,7 +221,7 @@
 										<div class="profile_img"> 
 											<span class="prfil-img"><img src="/backstage/images/in4.jpg" alt="" /> </span> 
 											<div class="user-name"> 
-											<p>Malorum</p> 
+											<p>{{session('uname')}}</p> 
 											<span>Administrator</span> 
 											</div> 
 											<i class="fa fa-angle-down"></i> 
@@ -230,9 +230,9 @@
 										</div>
 									</a> 
 									<ul class="dropdown-menu drp-mnu"> 
-										<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
+										<li> <a href="/admin/setting"><i class="fa fa-cog"></i> Settings</a> </li> 
 										<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li> 
-										<li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li> 
+										<li> <a href="/admin/logout"><i class="fa fa-sign-out"></i> Logout</a> </li> 
 									</ul> 
 								</li> 
 							</ul> 

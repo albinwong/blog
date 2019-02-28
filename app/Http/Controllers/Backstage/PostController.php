@@ -14,7 +14,7 @@ class PostController extends Controller
 
     public function edit()
     {
-        dd('文章编辑');
+        return view('backstage.posts.edit');
     }
 
     public function del()

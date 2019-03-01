@@ -12,8 +12,9 @@ class PostController extends Controller
         dd('文章列表');
     }
 
-    public function edit()
+    public function edit(Request $request)
     {
+        dd($request->all());
         return view('backstage.posts.edit');
     }
 

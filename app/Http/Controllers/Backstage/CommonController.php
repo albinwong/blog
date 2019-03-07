@@ -24,6 +24,7 @@ class CommonController extends Controller
      */
     public function gallery()
     {
+        
         return view('backstage.gallery');
     }
     

@@ -119,10 +119,6 @@
                     }
                 })
             });
-            
-
-            // $.ajax();
-            // layer.alert($(this).attr("id"));
          });
          $('.fa-trash').on('mouseover',function(){
             this.style.cursor='pointer';

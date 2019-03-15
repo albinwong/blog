@@ -53,12 +53,9 @@
         <tbody>
         <?php foreach ($data as $value) : ?>
             <tr>
-                <td>{{$value['title']}}</td>
+                <td><a href="/admin/posts/edit?id={{$value->id}}">{{$value['title']}}</a></td>
                 <td>{{$value['created_at']}}</td>
                 <td>
-                    <a href="/admin/posts/edit?id={{$value->id}}">
-                        <i class="fa fa-pencil">编辑</i>
-                    </a>&emsp;
                     <i class="fa fa-trash" id="{{$value->id}}">删除</i>
                 </td>
             </tr>

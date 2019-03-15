@@ -27,7 +27,7 @@
 	</a>
 </li>
 <li id="menu-academico">
-	<a href="/admin/posts">
+	<a href="/admin/posts/index">
 		<i class="fa fa-file-text" aria-hidden="true"></i>
 		<span>文章</span>
 		<span class="fa fa-angle-right" style="float: right"></span>

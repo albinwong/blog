@@ -18,14 +18,13 @@
     <a href="{{url('/admin/posts/edit')}}" class="hvr-icon-float-away pull-right">添加文章</a>
     <div class="c-tab col-md-10 col-sm-8 col-xs-12">
         <span type="button" class="btn btn-primary">
-          全部 <span class="badge badge-light">4</span>
+          全部 <span class="badge badge-light"><?=$total?></span>
         </span>
+        <?php foreach ($postNum as $key => $value) : ?>
         <span type="button" class="btn btn-light">
-          发布 <span class="badge badge-light">3</span>
+          {{$postStatus[$value->publish_status]}} <span class="badge badge-light">{{$value->num}}</span>
         </span>
-        <span type="button" class="btn btn-light">
-          草稿 <span class="badge badge-light">2</span>
-        </span>
+        <?php endforeach ?>
         <span type="button" class="btn btn-light">
           隐藏 <span class="badge badge-light">1</span>
         </span>
@@ -83,7 +82,7 @@
          });
 
          $('.fa-trash').on('click', function(){
-            layer.confirm('确认删除该标签?', {
+            layer.confirm('确认删除该文章?', {
                 btn: ['确认','取消'] //按钮
             }, function(){
                 var data = {
@@ -91,7 +90,7 @@
                 }
                 var id = $('.fa-trash').attr('id');
                 $.ajax({
-                    url: "/admin/tags/del/"+id,
+                    url: "/admin/posts/del/"+id,
                     type:  "DELETE",
                     data: data,
                     success: function(res){

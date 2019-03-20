@@ -55,7 +55,7 @@ Route::prefix('admin')->group(function () {
         Route::prefix('posts')->group(function () {
             Route::get('/index', 'Backstage\PostController@index');
             Route::any('/edit', 'Backstage\PostController@edit');
-            Route::get('/del', 'Backstage\PostController@del');
+            Route::delete('/del/{id}', 'Backstage\PostController@del')->where('id', '\d+');
         });
     });
 });

@@ -51,10 +51,10 @@
 	</a> 
 	<ul id="menu-academico-sub"> 
 		<li id="menu-academico-avaliacoes">
-			<a href="/admin/posts/index">文章列表</a>
+			<a href="/admin/posts/index">用户列表</a>
 		</li> 
 		<li id="menu-academico-avaliacoes">
-			<a href="/admin/posts/edit">添加文章</a>
+			<a href="/admin/posts/edit">添加用户</a>
 		</li> 
 	</ul>
 </li> 

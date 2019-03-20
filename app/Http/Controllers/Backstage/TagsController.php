@@ -67,14 +67,14 @@ class TagsController extends Controller
      * @param  Number  $id    Primary Key of Tag Record
      * @return Json           Status/Message
      */
-    public function del(Request $request, $id = 0)
+    public function del(Request $request, $tid = 0)
     {
         if ($request->ajax() && $request->input('_token') == csrf_token()) {
             /*$exists = Org_Type::where('tid', $request->input('id'))->first();
             if ($exists) {
                 return response()->json(['status'=>false,'mesg'=>'该标签下已存在文章,不能删除!']);
             } else {*/
-            $data = Types::findOrFail($id);
+            $data = Types::findOrFail($tid);
             if (Types::destroy($data->id)) {
                 return response()->json(['status'=>true,'msg'=>'标签删除成功!']);
             } else {
@@ -82,7 +82,7 @@ class TagsController extends Controller
             }
             // }
         } else {
-            return response()->json(['status'=>false,'mesg'=>'非法请求!']);
+            return response()->json(['status'=>false,'msg'=>'非法请求!']);
         }
     }
 }

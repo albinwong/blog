@@ -10,7 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Event::listen('illuminate.query', function ($query) {
+    // var_dump($query);
+});
 // Front-end Routers Group
 Route::get('/', function () {
     return view('exclusive/index');

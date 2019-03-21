@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Model\Posts;
+use App\Model\Types;
+use App\Model\PostTagRelation;
 
 class PostController extends Controller
 {
@@ -37,19 +39,44 @@ class PostController extends Controller
     public function edit(Request $request)
     {
         if ($request->isMethod('post')) {
-            $data = $request->except(['_token', 'editormd-html-code', 'id']);
+            $data = $request->except(['_token', 'editormd-html-code', 'id', 'tags_id']);
             $data['content_html_code'] = $request->input('editormd-html-code');
             if (!$request->input('id')) {
-                Posts::create($data);
+                $result = Posts::create($data);
+                if ($result) {
+                    $this->postTag($result->id, $request->input('tags_id'));
+                    return redirect('/admin/posts/index')->with('info', '文章添加成功!');
+                } else {
+                    return back()->with('info', 'Oops, 文章添加失败!');
+                }
             } else {
-                Posts::find($request->input('id'))->update($data);
+                if (Posts::find($request->input('id'))->update($data)) {
+                    $this->postTag($request->input('id'), $request->input('tags_id'));
+                    return redirect('/admin/posts/index')->with('info', '文章修改成功!');
+                } else {
+                    return back()->with('info', 'Oops, 文章修改失败!');
+                }
             }
         } else {
+            $defaultTag = [];
             if ($request->input('id')) {
                 $res = Posts::find($request->input('id'));
+                $defaultTag = PostTagRelation::where('pid', $request->input('id'))->pluck('tid')->toArray();
             }
-            return view('backstage.posts.edit', compact('res'));
+            $tags = Types::select('id', 'name')->where('status', 1)->orderby('id', 'asc')->get();
+            return view('backstage.posts.edit', compact('res', 'tags', 'defaultTag'));
         }
+    }
+
+    private function postTag($postId = '0', Array $tag = [])
+    {
+
+        foreach ($tag as $value) {
+            $data[] = ['tid' => $value, 'pid' => $postId];
+        }
+        PostTagRelation::where('pid', $postId)->delete();
+        // dd($data);
+        PostTagRelation::insert($data);
     }
 
     /**

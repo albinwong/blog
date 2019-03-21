@@ -2,6 +2,7 @@
 @section('css')
 <link rel="stylesheet" type="text/css" href="/backstage/css/table-style.css" />
 <link rel="stylesheet" type="text/css" href="/editor/css/editormd.min.css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 @endsection
 @section('breadcrumb')
     <li class="breadcrumb-item"><a href="/admin/posts/index">文章管理</a></li>
@@ -24,7 +25,7 @@
             {{session('info')}}<br>
         </div>
     </div>
-    <?php endif ?>
+    <?php endif; ?>
     <div class="grid-form1">
         <h3>添加文章</h3>
         <div class="tab-content">
@@ -97,13 +98,18 @@
                         </div>
                         <label for="focusedinput" class="col-sm-2 control-label">阅读数</label>
                         <div class="col-sm-1">
-                            <input type="number" name="page_view" min='0' name="view" value="{{$res->page_view ?? 0}}">
+                            <input type="number" name="page_view" min='0' value="{{$res->page_view ?? 0}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="focusedinput" class="col-sm-1 control-label">标签</label>
                         <div class="col-sm-8">
-                            <input type="text" name="tags_id" class="form-control1" id="focusedinput" value="{!!$res->tags_id ?? ''!!}" placeholder="请选择标签">
+                            <select name="tags_id[]" class="form-control1 js-example-basic-multiple" multiple="multiple" id="tags_id">
+                                <option disabled="disabled">请选择</option>
+                            <?php foreach ($tags as $tagsValue) : ?>
+                                <option value="{{$tagsValue['id']}}" <?=in_array($tagsValue['id'], $defaultTag) ? 'selected' : ''; ?>>{{$tagsValue['name']}}</option>
+                            <?php endforeach; ?>
+                            </select>
                         </div>
                         <div class="col-sm-2">
                             <p class="help-block"></p>
@@ -142,7 +148,7 @@
 </div>
 <script>
     $(document).ready(function() {
-         var navoffeset=$(".header-main").offset().top;
+         /*var navoffeset=$(".header-main").offset().top;
          $(window).scroll(function(){
             var scrollpos=$(window).scrollTop(); 
             if (scrollpos >=navoffeset) {
@@ -150,8 +156,7 @@
             }else{
                 $(".header-main").removeClass("fixed");
             }
-         });
-         
+         });*/
     });
 </script>
 <div class="inner-block">
@@ -160,6 +165,7 @@
 @section('js')
 <script src="/backstage/js/jquery.nicescroll.js"></script>
 <script src="/editor/editormd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script type="text/javascript">
     $(function() {
         var editor = editormd("editormd", {
@@ -188,7 +194,7 @@
             //dialogMaskBgColor : "#000", // 设置透明遮罩层的背景颜色，全局通用，默认为#fff
             //imageUploadURL : "./php/upload.php",
             onload : function() {
-                console.log('onload', this);
+                // console.log('onload', this);
                 //this.fullscreen();
                 //this.unwatch();
                 //this.watch().fullscreen();
@@ -198,6 +204,16 @@
                 //this.resize("100%", 640);
             }
         });
+    });
+
+    $(document).ready(function(){
+        $('.js-example-basic-multiple').select2({
+            placeholder: "Please, select a tag at least"
+        });
+
+    // var select_id = $("#select_id").val();
+    // arr = bumen.split(","); //注意：arr为select的id值组成的数组
+    // $('#tags_id').val(arr).trigger('change');
     });
 </script>
 @endsection

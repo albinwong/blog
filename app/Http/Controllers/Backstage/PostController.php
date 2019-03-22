@@ -36,6 +36,12 @@ class PostController extends Controller
         return view('backstage.posts.index', compact('data', 'postNum', 'total', 'postStatus'));
     }
 
+    /**
+     * Article Create and Edit
+     * @author Albin Wong 2019-03-21
+     * @param  Request $request [description]
+     * @return
+     */
     public function edit(Request $request)
     {
         if ($request->isMethod('post')) {
@@ -68,14 +74,19 @@ class PostController extends Controller
         }
     }
 
+    /**
+     * Adjust Article Tags Incidence Relation
+     * @author Albin Wong 2019-03-21
+     * @param  string      $postId Article Primary ID
+     * @param  Array|array $tag    Tag Primary ID
+     * @return
+     */
     private function postTag($postId = '0', Array $tag = [])
     {
-
         foreach ($tag as $value) {
             $data[] = ['tid' => $value, 'pid' => $postId];
         }
         PostTagRelation::where('pid', $postId)->delete();
-        // dd($data);
         PostTagRelation::insert($data);
     }
 

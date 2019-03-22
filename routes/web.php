@@ -14,9 +14,7 @@ Event::listen('illuminate.query', function ($query) {
     // var_dump($query);
 });
 // Front-end Routers Group
-Route::get('/', function () {
-    return view('exclusive/index');
-});
+Route::get('/', 'HomeController@index');
 Route::get('/archive', function () {
     return view('exclusive/archive');
 });

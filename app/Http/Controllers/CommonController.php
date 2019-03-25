@@ -32,7 +32,6 @@ class CommonController extends Controller
         $data = [];
         $data['email'] = $request->input('email');
         $data['token'] = sha1(time().$data['email']);
-        // dd($data);
         $result = Subscribe::create($data);
         if ($result) {
             return response()->json(['status' => true, 'msg' => '订阅成功']);

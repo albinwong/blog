@@ -93,6 +93,6 @@
 		    hljs.highlightBlock(block);
 		  });
 		});
-		$("body").attr('class','sub-page');
+		// $("body").attr('class','sub-page');
 	</script>
 @endsection

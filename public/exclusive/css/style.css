@@ -135,7 +135,7 @@ hr{max-width: 50px;
     }
     .navbar-default.navbar-shrink {
         padding: 0;
-        background-color: rgba(0, 0, 0, 0.9);
+        background-color: rgba(	119,136,153, 0.9);
     }
 	
 	.navbar-default.navbar-shrink .nav li a{color: #ddd;}

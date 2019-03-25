@@ -88,7 +88,7 @@ if (isset($_POST['submitcontact'])) {
 @endsection
 @section('js')
     <script type="text/javascript">
-        $("body").attr('class','sub-page');
+        // $("body").attr('class','sub-page');
         // Google Map 
         $('.maps').click(function () {
             $('.maps iframe').css("pointer-events", "auto");

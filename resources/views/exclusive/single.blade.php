@@ -1,9 +1,9 @@
-@extends('layout.exclusive',['title' => '关于 - AlbinWong --- Pencil do the thinking!'])
+@extends('layout.exclusive',['title' => $data->title.' - AlbinWong --- Pencil do the thinking!'])
 @section('css')
 <meta name="keywords" content="albin,{{$data->seo}}"/>
-	    <meta name="description" content="{{$data->intro}}">
-	    <meta name="author" content="albinwong">
-	    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
+        <meta name="description" content="{{$data->intro}}">
+        <meta name="author" content="albinwong">
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
 @endsection
 @section('content')
 <?php
@@ -41,17 +41,20 @@
                     <h1 class="post-title">
                         <a href="#">{{$data->title}}</a></h1>
                     <div class="post-meta clearfix">
-                        <span class="date">{{date('F dS, Y', strtotime($data->created_at))}}</span>
-                        <span class="category">
-                            <a href="/archive/category/{{$data->cate_id}}" title="{{$category[$data->cate_id]}}">{{$category[$data->cate_id]}}</a>
+                        <span class="date">{{date('Y-m-d H:i:s', strtotime($data->created_at))}}</span>
+                        <span class="author">
+                            Albin Wong
+                            <!-- <a href="/archive/category/{{$data->cate_id}}" title="{{$category[$data->cate_id]}}">{{$category[$data->cate_id]}}</a> -->
                         </span>
                         <span class="comments">
                             <a href="#" title="Comment on Integrating WordPress with Your Website">0 Comments</a></span>
                         <span class="like-count">0</span></div>
                     <!-- end of post meta -->
+                    <?php if ($data->intro) : ?>
                     <blockquote>
                         <p>{{$data->intro}}</p>
                     </blockquote>
+                    <?php endif ?>
                     {!!$data->content_html_code!!}
                 </article>
                 <div class="like-btn">
@@ -71,7 +74,7 @@
                         <li class="comment even thread-even depth-1" id="li-comment-2">
                             <article id="comment-2">
                                 <a href="#">
-                                    <img alt="" src="http://1.gravatar.com/avatar/50a7625001317a58444a20ece817aeca?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G" class="avatar avatar-60 photo" height="60" width="60"></a>
+                                    <img alt="" src="//1.gravatar.com/avatar/50a7625001317a58444a20ece817aeca?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G" class="avatar avatar-60 photo" height="60" width="60"></a>
                                 <div class="comment-meta">
                                     <h5 class="author">
                                         <cite class="fn">
@@ -93,7 +96,7 @@
                                 <li class="comment byuser comment-author-saqib-sarwar bypostauthor odd alt depth-2" id="li-comment-3">
                                     <article id="comment-3">
                                         <a href="#">
-                                            <img alt="" src="http://0.gravatar.com/avatar/2df5eab0988aa5ff219476b1d27df755?s=60&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G" class="avatar avatar-60 photo" height="60" width="60"></a>
+                                            <img alt="" src="//0.gravatar.com/avatar/2df5eab0988aa5ff219476b1d27df755?s=60&amp;d=http%3A%2F%2F0.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G" class="avatar avatar-60 photo" height="60" width="60"></a>
                                         <div class="comment-meta">
                                             <h5 class="author">
                                                 <cite class="fn">saqib sarwar</cite>-
@@ -114,7 +117,7 @@
                         <li class="comment even thread-odd thread-alt depth-1" id="li-comment-4">
                             <article id="comment-4">
                                 <a href="#">
-                                    <img alt="" src="http://1.gravatar.com/avatar/50a7625001317a58444a20ece817aeca?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G" class="avatar avatar-60 photo" height="60" width="60"></a>
+                                    <img alt="" src="//1.gravatar.com/avatar/50a7625001317a58444a20ece817aeca?s=60&amp;d=http%3A%2F%2F1.gravatar.com%2Favatar%2Fad516503a11cd5ca435acc9bb6523536%3Fs%3D60&amp;r=G" class="avatar avatar-60 photo" height="60" width="60"></a>
                                 <div class="comment-meta">
                                     <h5 class="author">
                                         <cite class="fn">
@@ -169,7 +172,7 @@
 </div>
 @endsection
 @section('js')
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
     <script type="text/javascript">
         hljs.initHighlightingOnLoad();
         $(document).ready(function() {
@@ -177,5 +180,5 @@
             hljs.highlightBlock(block);
           });
         });
-    </script>
+    </script> -->
 @endsection

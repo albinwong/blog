@@ -10,7 +10,6 @@
         <link rel='stylesheet' id='responsive-css-css'  href='/exclusive/css/responsive5152.css' type='text/css' media='all' />
         <link rel='stylesheet' id='pretty-photo-css-css'  href='/exclusive/js/prettyphoto/prettyPhotoaeb9.css' type='text/css' media='all' />
         <link rel='stylesheet' id='main-css-css'  href='/exclusive/css/main5152.css' type='text/css' media='all' />
-        <link rel='stylesheet' id='custom-css-css'  href='/exclusive/css/custom5152.html' type='text/css' media='all' />
         <!-- <link rel="stylesheet" href="/exclusive/font-awesome-4.4.0/css/font-awesome.min.css" type="text/css"> -->
         @yield('css')
     </head>
@@ -160,8 +159,22 @@
         <a href="#top" id="scroll-top"></a>
         <!-- script -->
         <script type='text/javascript' src='/exclusive/js/jquery-2.1.1.js'></script>
-        @yield('js')
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137037174-1"></script>
         <script>
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "https://hm.baidu.com/hm.js?59e2b1c07ab5e1abad93b236d38daeba";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+            })();
+
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-137037174-1');
             $(function(){
                 var subscribe = $(".subscribe"),
                     emailBox  = subscribe.find("input[name=subscibe_email]");
@@ -183,5 +196,6 @@
                 });
             });
         </script>
+        @yield('js')
     </body>
 </html>

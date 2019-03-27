@@ -37,7 +37,7 @@
                             <form name="form1" id="commentform" method="post">
                                 <div class="row">
                                     <div class="span4">
-                                        <label for="url">Name</label>
+                                        <label for="url">稱呼</label>
                                         <input class="span4" type="text" name="name" id="name" value="" size="22" placeholder="Enter full name" required="required" />
                                     </div>
                                     <div class="span4">
@@ -46,12 +46,12 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <label for="url">Subject</label>
+                                    <label for="url">主題</label>
                                     <input class="span4" type="text" name="subject" id="subject" value="" size="22">
                                 </div>
                                 <div class="row">
                                     <div class="span12">
-                                        <label for="comment">Comment</label>
+                                        <label for="comment">內容</label>
                                         <textarea class="span8" name="comment" id="comment" cols="58" rows="10"></textarea> 
                                         <div>                    
                                             <input class="btn" style="color: black;" name="submit" type="submit" id="submit" value="提交">

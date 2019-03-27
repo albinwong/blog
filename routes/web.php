@@ -19,9 +19,7 @@ Route::get('/archive', function () {
     return view('exclusive/archive');
 });
 Route::get('/archive/detail/{id}.html', 'HomeController@single')->where('id', '\d+');
-Route::get('/contact', function () {
-    return view('exclusive/contact');
-});
+Route::get('/contact', 'HomeController@contact');
 Route::get('/user', 'UserController@index');
 
 

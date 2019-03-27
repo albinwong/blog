@@ -1,8 +1,9 @@
-@extends('layout.exclusive',['title' => 'AlbinWong---Pencil do the thinking!'])
+@extends('layout.exclusive',['title' => 'Albin Wong---Pencil do the thinking!'])
 @section('css')
-<meta name="keywords" content="albin,albinwong,Pencil do the thinking,王彬"/>
-    <meta name="description" content="Albin,albinwong,blog">
+<meta name="keywords" content="albin,albinwong,blog,Pencil do the thinking,php,技术博客"/>
+    <meta name="description" content="Albin Wong个人博客网站是一个关注技术架构、互联网、运维、数据库、前端、后端、区块链、资讯等技术信息博客,提供博主学习成果和工作中经验总结，是一个互联网从业者值得收藏的网站。">
     <meta name="author" content="albinwong">
+    <meta name="Copyright" content="albinwong.com">
 @endsection
 @section('content')
 <div class="row">
@@ -15,6 +16,7 @@
                     <a href="/archive/detail/{{$v['id']}}.html" title="{{$v['title']}}">{{$v['title']}}</a></h3>
                 <div class="post-meta clearfix">
                     <span class="date">{{$v['created_at']}}</span>
+                    <span class="author">Albin Wong</span>
                     <span class="category">
                         <a href="#" title="View all posts in Server &amp; Database">Server &amp; Database</a></span>
                     <span class="comments">

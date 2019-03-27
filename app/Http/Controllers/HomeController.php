@@ -24,8 +24,13 @@ class HomeController extends Controller
         $tags = PostTagRelation::where('pid', $pid)->get(['tid'])->toArray();
         $tags = array_column($tags, 'tid');
         $tags = Types::select('id', 'name')->where('status', 1)->whereIn('id', $tags)->get();
-        // dd($tags);
         $sidebar = 'archive';
         return view('exclusive/single', compact('data', 'sidebar', 'tags'));
+    }
+
+    public function contact()
+    {
+        $sidebar = 'contact';
+        return view('exclusive/contact', compact('sidebar'));
     }
 }

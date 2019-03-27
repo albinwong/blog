@@ -93,7 +93,7 @@
                             <h3 class="title">最新文章</h3>
                             <ul>
                             @foreach($article as $articleValue)
-                                <li><a href="#/{{$articleValue['id']}}" title="{{$articleValue['title']}}" target="_blank">{{$articleValue['title']}}</a></li>
+                                <li><a href="/archive/detail/{{$articleValue['id']}}.html" title="{{$articleValue['title']}}" target="_blank">{{$articleValue['title']}}</a></li>
                             @endforeach
                             </ul>
                         </section>

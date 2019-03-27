@@ -1,5 +1,8 @@
 @extends('layout.exclusive',['title' => 'AlbinWong---Pencil do the thinking!'])
 @section('css')
+<meta name="keywords" content="albin,albinwong,Pencil do the thinking,王彬"/>
+    <meta name="description" content="Albin,albinwong,blog">
+    <meta name="author" content="albinwong">
 @endsection
 @section('content')
 <div class="row">
@@ -9,7 +12,7 @@
         <article class="format-video format-image format-standrd type-post hentry clearfix">
             <header class="clearfix">
                 <h3 class="post-title">
-                    <a href="/archivce/{{$v['id']}}" title="{{$v['title']}}">{{$v['title']}}</a></h3>
+                    <a href="/archive/detail/{{$v['id']}}.html" title="{{$v['title']}}">{{$v['title']}}</a></h3>
                 <div class="post-meta clearfix">
                     <span class="date">{{$v['created_at']}}</span>
                     <span class="category">
@@ -36,8 +39,8 @@
         </article>
         @endforeach
         <div id="pagination" class="list-unstyled">
-            <a href="{{$articles->previousPageUrl()}}" class="btn">Last <<</a>
-            <a href="{{$articles->nextPageUrl()}}" class="btn">Next >></a>
+            <a href="{{$articles->previousPageUrl()}}" class="btn">上一页 </a>
+            <a href="{{$articles->nextPageUrl()}}" class="btn">下一页 </a>
         </div>
     </div>
     <!-- end of page content -->

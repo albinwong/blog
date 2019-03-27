@@ -6,7 +6,4 @@
 </div>
 @endsection
 @section('js')
-	<script type="text/javascript">
-		// $("body").attr('class', 'sub-page');
-	</script>
 @endsection

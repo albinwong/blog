@@ -1,12 +1,9 @@
-<!doctype html>
-<html lang="en-US"> <!--<![endif]-->
+<!DOCTYPE html>
+<html lang="en-US">
     <head>
         <!-- META TAGS -->
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="keywords" content="albin,albinwong,Pencil do the thinking,王彬"/>
-        <meta name="description" content="Albin,albinwong,blog">
-        <meta name="author" content="albinwong">
         <meta name="_token" content="{{csrf_token()}}">
         <title>{{$title}}</title>
         <link rel='stylesheet' id='bootstrap-css-css'  href='/exclusive/css/bootstrap5152.css' type='text/css' media='all' />
@@ -29,10 +26,10 @@
                     <nav class="main-nav">
                         <div class="menu-top-menu-container">
                             <ul id="menu-top-menu" class="clearfix">
-                                <li class="{!! isset($sidebar) ? 'current-menu-item': '' !!}"><a href="/">首页</a></li>
-                                <li><a href="/archive">博客</a></li>
-                                <li><a href="/about">关于</a></li>
-                                <li><a href="/contact">联系</a></li>
+                                <li class="{!! $sidebar == 'home' ? 'current-menu-item': '' !!}"><a href="/">首页</a></li>
+                                <li class="{!! $sidebar == 'archive' ? 'current-menu-item': '' !!}"><a href="/archive">博客</a></li>
+                                <li class="{!! $sidebar == 'about' ? 'current-menu-item': '' !!}"><a href="/about">关于</a></li>
+                                <li class="{!! $sidebar == 'contact' ? 'current-menu-item': '' !!}"><a href="/contact">联系</a></li>
                                 <li><a href="https://github.com/albinwong">GitHub</a></li>
                                 <!-- <li><a href="#">Skins</a>
                                     <ul class="sub-menu">
@@ -128,8 +125,8 @@
                 <div id="footer-bottom" class="container">
                     <div class="row">
                         <div class="span6">
-                            <a href="http://www.miitbeian.gov.cn" target="_blank" title="" style="color: #fff;">ICP证：京ICP备17026115号</a> 
-                            <p class="copyright">&copy; 2016-2019 Albinwong.com All Rights Reserved. </p>
+                            <p class="copyright">&copy; 2016-2019 Albinwong.com All Rights Reserved. <br>
+                            <a href="http://www.miitbeian.gov.cn" target="_blank" title="" style="color: #fff;">ICP证：京ICP备17026115号</a> </p>
                         </div>
                         <div class="span6">
                             <!-- Social Navigation -->

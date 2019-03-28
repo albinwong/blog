@@ -5,6 +5,9 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="_token" content="{{csrf_token()}}">
+        <meta name="baidu-site-verification" content="AYZCwj0i9n" />
+        <meta name="author" content="albinwong">
+        <meta name="Copyright" content="albinwong.com">
         <title>{{$title}}</title>
         <link rel='stylesheet' id='bootstrap-css-css'  href='/exclusive/css/bootstrap5152.css' type='text/css' media='all' />
         <link rel='stylesheet' id='responsive-css-css'  href='/exclusive/css/responsive5152.css' type='text/css' media='all' />
@@ -159,6 +162,7 @@
         <a href="#top" id="scroll-top"></a>
         <!-- script -->
         <script type='text/javascript' src='/exclusive/js/jquery-2.1.1.js'></script>
+        <script src="/js/layer/layer.js"></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137037174-1"></script>
         <script>

@@ -2,7 +2,6 @@
 @section('css')
 <meta name="keywords" content="albin,联系我,Back-End Engineer,chaindd"/>
         <meta name="description" content="联系我-Albin-Pencil do the thinking!">
-        <meta name="author" content="albinwong">
 @endsection
 @section('content')
 <div class="container">
@@ -34,7 +33,7 @@
                         <div class="span8">
                             <h3>Contact Form</h3>
                             <center><span style="color:red; font-size: 35px; line-height: 40px; magin: 10px;"></span></center>
-                            <form name="form1" id="commentform" method="post">
+                            <form name="form1" id="commentform">
                                 <div class="row">
                                     <div class="span4">
                                         <label for="url">稱呼</label>
@@ -54,7 +53,7 @@
                                         <label for="comment">內容</label>
                                         <textarea class="span8" name="comment" id="comment" cols="58" rows="10"></textarea> 
                                         <div>                    
-                                            <input class="btn" style="color: black;" name="submit" type="submit" id="submit" value="提交">
+                                            <input class="btn" style="color: black;" name="submit" id="submit" value="提交">
                                         </div>
                                     </div>
                                 </div>
@@ -75,6 +74,36 @@
         });
         $( ".maps" ).mouseleave(function() {
           $('.maps iframe').css("pointer-events", "none"); 
+        });
+        // contact information
+        $(function(){
+            var contact = $("#commentform"),
+                name  = contact.find("input[name=name]"),
+                email  = contact.find("input[name=email]"),
+                subject  = contact.find("input[name=subject]"),
+                comment  = contact.find("#comment");
+            contact.find("#submit").on("click", function(){
+            var nameVal = name.val(),
+                emailVal = email.val(),
+                subjectVal = subject.val(),
+                commentVal = comment.val(),
+                data = 'name='+nameVal+'&email='+emailVal+'&subject='+subjectVal+'&content='+commentVal;
+                if (!emailVal || !subjectVal || !nameVal || !commentVal){
+                    layer.alert('内容不能为空，写点什么吧！',{icon: 2});
+                    return false;
+                }
+                $.post('/api/contact', data, function(data){
+                    if(data.status){
+                        layer.alert('Congratulations! Your message has been recorded.');
+                        name.val('');
+                        email.val('');
+                        subject.val('');
+                        comment.val('');
+                    }else {
+                        layer.alert(data.msg);
+                    }
+                }, 'json');
+            });
         });
     </script>
 @endsection

@@ -17,3 +17,4 @@ use Illuminate\Http\Request;
     return $request->user();
 });*/
 Route::post('/subscribe', 'CommonController@subscribe');
+Route::post('/contact', 'CommonController@contact');

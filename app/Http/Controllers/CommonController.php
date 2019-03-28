@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Model\Types;
 use App\Model\Posts;
 use App\Model\Subscribe;
+use App\Model\Contact;
 
 class CommonController extends Controller
 {
@@ -37,6 +38,23 @@ class CommonController extends Controller
             return response()->json(['status' => true, 'msg' => '订阅成功']);
         } else {
             return response()->json(['status' => false, 'msg' => '订阅失败！']);
+        }
+    }
+
+
+    /**
+     * Contact Message
+     * @author Albin Wong 2019-03-28
+     * @param  Request $request [description]
+     */
+    public function contact(Request $request)
+    {
+        $data = $request->only(['name', 'email', 'subject', 'content']);
+        $result = Contact::create($data);
+        if ($result) {
+            return response()->json(['status' => true, 'msg' => '留言成功']);
+        } else {
+            return response()->json(['status' => false, 'msg' => '留言失败！']);
         }
     }
 }

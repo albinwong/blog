@@ -186,15 +186,15 @@
                     var email = emailBox.val(),
                         data = 'email='+email;
                     if (!email) {
-                        alert('Email地址不能为空！');
+                        layer.alert('Email地址不能为空！');
                         return false;
                     }
                     $.post('/api/subscribe', data, function(data){
                         if(data.status){
-                            alert('Congratulations! You`ve been subscribed.');
+                            layer.alert('Congratulations! You`ve been subscribed.');
                             emailBox.val('');
                         }else {
-                            alert(data.msg);
+                            layer.alert(data.msg);
                         }
                     }, 'json');
                 });

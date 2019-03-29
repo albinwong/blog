@@ -8,17 +8,20 @@
     <!-- start of page content -->
     <div class="span8 main-listing">
     	@foreach($articles as $v)
-        <article class="format-video format-image format-standrd type-post hentry clearfix">
+        <article class="format-standrd type-post hentry clearfix"> <!-- format-video format-image  -->
             <header class="clearfix">
                 <h3 class="post-title">
-                    <a href="/archive/detail/{{$v['id']}}.html" title="{{$v['title']}}">{{$v['title']}}</a></h3>
+                    <a href="/archive/detail/{{$v['id']}}.html" title="{{$v['title']}}">{{$v['title']}}</a>
+                </h3>
                 <div class="post-meta clearfix">
                     <span class="date">{{$v['created_at']}}</span>
                     <span class="author">Albin Wong</span>
                     <span class="category">
-                        <a href="#" title="View all posts in Server &amp; Database">Server &amp; Database</a></span>
+                        <a href="#" title="View all posts in Server &amp; Database">Server &amp; Database</a>
+                    </span>
                     <span class="comments">
-                        <a href="#" title="Comment on Integrating WordPress with Your Website">0 Comments</a></span>
+                        <a href="#" title="Comment on Integrating WordPress with Your Website">0 Comments</a>
+                    </span>
                     <span class="like-count">0</span>
                 </div>
                 <!-- end of post meta -->
@@ -34,7 +37,7 @@
             </div>
             @endif
             <p>{{$v['intro']}}
-                <a class="readmore-link" href="/archivce/{{$v['id']}}">Read more</a>
+                <a class="readmore-link" href="/archive/detail/{{$v['id']}}.html">Read more</a>
             </p>
         </article>
         @endforeach

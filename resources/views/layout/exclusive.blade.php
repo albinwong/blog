@@ -13,6 +13,7 @@
         <link rel='stylesheet' id='responsive-css-css'  href='/exclusive/css/responsive5152.css' type='text/css' media='all' />
         <link rel='stylesheet' id='pretty-photo-css-css'  href='/exclusive/js/prettyphoto/prettyPhotoaeb9.css' type='text/css' media='all' />
         <link rel='stylesheet' id='main-css-css'  href='/exclusive/css/main5152.css' type='text/css' media='all' />
+        <link rel="shortcut icon" href="/favicon.ico"/>
         <!-- <link rel="stylesheet" href="/exclusive/font-awesome-4.4.0/css/font-awesome.min.css" type="text/css"> -->
         @yield('css')
     </head>
@@ -22,7 +23,7 @@
             <header class="navbar navbar-default navbar-fixed-top">
                 <div class="container">
                     <div class="logo-container">
-                        <span class="tag-line" style="font-size:20px;color: #ffffff">Albin Wong</span>
+                        <span class="tag-line" style="font-size:20px;color: #ffffff" onclick="javascript:window.location.href='/'">Albin Wong</span>
                     </div>
                     <!-- Start of Main Navigation -->
                     <nav class="main-nav">
@@ -30,7 +31,7 @@
                             <ul id="menu-top-menu" class="clearfix">
                                 <li class="{!! $sidebar == 'home' ? 'current-menu-item': '' !!}"><a href="/">首页</a></li>
                                 <li class="{!! $sidebar == 'archive' ? 'current-menu-item': '' !!}"><a href="/archive">博客</a></li>
-                                <li class="{!! $sidebar == 'about' ? 'current-menu-item': '' !!}"><a href="/about">关于</a></li>
+                                <!-- <li class="{!! $sidebar == 'about' ? 'current-menu-item': '' !!}"><a href="/about">关于</a></li> -->
                                 <li class="{!! $sidebar == 'contact' ? 'current-menu-item': '' !!}"><a href="/contact">联系</a></li>
                                 <li><a href="https://github.com/albinwong">GitHub</a></li>
                                 <!-- <li><a href="#">Skins</a>
@@ -114,9 +115,11 @@
                     <div class="span3">
                         <section class="widget">
                             <h3 class="title">Tags</h3>
+                            <div class="tagcloud" >
                             @foreach($tags as $tagsValue)
-                            <a clsss="btn btn-info" href="/tags/{{$tagsValue['id']}}">{{$tagsValue['name']}}</a>
+                                <a href="/tags/{{$tagsValue['id']}}" style="color: red!important">{{$tagsValue['name']}}</a>
                             @endforeach 
+                            </div>
                         </section>
                     </div>
                 </div>

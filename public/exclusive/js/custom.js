@@ -267,7 +267,7 @@ jQuery(document).ready(function(e) {
                 /*	Responsive Nav
                 /*-----------------------------------------------------------------------------------*/
                 var $mainNav    = $('.main-nav > div').children('ul');
-                var optionsList = '<option value="" selected>请选择...</option>';
+                var optionsList = '<option value="" selected disabled>请选择...</option>';
 
                 $mainNav.find('li').each(function() {
                         var $this   = $(this),

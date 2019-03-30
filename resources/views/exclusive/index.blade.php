@@ -11,7 +11,7 @@
         <article class="format-standrd type-post hentry clearfix"> <!-- format-video format-image  -->
             <header class="clearfix">
                 <h3 class="post-title">
-                    <a href="/archive/detail/{{$v['id']}}.html" title="{{$v['title']}}">{{$v['title']}}</a>
+                    <a href="/{{$v['id']}}.html" title="{{$v['title']}}">{{$v['title']}}</a>
                 </h3>
                 <div class="post-meta clearfix">
                     <span class="date">{{$v['created_at']}}</span>
@@ -37,7 +37,7 @@
             </div>
             @endif
             <p>{{$v['intro']}}
-                <a class="readmore-link" href="/archive/detail/{{$v['id']}}.html">Read more</a>
+                <a class="readmore-link" href="/{{$v['id']}}.html">Read more</a>
             </p>
         </article>
         @endforeach
@@ -88,45 +88,14 @@
         <section class="widget">
             <h3 class="title">分类</h3>
             <ul>
+                @foreach ($cateList as $clKey => $clValue)
                 <li>
-                    <a href="#" title="架构">架构</a>
+                    <a href="/archive/list/{{$clKey}}.html" title="{{$clValue}}">{{$clValue}}</a>
                 </li>
-                <li>
-                    <a href="#" title="互联网">互联网</a>
-                </li>
-                <li>
-                    <a href="#" title="运维">运维</a>
-                </li>
-                <li>
-                    <a href="#" title="数据库">数据库</a>
-                </li>
-                <li>
-                    <a href="#" title="前端">前端</a>
-                </li>
-                <li>
-                    <a href="#" title="后端">后端</a>
-                </li>
-                <li>
-                    <a href="#" title="研发管理">研发管理</a>
-                </li>
-                <li>
-                    <a href="#" title="安全">安全</a>
-                </li>
-                <li>
-                    <a href="#" title="区块链">区块链</a>
-                </li>
-                <li>
-                    <a href="#" title="资讯">资讯</a>
-                </li>
-                <li>
-                    <a href="#" title="计算机理论与基础">计算机理论与基础</a>
-                </li>
-                <li>
-                    <a href="#" title="其他">其他</a>
-                </li>
+                @endforeach
             </ul>
         </section>
-        <section class="widget">
+        <section class="widget" style="display: none;">
             <h3 class="title">最新评论</h3>
             <ul id="recentcomments">
                 <li class="recentcomments">

@@ -15,12 +15,13 @@ Event::listen('illuminate.query', function ($query) {
 });
 // Front-end Routers Group
 Route::get('/', 'HomeController@index');
-Route::get('/archive', function () {
-    return view('exclusive/archive');
-});
-Route::get('/archive/detail/{id}.html', 'HomeController@single')->where('id', '\d+');
+Route::get('/archive/{type}/{cid}.html', 'HomeController@archive');
+Route::get('/detail/{id}.html', 'HomeController@single')->where('id', '\d+');
 Route::get('/contact', 'HomeController@contact');
 Route::get('/user', 'UserController@index');
+Route::get('/404', function(){
+    abort(404,'not found!!!');
+});
 
 
 

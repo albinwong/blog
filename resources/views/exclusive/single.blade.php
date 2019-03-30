@@ -32,7 +32,7 @@
                         <a href="/">Albin Wong</a>
                         <span class="divider">/</span></li>
                     <li>
-                        <a href="/archive/category/{{$data->cate_id}}" title="{{$category[$data->cate_id]}}">{{$category[$data->cate_id]}}</a>
+                        <a href="/archive/list/{{$data->cate_id}}.html" title="{{$category[$data->cate_id]}}">{{$category[$data->cate_id]}}</a>
                         <span class="divider">/</span>
                     </li>
                     <li class="active">{{$data->title}}</li>
@@ -90,7 +90,8 @@
                                     <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
                                     <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem.</p>
                                 </div>
-                                <!-- end of comment-body --></article>
+                                <!-- end of comment-body -->
+                            </article>
                             <!-- end of comment -->
                             <ul class="children">
                                 <li class="comment byuser comment-author-saqib-sarwar bypostauthor odd alt depth-2" id="li-comment-3">

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="zh-CN">
     <head>
         <!-- META TAGS -->
         <meta charset="UTF-8" />
@@ -30,18 +30,49 @@
                         <div class="menu-top-menu-container">
                             <ul id="menu-top-menu" class="clearfix">
                                 <li class="{!! $sidebar == 'home' ? 'current-menu-item': '' !!}"><a href="/">首页</a></li>
-                                <li class="{!! $sidebar == 'archive' ? 'current-menu-item': '' !!}"><a href="/archive">博客</a></li>
+                                <li class="{!! $sidebar == 'archive' ? 'current-menu-item': '' !!}"><a href="#">博客</a>
+                                    <ul class="sub-menu">
+                                        <li>
+                                            <a href="#" title="架构">架构</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="互联网">互联网</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="运维">运维</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="数据库">数据库</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="前端">前端</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="后端">后端</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="研发管理">研发管理</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="安全">安全</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="区块链">区块链</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="资讯">资讯</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="计算机理论与基础">计算机理论与基础</a>
+                                        </li>
+                                        <li>
+                                            <a href="#" title="其他">其他</a>
+                                        </li>
+                                    </ul>
+                                </li>
                                 <!-- <li class="{!! $sidebar == 'about' ? 'current-menu-item': '' !!}"><a href="/about">关于</a></li> -->
                                 <li class="{!! $sidebar == 'contact' ? 'current-menu-item': '' !!}"><a href="/contact">联系</a></li>
                                 <li><a href="https://github.com/albinwong">GitHub</a></li>
-                                <!-- <li><a href="#">Skins</a>
-                                    <ul class="sub-menu">
-                                        <li><a href="blue-skin.html">Blue Skin</a></li>
-                                        <li><a href="green-skin.html">Green Skin</a></li>
-                                        <li><a href="red-skin.html">Red Skin</a></li>
-                                        <li><a href="index-2.html">Default Skin</a></li>
-                                    </ul>
-                                </li> -->
                             </ul>
                         </div>
                     </nav>
@@ -166,6 +197,7 @@
         <!-- script -->
         <script type='text/javascript' src='/exclusive/js/jquery-2.1.1.js'></script>
         <script src="/js/layer/layer.js"></script>
+        <script src='/exclusive/js/custom.js?v=2'></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137037174-1"></script>
         <script>

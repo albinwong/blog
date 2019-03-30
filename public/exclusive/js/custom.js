@@ -49,32 +49,6 @@ jQuery(document).ready(function(e) {
     /*-----------------------------------------------------------------------------------*/
     $('.tagcloud a').removeAttr('style').addClass('btn btn-mini');
 
-	
-	/*-----------------------------------------------------------------------------------*/
-	/*	Flickr Feed
-	/*-----------------------------------------------------------------------------------*/
-	
-	$('#basicuse').jflickrfeed({
-								limit: 9,
-								qstrings: {
-									id: '52617155@N08'
-								},
-								itemTemplate: '<a href="{{image_b}}" title="{{title}}" data-rel="prettyPhoto[flickrg]"><img src="{{image_s}}" alt="{{title}}" /></a>'
-							}, function(data){ 
-										
-											$('a[data-rel]').each(function() {
-												$(this).attr('rel', $(this).data('rel'));
-											});
-
-
-											$("a[rel^='prettyPhoto']").prettyPhoto({
-												deeplinking: false,
-												social_tools: false,
-												overlay_gallery: false
-											});
-							});
-
-
     /*-----------------------------------------------------------------------------------*/
 	/* Pretty Photo Lightbox
 	/*-----------------------------------------------------------------------------------*/
@@ -284,16 +258,16 @@ jQuery(document).ready(function(e) {
     /*-----------------------------------------------------------------------------------*/
     /*	Search Form Validation
      /*-----------------------------------------------------------------------------------*/
-    $('#search-form').validate({
+    /*$('#search-form').validate({
         errorLabelContainer: $("#search-error-container")
-    });
+    });*/
 	
 	
 	/*-----------------------------------------------------------------------------------*/
                 /*	Responsive Nav
                 /*-----------------------------------------------------------------------------------*/
                 var $mainNav    = $('.main-nav > div').children('ul');
-                var optionsList = '<option value="" selected>Go to...</option>';
+                var optionsList = '<option value="" selected>请选择...</option>';
 
                 $mainNav.find('li').each(function() {
                         var $this   = $(this),

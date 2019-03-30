@@ -65,7 +65,7 @@
                     <span class="tags">
                         <strong>Tags:&nbsp;&nbsp;</strong>
                     <?php foreach ($tags as $tagKey => $tagValue) : ?>
-                        <a href="/tags/{{$tagValue['id']}}" title="{{$tagValue['name']}}">{{$tagValue['name']}}</a><?=(count($tags)-1 > $tagKey) ? ',' :''; ?>
+                        <a href="/archive/tag/{{$tagValue['id']}}" title="{{$tagValue['name']}}">{{$tagValue['name']}}</a><?=(count($tags)-1 > $tagKey) ? ',' :''; ?>
                     <?php endforeach ?>
                 </div>
                 <section style="display: none;" id="comments">

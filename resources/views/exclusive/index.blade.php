@@ -11,7 +11,7 @@
         <article class="format-standrd type-post hentry clearfix"> <!-- format-video format-image  -->
             <header class="clearfix">
                 <h3 class="post-title">
-                    <a href="/{{$v['id']}}.html" title="{{$v['title']}}">{{$v['title']}}</a>
+                    <a href="/{{Hashids::encode($v['id'])}}.html" title="{{$v['title']}}">{{$v['title']}}</a>
                 </h3>
                 <div class="post-meta clearfix">
                     <span class="date">{{$v['created_at']}}</span>
@@ -37,7 +37,7 @@
             </div>
             @endif
             <p>{{$v['intro']}}
-                <a class="readmore-link" href="/{{$v['id']}}.html">Read more</a>
+                <a class="readmore-link" href="/{{Hashids::encode($v['id'])}}.html">Read more</a>
             </p>
         </article>
         @endforeach
@@ -90,7 +90,7 @@
             <ul>
                 @foreach ($cateList as $clKey => $clValue)
                 <li>
-                    <a href="/archive/list/{{$clKey}}.html" title="{{$clValue}}">{{$clValue}}</a>
+                    <a href="/archive/list/{{Hashids::encode($clKey)}}.html" title="{{$clValue}}">{{$clValue}}</a>
                 </li>
                 @endforeach
             </ul>

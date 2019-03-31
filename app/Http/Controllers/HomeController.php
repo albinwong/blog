@@ -37,6 +37,7 @@ class HomeController extends Controller
 
     public function single($pid = 0)
     {
+        $pid = Hashids::decode($pid)[0];
         $data = Posts::where('publish_status', 'published')->findOrFail($pid);
         $tags = PostTagRelation::where('pid', $pid)->get(['tid'])->toArray();
         $tags = array_column($tags, 'tid');
@@ -53,8 +54,7 @@ class HomeController extends Controller
 
     public function archive($type = 'list', $cid = 0)
     {
-        Hashids::encode(123);
-        dd('11');
+        $cid = Hashids::decode($cid)[0];
         if (!in_array($type, ['list', 'tag'])) {
             abort(404);
         }

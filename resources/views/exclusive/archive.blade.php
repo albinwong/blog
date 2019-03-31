@@ -23,7 +23,7 @@
         <article class="format-standrd type-post hentry clearfix"> <!-- format-video format-image  -->
             <header class="clearfix">
                 <h3 class="post-title">
-                    <a href="/{{$v['id']}}.html" title="{{$v['title']}}">{{$v['title']}}</a>
+                    <a href="/{{Hashids::encode($v['id'])}}.html" title="{{$v['title']}}">{{$v['title']}}</a>
                 </h3>
                 <div class="post-meta clearfix">
                     <span class="date">{{$v['created_at']}}</span>
@@ -49,7 +49,7 @@
             </div>
             @endif
             <p>{{$v['intro']}}
-                <a class="readmore-link" href="/detail/{{$v['id']}}.html">Read more</a>
+                <a class="readmore-link" href="/{{Hashids::encode($v['id'])}}.html">Read more</a>
             </p>
         </article>
         @endforeach

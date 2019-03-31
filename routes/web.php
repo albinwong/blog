@@ -16,7 +16,7 @@ Event::listen('illuminate.query', function ($query) {
 // Front-end Routers Group
 Route::get('/', 'HomeController@index');
 Route::get('/archive/{type}/{cid}.html', 'HomeController@archive');
-Route::get('/detail/{id}.html', 'HomeController@single')->where('id', '\d+');
+Route::get('/{id}.html', 'HomeController@single')->where('id', '\w{16}');
 Route::get('/contact', 'HomeController@contact');
 Route::get('/user', 'UserController@index');
 Route::get('/404', function(){

@@ -32,7 +32,7 @@
                         <a href="/">Albin Wong</a>
                         <span class="divider">/</span></li>
                     <li>
-                        <a href="/archive/list/{{$data->cate_id}}.html" title="{{$category[$data->cate_id]}}">{{$category[$data->cate_id]}}</a>
+                        <a href="/archive/list/{{Hashids::encode($data->cate_id)}}.html" title="{{$category[$data->cate_id]}}">{{$category[$data->cate_id]}}</a>
                         <span class="divider">/</span>
                     </li>
                     <li class="active">{{$data->title}}</li>
@@ -65,7 +65,7 @@
                     <span class="tags">
                         <strong>Tags:&nbsp;&nbsp;</strong>
                     <?php foreach ($tags as $tagKey => $tagValue) : ?>
-                        <a href="/archive/tag/{{$tagValue['id']}}" title="{{$tagValue['name']}}">{{$tagValue['name']}}</a><?=(count($tags)-1 > $tagKey) ? ',' :''; ?>
+                        <a href="/archive/tag/{{Hashids::encode($tagValue['id'])}}.html" title="{{$tagValue['name']}}">{{$tagValue['name']}}</a><?=(count($tags)-1 > $tagKey) ? ',' :''; ?>
                     <?php endforeach ?>
                 </div>
                 <section style="display: none;" id="comments">

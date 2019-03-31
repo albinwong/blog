@@ -33,40 +33,40 @@
                                 <li class="{!! isset($sidebar) && $sidebar == 'archive' ? 'current-menu-item': '' !!}"><a href="javascript:void(0);">博客</a>
                                     <ul class="sub-menu">
                                         <li>
-                                            <a href="/archive/list/1.html" title="架构">架构</a>
+                                            <a href="/archive/list/{{Hashids::encode(1)}}.html" title="架构">架构</a>
                                         </li>
                                         <li>
-                                            <a href="/archive/list/2.html" title="互联网">互联网</a>
+                                            <a href="/archive/list/{{Hashids::encode(2)}}.html" title="互联网">互联网</a>
                                         </li>
                                         <li>
-                                            <a href="/archive/list/3.html" title="运维">运维</a>
+                                            <a href="/archive/list/{{Hashids::encode(3)}}.html" title="运维">运维</a>
                                         </li>
                                         <li>
-                                            <a href="/archive/list/4.html" title="数据库">数据库</a>
+                                            <a href="/archive/list/{{Hashids::encode(4)}}.html" title="数据库">数据库</a>
                                         </li>
                                         <li>
-                                            <a href="/archive/list/5.html" title="前端">前端</a>
+                                            <a href="/archive/list/{{Hashids::encode(5)}}.html" title="前端">前端</a>
                                         </li>
                                         <li>
-                                            <a href="/archive/list/6.html" title="后端">后端</a>
+                                            <a href="/archive/list/{{Hashids::encode(6)}}.html" title="后端">后端</a>
                                         </li>
                                         <li>
-                                            <a href="/archive/list/7.html" title="研发管理">研发管理</a>
+                                            <a href="/archive/list/{{Hashids::encode(7)}}.html" title="研发管理">研发管理</a>
                                         </li>
                                         <li>
-                                            <a href="/archive/list/8.html" title="安全">安全</a>
+                                            <a href="/archive/list/{{Hashids::encode(8)}}.html" title="安全">安全</a>
                                         </li>
                                         <li>
-                                            <a href="/archive/list/9.html" title="区块链">区块链</a>
+                                            <a href="/archive/list/{{Hashids::encode(9)}}.html" title="区块链">区块链</a>
                                         </li>
                                         <li>
-                                            <a href="/archive/list/10.html" title="资讯">资讯</a>
+                                            <a href="/archive/list/{{Hashids::encode(1)}}0.html" title="资讯">资讯</a>
                                         </li>
                                         <li>
-                                            <a href="/archive/list/11.html" title="计算机理论与基础">计算机理论与基础</a>
+                                            <a href="/archive/list/{{Hashids::encode(1)}}1.html" title="计算机理论与基础">计算机理论与基础</a>
                                         </li>
                                         <li>
-                                            <a href="/archive/list/11.html" title="其他">其他</a>
+                                            <a href="/archive/list/{{Hashids::encode(1)}}1.html" title="其他">其他</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -128,7 +128,7 @@
                             <h3 class="title">最新文章</h3>
                             <ul>
                             @foreach($article as $articleValue)
-                                <li><a href="/{{$articleValue['id']}}.html" title="{{$articleValue['title']}}" target="_blank">{{$articleValue['title']}}</a></li>
+                                <li><a href="/{{Hashids::encode($articleValue['id'])}}.html" title="{{$articleValue['title']}}" target="_blank">{{$articleValue['title']}}</a></li>
                             @endforeach
                             </ul>
                         </section>
@@ -148,7 +148,7 @@
                             <h3 class="title">Tags</h3>
                             <div class="tagcloud" >
                             @foreach($tags as $tagsValue)
-                                <a href="/archive/tag/{{$tagsValue['id']}}.html" style="color: red!important">{{$tagsValue['name']}}</a>
+                                <a href="/archive/tag/{{Hashids::encode($tagsValue['id'])}}.html" style="color: red!important">{{$tagsValue['name']}}</a>
                             @endforeach 
                             </div>
                         </section>

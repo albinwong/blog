@@ -29,7 +29,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $articles = Posts::select('id', 'title', 'intro', 'created_at')->where('publish_status', 'published')->orderby('created_at', 'desc')->paginate(10);
+        $articles = Posts::select('id', 'title', 'intro', 'cate_id', 'page_view', 'created_at')->where('publish_status', 'published')->orderby('created_at', 'desc')->paginate(10);
         $sidebar = 'home';
         $cateList = $this->cateList;
         return view('exclusive/index', compact('articles', 'sidebar', 'cateList'));
@@ -37,8 +37,10 @@ class HomeController extends Controller
 
     public function single($pid = 0)
     {
-        $pid = Hashids::decode($pid)[0];
+        $pid = count(Hashids::connection('recommend')->decode($pid)) ? Hashids::connection('recommend')->decode($pid)[0] : abort(404);
         $data = Posts::where('publish_status', 'published')->findOrFail($pid);
+        $data->page_view += 1;
+        $data->save();
         $tags = PostTagRelation::where('pid', $pid)->get(['tid'])->toArray();
         $tags = array_column($tags, 'tid');
         $tags = Types::select('id', 'name')->where('status', 1)->whereIn('id', $tags)->get();
@@ -54,13 +56,13 @@ class HomeController extends Controller
 
     public function archive($type = 'list', $cid = 0)
     {
-        $cid = Hashids::decode($cid)[0];
+        $cid = count(Hashids::decode($cid)) ? Hashids::decode($cid)[0] : abort(404);
         if (!in_array($type, ['list', 'tag'])) {
             abort(404);
         }
         $sidebar = 'archive';
         $cateName = '';
-        $articles = Posts::select('id', 'title', 'intro', 'created_at')->where('publish_status', 'published');
+        $articles = Posts::select('id', 'title', 'intro', 'cate_id', 'page_view', 'created_at')->where('publish_status', 'published');
         if ($type == 'list') {
             if (array_key_exists($cid, $this->cateList)) {
                 $cateName = $this->cateList[$cid];
@@ -71,15 +73,16 @@ class HomeController extends Controller
         } else {
             $articlesId = PostTagRelation::where('tid', $cid)->get(['pid'])->toArray();
             $articlesId = array_column($articlesId, 'pid');
-            $tags = Types::findOrFail($cid);
+            $tags = Types::where('status', 1)->findOrFail($cid);
             $tags->frequency = $tags->frequency+1;
             $tags->save();
-            $cateName = $tags->value('name');
+            $cateName = $tags->name;
             // dd($cateName);
             $articles = $articles->whereIn('id', $articlesId);
         }
         $articles = $articles->orderby('created_at', 'desc')->paginate(10);
-        return view('exclusive/archive', compact('sidebar', 'articles', 'cateName'));
+        $cateList = $this->cateList;
+        return view('exclusive/archive', compact('sidebar', 'articles', 'cateName', 'cateList'));
     }
 
 }

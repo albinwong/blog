@@ -1,7 +1,7 @@
-@extends('layout.exclusive',['title' => 'Albin Wong---Pencil do the thinking!'])
+@extends('layout.exclusive',['title' => 'Albin Wong Blog | Pencil do the thinking!'])
 @section('css')
 <meta name="keywords" content="albin,albinwong,blog,Pencil do the thinking,php,技术博客"/>
-    <meta name="description" content="Albin Wong个人博客网站是一个关注技术架构、互联网、运维、数据库、前端、后端、区块链、资讯等技术信息博客,提供博主学习成果和工作中经验总结，是一个互联网从业者值得收藏的网站。">
+    <meta name="description" content="Albin Wong 个人博客网站是一个关注技术架构、互联网、运维、数据库、前端、后端、区块链、资讯等技术信息博客, 提供博主学习成果和工作中经验总结，是一个互联网从业者值得收藏的网站。">
 @endsection
 @section('content')
 <div class="row">
@@ -11,18 +11,18 @@
         <article class="format-standrd type-post hentry clearfix"> <!-- format-video format-image  -->
             <header class="clearfix">
                 <h3 class="post-title">
-                    <a href="/{{Hashids::encode($v['id'])}}.html" title="{{$v['title']}}">{{$v['title']}}</a>
+                    <a href="/{{Hashids::connection('recommend')->encode($v['id'])}}.html" title="{{$v['title']}}">{{$v['title']}}</a>
                 </h3>
                 <div class="post-meta clearfix">
                     <span class="date">{{$v['created_at']}}</span>
                     <span class="author">Albin Wong</span>
                     <span class="category">
-                        <a href="#" title="View all posts in Server &amp; Database">Server &amp; Database</a>
+                        <a href="/archive/list/{{Hashids::encode($v['cate_id'])}}.html" title="{{$cateList[$v['cate_id']]}}">{{$cateList[$v['cate_id']]}}</a>
                     </span>
                     <span class="comments">
-                        <a href="#" title="Comment on Integrating WordPress with Your Website">0 Comments</a>
+                        <a href="#" title="">0</a>
                     </span>
-                    <span class="like-count">0</span>
+                    <span class="pv-count">{{$v['page_view']}}</span>
                 </div>
                 <!-- end of post meta -->
             </header>
@@ -37,7 +37,7 @@
             </div>
             @endif
             <p>{{$v['intro']}}
-                <a class="readmore-link" href="/{{Hashids::encode($v['id'])}}.html">Read more</a>
+                <a class="readmore-link" href="/{{Hashids::connection('recommend')->encode($v['id'])}}.html">Read more</a>
             </p>
         </article>
         @endforeach

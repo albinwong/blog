@@ -1,4 +1,4 @@
-@extends('layout.exclusive',['title' => '您所访问的页面不存在 - AlbinWong --- Pencil do the thinking!'])
+@extends('layout.exclusive',['title' => '您所访问的页面不存在 | Albin Wong Blog'])
 @section('css')
 <style> 
     @media (min-width: 400px) {

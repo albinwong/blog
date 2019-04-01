@@ -1,7 +1,7 @@
-@extends('layout.exclusive',['title' => '联系我 - AlbinWong --- Pencil do the thinking!'])
+@extends('layout.exclusive',['title' => '联系我 | Albin Wong Blog'])
 @section('css')
 <meta name="keywords" content="albin,联系我,Back-End Engineer,chaindd"/>
-        <meta name="description" content="联系我-Albin-Pencil do the thinking!">
+        <meta name="description" content="联系我 | Albin Wong Blog">
 @endsection
 @section('content')
 <div class="container">

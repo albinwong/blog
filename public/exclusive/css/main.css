@@ -630,6 +630,23 @@ ul.articles li.article-entry:last-child {
   color: #395996;
 }
 
+.hentry .post-meta .pv-count {
+  float: right;
+  background: url("../images/glyphicons-halflings.png") no-repeat -96px -115px;
+  width: 1px;
+}
+
+.like-btn .tag-ico {
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  padding-left: 25px;
+  background: url("../images/glyphicons-halflings.png") no-repeat -66px -40px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
 .like-btn .like-it {
   display: inline-block;
   height: 20px;

@@ -49,8 +49,8 @@ return [
             'length' => '16',
         ],
         'recommend' => [
-            'salt' => env('APP_KEY'),
-            'length' => '6',
+            'salt' => 'Pencildothethinking',
+            'length' => '16',
         ],
 
     ],

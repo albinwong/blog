@@ -9,10 +9,10 @@
         <meta name="author" content="albinwong">
         <meta name="Copyright" content="albinwong.com">
         <title>{{$title}}</title>
-        <link rel='stylesheet' id='bootstrap-css-css'  href='/exclusive/css/bootstrap5152.css' type='text/css' media='all' />
-        <link rel='stylesheet' id='responsive-css-css'  href='/exclusive/css/responsive5152.css' type='text/css' media='all' />
+        <link rel='stylesheet' id='bootstrap-css-css'  href='/exclusive/css/bootstrap.css' type='text/css' media='all' />
+        <link rel='stylesheet' id='responsive-css-css'  href='/exclusive/css/responsive.css' type='text/css' media='all' />
         <link rel='stylesheet' id='pretty-photo-css-css'  href='/exclusive/js/prettyphoto/prettyPhotoaeb9.css' type='text/css' media='all' />
-        <link rel='stylesheet' id='main-css-css'  href='/exclusive/css/main5152.css' type='text/css' media='all' />
+        <link rel='stylesheet' id='main-css-css'  href='/exclusive/css/main.css' type='text/css' media='all' />
         <link rel="shortcut icon" href="/favicon.ico"/>
         <!-- <link rel="stylesheet" href="/exclusive/font-awesome-4.4.0/css/font-awesome.min.css" type="text/css"> -->
         @yield('css')
@@ -128,7 +128,7 @@
                             <h3 class="title">最新文章</h3>
                             <ul>
                             @foreach($article as $articleValue)
-                                <li><a href="/{{Hashids::encode($articleValue['id'])}}.html" title="{{$articleValue['title']}}" target="_blank">{{$articleValue['title']}}</a></li>
+                                <li><a href="/{{Hashids::connection('recommend')->encode($articleValue['id'])}}.html" title="{{$articleValue['title']}}" target="_blank">{{$articleValue['title']}}</a></li>
                             @endforeach
                             </ul>
                         </section>
@@ -148,7 +148,7 @@
                             <h3 class="title">Tags</h3>
                             <div class="tagcloud" >
                             @foreach($tags as $tagsValue)
-                                <a href="/archive/tag/{{Hashids::encode($tagsValue['id'])}}.html" style="color: red!important">{{$tagsValue['name']}}</a>
+                                <a href="/archive/tag/{{Hashids::encode($tagsValue['id'])}}.html"><span style="color: #00B2EE!important">{{$tagsValue['name']}}</span></a>
                             @endforeach 
                             </div>
                         </section>
@@ -197,7 +197,7 @@
         <!-- script -->
         <script type='text/javascript' src='/exclusive/js/jquery-2.1.1.js'></script>
         <script src="/js/layer/layer.js"></script>
-        <script src='/exclusive/js/custom.js?v=2'></script>
+        <script src='/exclusive/js/custom.js'></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137037174-1"></script>
         <script>

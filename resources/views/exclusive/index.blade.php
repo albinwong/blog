@@ -4,6 +4,7 @@
     <meta name="description" content="Albin Wong 个人博客网站是一个关注技术架构、互联网、运维、数据库、前端、后端、区块链、资讯等技术信息博客, 提供博主学习成果和工作中经验总结，是一个互联网从业者值得收藏的网站。">
 @endsection
 @section('content')
+<div class="div" style="margin-top: 30px;"></div>
 <div class="row">
     <!-- start of page content -->
     <div class="span8 main-listing">
@@ -36,9 +37,10 @@
                 </div>
             </div>
             @endif
-            <p>{{$v['intro']}}
-                <a class="readmore-link" href="/{{Hashids::connection('recommend')->encode($v['id'])}}.html">Read more</a>
-            </p>
+            @if ($v['intro'])
+            <p>{{$v['intro']}}</p>
+            @endif
+            <p><a class="readmore-link" href="/{{Hashids::connection('recommend')->encode($v['id'])}}.html">Read more</a></p>
         </article>
         @endforeach
         <div id="pagination" class="list-unstyled">

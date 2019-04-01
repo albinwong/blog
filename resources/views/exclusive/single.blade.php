@@ -58,19 +58,14 @@
                     {!!$data->content_html_code!!}
                 </article>
                 <div class="like-btn">
-                    <!-- <form id="like-it-form" action="#" method="post">
-                        <span class="like-it">66</span>
-                        <input type="hidden" name="post_id" value="99">
-                        <input type="hidden" name="action" value="like_it">
-                    </form> -->
                     <span class="tags">
-                        <!-- <strong>Tags:</strong> -->
                         <span class="tag-ico" style="float: left;"></span>
                         <div class="tagcloud">
                         <?php foreach ($tags as $tagKey => $tagValue) : ?>
                             <a href="/archive/tag/{{Hashids::encode($tagValue['id'])}}.html" title="{{$tagValue['name']}}">{{$tagValue['name']}}</a>
                         <?php endforeach ?>
                         </div>
+                    </span>
                 </div>
                 <section style="display: none;" id="comments">
                     <h3 id="comments-title">(3) Comments</h3>

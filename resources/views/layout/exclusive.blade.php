@@ -74,10 +74,10 @@
                                 </li>
                                 <!-- <li class="{!! isset($sidebar) && $sidebar == 'about' ? 'current-menu-item': '' !!}"><a href="/about">关于</a></li> -->
                                 <li class="{!! isset($sidebar) && $sidebar == 'contact' ? 'current-menu-item': '' !!}">
-                                    <a href="/contact" target="_blank">联系</a>
+                                    <a href="/contact">联系</a>
                                 </li>
                                 <li>
-                                    <a href="https://github.com/albinwong">GitHub</a>
+                                    <a href="https://github.com/albinwong" target="_blank">GitHub</a>
                                 </li>
                             </ul>
                         </div>

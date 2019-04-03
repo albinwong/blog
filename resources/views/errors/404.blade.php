@@ -3,7 +3,7 @@
 <style> 
     @media (min-width: 400px) {
 
-    .head404{ width:500px; height:234px; margin:10px auto 0 auto; background:url('/exclusive/images/404.jpg') no-repeat; }
+    .head404{ width:500px; height:234px; margin:10px auto 0 auto; background:url("//albinwongcdn.oss-cn-beijing.aliyuncs.com/blog/exclusive/images/404.jpg") no-repeat; }
      
     .txtbg404{ width:499px; height:169px; margin:10px auto 0 auto; }
      

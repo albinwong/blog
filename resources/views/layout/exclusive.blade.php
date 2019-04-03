@@ -9,10 +9,10 @@
         <meta name="author" content="albinwong">
         <meta name="Copyright" content="albinwong.com">
         <title>{{$title}}</title>
-        <link rel='stylesheet' id='bootstrap-css-css'  href="{{env('APP_CDN')}}/exclusive/css/bootstrap.css" type='text/css' media='all' />
-        <link rel='stylesheet' id='responsive-css-css'  href="{{env('APP_CDN')}}/exclusive/css/responsive.css" type='text/css' media='all' />
-        <link rel='stylesheet' id='pretty-photo-css-css'  href="{{env('APP_CDN')}}/exclusive/js/prettyphoto/prettyPhotoaeb9.css" type='text/css' media='all' />
-        <link rel='stylesheet' id='main-css-css'  href="{{env('APP_CDN')}}/exclusive/css/main.css" type='text/css' media='all' />
+        <link rel="stylesheet" id="bootstrap-css-css"  href="{{env('APP_CDN')}}/exclusive/css/bootstrap.css" type='text/css' media='all' />
+        <link rel="stylesheet" id="responsive-css-css"  href="{{env('APP_CDN')}}/exclusive/css/responsive.css" type='text/css' media='all' />
+        <link rel="stylesheet" id="pretty-photo-css-css"  href="{{env('APP_CDN')}}/exclusive/js/prettyphoto/prettyPhotoaeb9.css" type="text/css" media="all" />
+        <link rel="stylesheet" id="main-css-css"  href="{{env('APP_CDN')}}/exclusive/css/main.css" type="text/css" media="all" />
         <link rel="shortcut icon" href="{{env('APP_CDN')}}/favicon.ico" />
         @yield('css')
     </head>
@@ -28,8 +28,11 @@
                     <nav class="main-nav">
                         <div class="menu-top-menu-container">
                             <ul id="menu-top-menu" class="clearfix">
-                                <li class="{!! isset($sidebar) && $sidebar == 'home' ? 'current-menu-item': '' !!}"><a href="/">首页</a></li>
-                                <li class="{!! isset($sidebar) && $sidebar == 'archive' ? 'current-menu-item': '' !!}"><a href="javascript:void(0);">博客</a>
+                                <li class="{!! isset($sidebar) && $sidebar == 'home' ? 'current-menu-item': '' !!}">
+                                    <a href="/">首页</a>
+                                </li>
+                                <li class="{!! isset($sidebar) && $sidebar == 'archive' ? 'current-menu-item': '' !!}">
+                                    <a href="javascript:void(0);">博客</a>
                                     <ul class="sub-menu">
                                         <li>
                                             <a href="/archive/list/{{Hashids::encode(1)}}.html" title="架构">架构</a>
@@ -70,8 +73,12 @@
                                     </ul>
                                 </li>
                                 <!-- <li class="{!! isset($sidebar) && $sidebar == 'about' ? 'current-menu-item': '' !!}"><a href="/about">关于</a></li> -->
-                                <li class="{!! isset($sidebar) && $sidebar == 'contact' ? 'current-menu-item': '' !!}"><a href="/contact" target="_blank">联系</a></li>
-                                <li><a href="https://github.com/albinwong">GitHub</a></li>
+                                <li class="{!! isset($sidebar) && $sidebar == 'contact' ? 'current-menu-item': '' !!}">
+                                    <a href="/contact" target="_blank">联系</a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/albinwong">GitHub</a>
+                                </li>
                             </ul>
                         </div>
                     </nav>

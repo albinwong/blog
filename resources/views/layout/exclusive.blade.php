@@ -9,12 +9,11 @@
         <meta name="author" content="albinwong">
         <meta name="Copyright" content="albinwong.com">
         <title>{{$title}}</title>
-        <link rel='stylesheet' id='bootstrap-css-css'  href='/exclusive/css/bootstrap.css' type='text/css' media='all' />
-        <link rel='stylesheet' id='responsive-css-css'  href='/exclusive/css/responsive.css' type='text/css' media='all' />
-        <link rel='stylesheet' id='pretty-photo-css-css'  href='/exclusive/js/prettyphoto/prettyPhotoaeb9.css' type='text/css' media='all' />
-        <link rel='stylesheet' id='main-css-css'  href='/exclusive/css/main.css' type='text/css' media='all' />
-        <link rel="shortcut icon" href="/favicon.ico"/>
-        <!-- <link rel="stylesheet" href="/exclusive/font-awesome-4.4.0/css/font-awesome.min.css" type="text/css"> -->
+        <link rel='stylesheet' id='bootstrap-css-css'  href="{{env('APP_CDN')}}/exclusive/css/bootstrap.css" type='text/css' media='all' />
+        <link rel='stylesheet' id='responsive-css-css'  href="{{env('APP_CDN')}}/exclusive/css/responsive.css" type='text/css' media='all' />
+        <link rel='stylesheet' id='pretty-photo-css-css'  href="{{env('APP_CDN')}}/exclusive/js/prettyphoto/prettyPhotoaeb9.css" type='text/css' media='all' />
+        <link rel='stylesheet' id='main-css-css'  href="{{env('APP_CDN')}}/exclusive/css/main.css" type='text/css' media='all' />
+        <link rel="shortcut icon" href="{{env('APP_CDN')}}/favicon.ico" />
         @yield('css')
     </head>
     <body>
@@ -71,7 +70,7 @@
                                     </ul>
                                 </li>
                                 <!-- <li class="{!! isset($sidebar) && $sidebar == 'about' ? 'current-menu-item': '' !!}"><a href="/about">关于</a></li> -->
-                                <li class="{!! isset($sidebar) && $sidebar == 'contact' ? 'current-menu-item': '' !!}"><a href="/contact">联系</a></li>
+                                <li class="{!! isset($sidebar) && $sidebar == 'contact' ? 'current-menu-item': '' !!}"><a href="/contact" target="_blank">联系</a></li>
                                 <li><a href="https://github.com/albinwong">GitHub</a></li>
                             </ul>
                         </div>
@@ -195,9 +194,9 @@
         <!-- End of Footer -->
         <a href="#top" id="scroll-top"></a>
         <!-- script -->
-        <script type='text/javascript' src='/exclusive/js/jquery-2.1.1.js'></script>
-        <script src="/js/layer/layer.js"></script>
-        <script src='/exclusive/js/custom.js'></script>
+        <script type='text/javascript' src="{{env('APP_CDN')}}/exclusive/js/jquery-2.1.1.js"></script>
+        <script src="{{env('APP_CDN')}}/js/layer/layer.js"></script>
+        <script src="{{env('APP_CDN')}}/exclusive/js/custom.js"></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137037174-1"></script>
         <script>

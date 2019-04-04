@@ -9,6 +9,7 @@ use App\Model\Types;
 use App\Model\PostTagRelation;
 
 use Hashids;
+use DB;
 
 class HomeController extends Controller
 {
@@ -30,9 +31,16 @@ class HomeController extends Controller
     public function index()
     {
         $articles = Posts::select('id', 'title', 'intro', 'cate_id', 'page_view', 'created_at')->where('publish_status', 'published')->orderby('created_at', 'desc')->paginate(10);
+        $cate = Posts::where('publish_status', 'published')->groupBy('cate_id')->get([
+            DB::raw('cate_id as id'),
+            DB::raw('COUNT(*) as value')
+        ]);
+        foreach ($cate as $value) {
+            $cates[$value['id']] = $value['value'];
+        }
         $sidebar = 'home';
         $cateList = $this->cateList;
-        return view('exclusive/index', compact('articles', 'sidebar', 'cateList'));
+        return view('exclusive/index', compact('articles', 'sidebar', 'cateList', 'cates'));
     }
 
     public function single($pid = 0)
@@ -84,5 +92,4 @@ class HomeController extends Controller
         $cateList = $this->cateList;
         return view('exclusive/archive', compact('sidebar', 'articles', 'cateName', 'cateList'));
     }
-
 }

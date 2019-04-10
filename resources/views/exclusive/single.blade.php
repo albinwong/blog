@@ -12,8 +12,7 @@
         '资讯',
         '计算机理论与基础',
         '其他',
-    ];
-?>
+    ];?>
 @extends('layout.exclusive',['title' => $data->title.'-'.$category[$data->cate_id].'-Albin Wong`s Blog'])
 @section('css')
 <meta name="keywords" content="{{$data->seo}}albin,{{$category[$data->cate_id]}},albinwong"/>
@@ -77,11 +76,6 @@
                             <a href="#" title="">0</a></span>
                         <span class="pv-count">{{$data->page_view}}</span></div>
                     <!-- end of post meta -->
-                    <?php if ($data->intro) : ?>
-                    <blockquote>
-                        <p>{{$data->intro}}</p>
-                    </blockquote>
-                    <?php endif ?>
                     {!!$data->content_html_code!!}
                 </article>
                 <div class="like-btn">

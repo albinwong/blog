@@ -3,7 +3,37 @@
 <meta name="keywords" content="albin,{{$data->seo}}"/>
         <meta name="description" content="{{$data->intro}}">
         <meta name="author" content="albinwong">
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/default.min.css">
+        <link rel="stylesheet" href="{{env('APP_CDN')}}/highlight/styles/default.css">
+        <style>
+            .hljs {
+                border: 0;
+                /*font-family: "Consulas", "Courier New", Courier, mono, serif;*/
+                font-size: 12px;
+                background: #eee !important;
+                display: block;
+                padding: 1px;
+                margin: 0;
+                width: 100%;
+                font-weight: 200;
+                color: #333;
+                white-space: pre-wrap
+            }
+            .hljs ol {
+                list-style: decimal;
+                background-color: white;
+                margin: 0px 0px 0 40px !important;
+                padding: 0px;
+            }
+            .hljs ol li {
+                list-style: decimal-leading-zero;
+                border-left: 1px solid green !important;
+                padding: 5px!important;
+                margin: 0 !important;
+                line-height: 14px;
+                word-break: break-all;
+                word-wrap: break-word;
+            }
+        </style>
 @endsection
 @section('content')
 <?php
@@ -172,13 +202,15 @@
 </div>
 @endsection
 @section('js')
-<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+<script src="{{env('APP_CDN')}}/highlight/highlight.pack.js"></script>
     <script type="text/javascript">
-        hljs.initHighlightingOnLoad();
         $(document).ready(function() {
-          $('.hljs').each(function(i, block) {
+        hljs.initHighlightingOnLoad();
+          $('pre code').each(function(i, block) {
             hljs.highlightBlock(block);
+            $(this).html("<ol><li>" + $(this).html().replace(/\n/g,"\n</li><li>") +"\n</li></ol>");
+
           });
         });
-    </script> -->
+    </script>
 @endsection

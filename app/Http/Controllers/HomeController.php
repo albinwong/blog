@@ -30,7 +30,7 @@ class HomeController extends Controller
 
     public function index()
     {
-        $articles = Posts::select('id', 'title', 'intro', 'cate_id', 'page_view', 'created_at')->where('publish_status', 'published')->orderby('created_at', 'desc')->paginate(10);
+        $articles = Posts::select('id', 'title', 'cate_id', 'content_html_code', 'page_view', 'created_at')->where('publish_status', 'published')->orderby('created_at', 'desc')->paginate(10);
         $cate = Posts::where('publish_status', 'published')->groupBy('cate_id')->get([
             DB::raw('cate_id as id'),
             DB::raw('COUNT(*) as value')
@@ -70,7 +70,7 @@ class HomeController extends Controller
         }
         $sidebar = 'archive';
         $cateName = '';
-        $articles = Posts::select('id', 'title', 'intro', 'cate_id', 'page_view', 'created_at')->where('publish_status', 'published');
+        $articles = Posts::select('id', 'title', 'content_html_code', 'cate_id', 'page_view', 'created_at')->where('publish_status', 'published');
         if ($type == 'list') {
             if (array_key_exists($cid, $this->cateList)) {
                 $cateName = $this->cateList[$cid];

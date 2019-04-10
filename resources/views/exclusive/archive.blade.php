@@ -1,5 +1,7 @@
-@extends('layout.exclusive',['title' => $cateName.' | Albin Wong Blog'])
+@extends('layout.exclusive',['title' => $cateName.'-Albin Wong Blog'])
 @section('css')
+<meta name="keywords" content="{{$cateName}},albin,albinwong,blog,技术博客" />
+        <meta name="description" content="Albin Wong`s Blog 个人博客网站是一个关注技术架构、互联网、运维、数据库、前端、后端、区块链、资讯等技术信息博客, 提供博主学习成果和工作中经验总结，是一个互联网从业者值得收藏的网站。" />
 @endsection
 @section('content')
 <div class="page-container">
@@ -48,7 +50,8 @@
                 </div>
             </div>
             @endif
-            <p>{{$v['intro']}}
+            <p>{{mb_substr(strip_tags($v['content_html_code']), 0, 200, 'utf-8')}}...</p>
+            <p>
                 <a class="readmore-link" href="/{{Hashids::connection('recommend')->encode($v['id'])}}.html">Read more</a>
             </p>
         </article>

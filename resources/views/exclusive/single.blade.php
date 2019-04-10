@@ -1,41 +1,3 @@
-@extends('layout.exclusive',['title' => $data->title.' | Albin Wong Blog'])
-@section('css')
-<meta name="keywords" content="albin,{{$data->seo}}"/>
-        <meta name="description" content="{{$data->intro}}">
-        <meta name="author" content="albinwong">
-        <link rel="stylesheet" href="{{env('APP_CDN')}}/highlight/styles/default.css">
-        <style>
-            .hljs {
-                border: 0;
-                /*font-family: "Consulas", "Courier New", Courier, mono, serif;*/
-                font-size: 12px;
-                background: #eee !important;
-                display: block;
-                padding: 1px;
-                margin: 0;
-                width: 100%;
-                font-weight: 200;
-                color: #333;
-                white-space: pre-wrap
-            }
-            .hljs ol {
-                list-style: decimal;
-                background-color: white;
-                margin: 0px 0px 0 40px !important;
-                padding: 0px;
-            }
-            .hljs ol li {
-                list-style: decimal-leading-zero;
-                border-left: 1px solid green !important;
-                padding: 5px!important;
-                margin: 0 !important;
-                line-height: 14px;
-                word-break: break-all;
-                word-wrap: break-word;
-            }
-        </style>
-@endsection
-@section('content')
 <?php
     $category = [
         1 => '架构',
@@ -51,7 +13,42 @@
         '计算机理论与基础',
         '其他',
     ];
-    ?>
+?>
+@extends('layout.exclusive',['title' => $data->title.'-'.$category[$data->cate_id].'-Albin Wong`s Blog'])
+@section('css')
+<meta name="keywords" content="{{$data->seo}}albin,{{$category[$data->cate_id]}},albinwong"/>
+        <meta name="description" content='{{mb_substr(str_replace("\n","",strip_tags($data->content_html_code)), 0, 120, "utf-8")}}'>
+        <meta name="author" content="albinwong">
+        <link rel="stylesheet" href="{{env('APP_CDN')}}/highlight/styles/default.css">
+        <style>
+            .hljs {
+                border: 0;
+                font-size: 12px;
+                background: #eee !important;
+                display: block;
+                padding: 1px;
+                margin: 0;
+                width: 100%;
+                font-weight: 200;
+                color: #333;
+                white-space: pre-wrap;
+            }
+            .hljs ol {
+                list-style: decimal;
+                margin: 0px 0px 0 40px !important;
+            }
+            .hljs ol li {
+                list-style: decimal-leading-zero;
+                border-left: 1px dashed #FF9912 !important;
+                padding: 5px!important;
+                margin: 0 !important;
+                line-height: 14px;
+                word-break: break-all;
+                word-wrap: break-word;
+            }
+        </style>
+@endsection
+@section('content')
 <div class="page-container">
     <div class="container">
         <div class="row">

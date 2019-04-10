@@ -9,8 +9,8 @@
         <meta name="author" content="albinwong">
         <meta name="Copyright" content="albinwong.com">
         <title>{{$title}}</title>
-        <link rel="stylesheet" id="bootstrap-css-css"  href="{{env('APP_CDN')}}/exclusive/css/bootstrap.css" type='text/css' media='all' />
-        <link rel="stylesheet" id="responsive-css-css"  href="{{env('APP_CDN')}}/exclusive/css/responsive.css" type='text/css' media='all' />
+        <link rel="stylesheet" id="bootstrap-css-css"  href="{{env('APP_CDN')}}/exclusive/css/bootstrap.css" type="text/css" media="all" />
+        <link rel="stylesheet" id="responsive-css-css"  href="{{env('APP_CDN')}}/exclusive/css/responsive.css" type="text/css" media="all" />
         <link rel="stylesheet" id="pretty-photo-css-css"  href="{{env('APP_CDN')}}/exclusive/js/prettyphoto/prettyPhotoaeb9.css" type="text/css" media="all" />
         <link rel="stylesheet" id="main-css-css"  href="{{env('APP_CDN')}}/exclusive/css/main.css" type="text/css" media="all" />
         <link rel="shortcut icon" href="{{env('APP_CDN')}}/favicon.ico" />
@@ -62,13 +62,13 @@
                                             <a href="/archive/list/{{Hashids::encode(9)}}.html" title="区块链">区块链</a>
                                         </li>
                                         <li>
-                                            <a href="/archive/list/{{Hashids::encode(1)}}0.html" title="资讯">资讯</a>
+                                            <a href="/archive/list/{{Hashids::encode(10)}}.html" title="资讯">资讯</a>
                                         </li>
                                         <li>
-                                            <a href="/archive/list/{{Hashids::encode(1)}}1.html" title="计算机理论与基础">计算机理论与基础</a>
+                                            <a href="/archive/list/{{Hashids::encode(11)}}.html" title="计算机理论与基础">计算机理论与基础</a>
                                         </li>
                                         <li>
-                                            <a href="/archive/list/{{Hashids::encode(1)}}1.html" title="其他">其他</a>
+                                            <a href="/archive/list/{{Hashids::encode(12)}}.html" title="其他">其他</a>
                                         </li>
                                     </ul>
                                 </li>

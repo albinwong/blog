@@ -1,7 +1,7 @@
 @extends('layout.exclusive',['title' => 'Albin Wong`s Blog | Pencil do the thinking!'])
 @section('css')
-<meta name="keywords" content="albin,albinwong,blog,Pencil do the thinking,php,技术博客"/>
-    <meta name="description" content="Albin Wong`s Blog 个人博客网站是一个关注技术架构、互联网、运维、数据库、前端、后端、区块链、资讯等技术信息博客, 提供博主学习成果和工作中经验总结，是一个互联网从业者值得收藏的网站。">
+<meta name="keywords" content="albin,albinwong,blog,Pencil do the thinking,php,技术博客" />
+    <meta name="description" content="Albin Wong`s Blog 个人博客网站是一个关注技术架构、互联网、运维、数据库、前端、后端、区块链、资讯等技术信息博客, 提供博主学习成果和工作中经验总结，是一个互联网从业者值得收藏的网站。独自穿越人群看着两岸的灯火,其实所有漂泊的人,不过是为了有一天能够不再漂泊,能用自己的力量撑起天空." />
 @endsection
 @section('content')
 <div class="div" style="margin-top: 30px;"></div>
@@ -37,10 +37,10 @@
                 </div>
             </div>
             @endif
-            @if ($v['intro'])
-            <p>{{$v['intro']}}</p>
-            @endif
-            <p><a class="readmore-link" href="/{{Hashids::connection('recommend')->encode($v['id'])}}.html">Read more</a></p>
+            <p>{{mb_substr(strip_tags($v['content_html_code']), 0, 200, 'utf-8')}}... </p>
+            <p>
+                <a class="readmore-link" href="/{{Hashids::connection('recommend')->encode($v['id'])}}.html">Read more</a>
+            </p>
         </article>
         @endforeach
         <div id="pagination" class="list-unstyled">

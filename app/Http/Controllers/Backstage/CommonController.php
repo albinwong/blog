@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Backstage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Model\Posts;
+use App\Model\Types;
+use DB;
+
 class CommonController extends Controller
 {
     /**
@@ -14,7 +18,12 @@ class CommonController extends Controller
      */
     public function index()
     {
-        return view('backstage.index');
+        $user = DB::table('users')->count();
+        $article = Posts::count();
+        $pageView = Posts::sum('page_view');
+        $tag = Types::count();
+
+        return view('backstage.index', compact('user', 'article', 'pageView', 'tag'));
     }
 
     /**
@@ -36,5 +45,4 @@ class CommonController extends Controller
     {
         return view('backstage.inbox');
     }
-
 }

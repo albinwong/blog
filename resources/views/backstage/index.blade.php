@@ -13,8 +13,8 @@
 				<i class="glyphicon glyphicon-user" aria-hidden="true"></i> 
 			</div> 
 			<div class="four-text"> 
-				<h3>User</h3> 
-				<h4> 24,420 </h4> 
+				<h3>Users</h3>
+				<h4> {{number_format($user)}} </h4>
 			</div> 
 		</div> 
 	</div> 
@@ -24,8 +24,8 @@
 				<i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> 
 			</div> 
 			<div class="four-text"> 
-				<h3>Clients</h3> 
-				<h4>15,520</h4> 
+				<h3>Articles</h3>
+				<h4>{{number_format($article)}}</h4>
 			</div> 
 		</div> 
 	</div> 
@@ -35,8 +35,8 @@
 				<i class="glyphicon glyphicon-folder-open" aria-hidden="true"></i> 
 			</div> 
 			<div class="four-text"> 
-				<h3>Projects</h3> 
-				<h4>12,430</h4> 
+				<h3>Page View</h3>
+				<h4>{{number_format($pageView)}}</h4>
 			</div> 
 		</div> 
 	</div> 
@@ -46,8 +46,8 @@
 				<i class="glyphicon glyphicon-briefcase" aria-hidden="true"></i> 
 			</div> 
 			<div class="four-text"> 
-				<h3>Old Projects</h3> 
-				<h4>14,430</h4> 
+				<h3>Tags</h3>
+				<h4>{{number_format($tag)}}</h4>
 			</div> 
 		</div> 
 	</div> 

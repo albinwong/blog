@@ -15,7 +15,6 @@
         <link rel="stylesheet" id="main-css-css"  href="{{env('APP_CDN')}}/exclusive/css/main.css" type="text/css" media="all" />
         <link rel="shortcut icon" href="{{env('APP_CDN')}}/favicon.ico" />
         <meta name="google-site-verification" content="JVIqOJwwheTUldJ-VflUIhkb7PmC_U5PPmMZBuJYD2M" />
-        <meta name="360-site-verification" content="2e08769e67d3e44916fd12131e52b5dc" />
         @yield('css')
     </head>
     <body>
@@ -242,10 +241,6 @@
                     }, 'json');
                 });
             });
-            (function(){
-            var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?974bbd5a2b2875738237b6d461b2192b":"https://jspassport.ssl.qhimg.com/11.0.1.js?974bbd5a2b2875738237b6d461b2192b";
-            document.write('<script src="' + src + '" id="sozz"><\/script>');
-            })();
         </script>
         @yield('js')
     </body>

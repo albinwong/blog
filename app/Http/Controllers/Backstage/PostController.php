@@ -110,4 +110,49 @@ class PostController extends Controller
             return response()->json(['status'=>false,'msg'=>'非法请求!']);
         }
     }
+
+
+    public function uploadimage(Request $request)
+    {
+        // dd($request->all());
+        $message='';
+        if (!$this->disk->exists('/article')) {
+            $message = "article 文件夹不存在,请先创建";
+        } else {
+            $pathDir=date('Ymd');
+            if (!$this->disk->exists('/article/'.$pathDir)) {
+                $this->disk->makeDirectory('/article/'.$pathDir);
+            }
+        }
+
+        if ($request->file('editormd-image-file')) {
+            $path="uploads/article/".$pathDir;
+            $pic = $request->file('editormd-image-file');
+            if ($pic->isValid()) {
+                $newName=md5(time() . rand(0, 10000)).".".$pic->getClientOriginalExtension();
+                if ($this->disk->exists($path.'/'.$newName)) {
+                    $message = "文件名已存在或文件已存在";
+                } else {
+                    if ($pic->move($path, $newName)) {
+                        $url = asset($path.'/'.$newName);
+                    } else {
+                        $message="系统异常，文件保存失败";
+                    }
+                }
+            } else {
+                $message = "文件无效";
+            }
+        } else {
+            $message="Not File";
+        }
+
+        $data = array(
+            'success' => empty($message) ? 1 : 0,  //1：上传成功  0：上传失败
+            'message' => $message,
+            'url' => !empty($url) ? $url : ''
+        );
+
+        header('Content-Type:application/json;charset=utf8');
+        exit(json_encode($data));
+    }
 }

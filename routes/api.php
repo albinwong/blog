@@ -18,3 +18,4 @@ use Illuminate\Http\Request;
 });*/
 Route::post('/subscribe', 'CommonController@subscribe');
 Route::post('/contact', 'CommonController@contact');
+Route::post('/admin/uploadimage','Backstage\PostController@uploadimage');

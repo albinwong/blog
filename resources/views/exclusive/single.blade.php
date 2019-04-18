@@ -12,12 +12,16 @@
         '资讯',
         '计算机理论与基础',
         '其他',
-    ];?>
+    ];
+    $description = mb_substr(str_replace("\n", "", strip_tags($data->content_html_code)), 0, 120, "utf-8");
+    ?>
 @extends('layout.exclusive',['title' => $data->title.'-'.$category[$data->cate_id].'-Albin Wong`s Blog'])
+@section('seo')
+        <meta name="keywords" content="{{$data->seo}}albin,{{$category[$data->cate_id]}},albinwong"/>
+        <meta name="description" content="{{$description}}">
+        <meta property=”og:description” content="{{$description}}" />
+@endsection
 @section('css')
-<meta name="keywords" content="{{$data->seo}}albin,{{$category[$data->cate_id]}},albinwong"/>
-        <meta name="description" content='{{mb_substr(str_replace("\n","",strip_tags($data->content_html_code)), 0, 120, "utf-8")}}'>
-        <meta name="author" content="albinwong">
         <link rel="stylesheet" href="{{env('APP_CDN')}}/highlight/styles/default.css">
         <style>
             .hljs {

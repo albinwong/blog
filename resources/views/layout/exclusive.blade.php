@@ -3,19 +3,26 @@
     <head>
         <!-- META TAGS -->
         <meta charset="UTF-8" />
+        <title>{{$title}}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="_token" content="{{csrf_token()}}">
+        <meta name="google-site-verification" content="JVIqOJwwheTUldJ-VflUIhkb7PmC_U5PPmMZBuJYD2M" />
         <meta name="baidu-site-verification" content="AYZCwj0i9n" />
         <meta name="author" content="albinwong">
-        <meta name="Copyright" content="albinwong.com">
-        <title>{{$title}}</title>
+        <meta name="copyright" content="albinwong.com">
+        <meta name="revisit-after" content="1day">
+        <meta property="og:title" content="{{$title}}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content="{{env('APP_CDN')}}/favicon.ico" />
+        <meta property="og:site_name" content="albinwong.com" />
+        <meta property="og:url" content="{{URL::full()}}" />
+@yield('seo')
+        <meta name="_token" content="{{csrf_token()}}">
+        <link rel="shortcut icon" href="{{env('APP_CDN')}}/favicon.ico" />
         <link rel="stylesheet" id="bootstrap-css-css"  href="{{env('APP_CDN')}}/exclusive/css/bootstrap.css" type="text/css" media="all" />
         <link rel="stylesheet" id="responsive-css-css"  href="{{env('APP_CDN')}}/exclusive/css/responsive.css" type="text/css" media="all" />
         <link rel="stylesheet" id="pretty-photo-css-css"  href="{{env('APP_CDN')}}/exclusive/js/prettyphoto/prettyPhotoaeb9.css" type="text/css" media="all" />
         <link rel="stylesheet" id="main-css-css"  href="{{env('APP_CDN')}}/exclusive/css/main.css" type="text/css" media="all" />
-        <link rel="shortcut icon" href="{{env('APP_CDN')}}/favicon.ico" />
-        <meta name="google-site-verification" content="JVIqOJwwheTUldJ-VflUIhkb7PmC_U5PPmMZBuJYD2M" />
-        @yield('css')
+@yield('css')
     </head>
     <body>
         <!-- Start of Header -->
@@ -110,7 +117,6 @@
             </div>
         </div>
         <!-- End of Page Container -->
-
         <!-- Start of Footer -->
         <footer id="footer-wrapper">
             <div id="footer" class="container">

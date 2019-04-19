@@ -9,8 +9,8 @@
 <div class="row">
     <!-- start of page content -->
     <div class="span8 main-listing">
-    	@foreach($articles as $v)
-        <article class="format-standrd type-post hentry clearfix"> <!-- format-video format-image  -->
+@foreach($articles as $v)
+        <article class="format-standrd type-post hentry clearfix">
             <header class="clearfix">
                 <h3 class="post-title">
                     <a href="/{{Hashids::connection('recommend')->encode($v['id'])}}.html" title="{{$v['title']}}">{{$v['title']}}</a>
@@ -26,9 +26,8 @@
                     </span>
                     <span class="pv-count">{{$v['page_view']}}</span>
                 </div>
-                <!-- end of post meta -->
             </header>
-			@if(false)
+        	@if(false)
             <a href="#" title="Using Images">
                 <img width="770" height="501" src="/exclusive/images/temp/living-room-770x501.jpg" class="attachment-std-thumbnail wp-post-image" alt="Living room">
             </a>
@@ -43,7 +42,7 @@
                 <a class="readmore-link" href="/{{Hashids::connection('recommend')->encode($v['id'])}}.html">Read more</a>
             </p>
         </article>
-        @endforeach
+@endforeach
         <div id="pagination" class="list-unstyled">
             <a href="{{$articles->previousPageUrl()}}" class="btn">上一页 </a>
             <a href="{{$articles->nextPageUrl()}}" class="btn">下一页 </a>
@@ -89,16 +88,17 @@
             </ul>
         </section> -->
         <section class="widget">
-            <h3 class="title">分类</h3>
+            <h3 class="title">分类 Categories</h3>
             <ul>
-                @foreach ($cateList as $clKey => $clValue)
+@foreach ($cateList as $clKey => $clValue)
                 <li>
                     <a href="/archive/list/{{Hashids::encode($clKey)}}.html" title="{{$clValue}}">{{$clValue}}</a>
                     <span>({{$cates[$clKey] ?? 0}})</span>
                 </li>
-                @endforeach
+@endforeach
             </ul>
         </section>
+@include('layout.filing')
         <section class="widget" style="display: none;">
             <h3 class="title">最新评论</h3>
             <ul id="recentcomments">

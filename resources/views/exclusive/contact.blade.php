@@ -1,4 +1,4 @@
-@extends('layout.exclusive',['title' => '联系我-Albin Wong Blog'])
+@extends('layout.exclusive',['title' => '联系我 - Albin Wong Blog'])
 @section('seo')
         <meta name="keywords" content="albin,联系我,Back-End Engineer,chaindd"/>
         <meta name="description" content="联系我-Albin Wong Blog 个人博客网站是一个关注技术架构、互联网、运维、数据库、前端、后端、区块链、资讯等技术信息博客, 提供博主学习成果和工作中经验总结，是一个互联网从业者值得收藏的网站。" />

@@ -55,8 +55,14 @@
                 <a class="readmore-link" href="/{{Hashids::connection('recommend')->encode($v['id'])}}.html">Read more</a>
             </p>
         </article>
+        @if ($articles->total() == 1)
+
+        <div style="margin: 113px 50px;">
+        </div>
+        @endif
+
         @empty
-        <div style="margin: 100px 50px;">
+        <div style="margin: 113px 50px;">
         	<h3>No articles!</h3>
         	<p class="notice">暂无相关文章!</p>
         </div>

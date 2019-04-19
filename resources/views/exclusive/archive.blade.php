@@ -21,8 +21,7 @@
     </div>
     <!-- start of page content -->
     <div class="span8 main-listing">
-    	@if ($articles->total() > 0)
-    	@foreach($articles as $v)
+        @forelse($articles as $v)
         <article class="format-standrd type-post hentry clearfix"> <!-- format-video format-image  -->
             <header class="clearfix">
                 <h3 class="post-title">
@@ -56,13 +55,12 @@
                 <a class="readmore-link" href="/{{Hashids::connection('recommend')->encode($v['id'])}}.html">Read more</a>
             </p>
         </article>
-        @endforeach
-        @else 
+        @empty
         <div style="margin: 100px 50px;">
         	<h3>No articles!</h3>
         	<p class="notice">暂无相关文章!</p>
         </div>
-        @endif
+        @endforelse
         @if ($articles->total() > 2)
         <div id="pagination" class="list-unstyled">
             <a href="{{$articles->previousPageUrl()}}" class="btn">上一页 </a>

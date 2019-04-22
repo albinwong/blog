@@ -8,13 +8,23 @@
         <meta name="google-site-verification" content="JVIqOJwwheTUldJ-VflUIhkb7PmC_U5PPmMZBuJYD2M" />
         <meta name="baidu-site-verification" content="AYZCwj0i9n" />
         <meta name="author" content="albinwong">
-        <meta name="copyright" content="albinwong.com">
+        <meta name="copyright" content="https://www.albinwong.com">
         <meta name="revisit-after" content="1day">
         <meta property="og:title" content="{{$title}}" />
         <meta property="og:type" content="article" />
-        <meta property="og:image" content="{{env('APP_CDN')}}/favicon.ico" />
         <meta property="og:site_name" content="albinwong.com" />
         <meta property="og:url" content="{{URL::full()}}" />
+        <meta property="og:image" content="{{env('APP_CDN')}}/logo.png" /> 
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:alt" content="Albin Wong" />
+        <meta property="twitter:site" content="@albinwong">
+        <meta property="twitter:creator" content="@Albin_Wong">
+        <meta property="twitter:card" content="summary">
+        <meta property="twitter:title" content="{{$title}}">
+        <meta property="twitter:url" content="{{URL::full()}}">
+        <meta property="twitter:image" content="{{env('APP_CDN')}}/logo.png" />
+        <meta property="fb:fbid" content="Ciyqxd17HD5"> 
+        <meta property="fb:app_id" content="425855268165541"> 
 @yield('seo')
         <meta name="_token" content="{{csrf_token()}}">
         <link rel="shortcut icon" href="{{env('APP_CDN')}}/favicon.ico" />
@@ -140,9 +150,9 @@
                         <section class="widget">
                             <h3 class="title">最新文章</h3>
                             <ul>
-                            @foreach($article as $articleValue)
+@foreach($article as $articleValue)
                                 <li><a href="/{{Hashids::connection('recommend')->encode($articleValue['id'])}}.html" title="{{$articleValue['title']}}" target="_blank">{{$articleValue['title']}}</a></li>
-                            @endforeach
+@endforeach
                             </ul>
                         </section>
                     </div>
@@ -160,9 +170,11 @@
                         <section class="widget">
                             <h3 class="title">Tags</h3>
                             <div class="tagcloud" >
-                            @foreach($tags as $tagsValue)
-                                <a href="/archive/tag/{{Hashids::encode($tagsValue['id'])}}.html"><span style="color: #00B2EE!important">{{$tagsValue['name']}}</span></a>
-                            @endforeach 
+@foreach($tags as $tagsValue)
+                                <a href="/archive/tag/{{Hashids::encode($tagsValue['id'])}}.html">
+                                    <span style="color: #00B2EE!important">{{$tagsValue['name']}}</span>
+                                </a>
+@endforeach
                             </div>
                         </section>
                     </div>
@@ -187,7 +199,7 @@
                                     <a target="_blank" href="https://twitter.com/Albin_Wong"></a>
                                 </li>
                                 <li class="facebook">
-                                    <a target="_blank" href="https://www.facebook.com/100014758775849"></a>
+                                    <a target="_blank" href="https://www.facebook.com/albin.wong.3958"></a>
                                 </li>
                                 <li>
                                     <a target="_blank" href="https://weibo.com/319333577"><i class="fa fa-weibo"></i></a>

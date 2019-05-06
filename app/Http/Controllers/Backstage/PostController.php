@@ -8,7 +8,6 @@ use App\Http\Controllers\Controller;
 use App\Model\Posts;
 use App\Model\Types;
 use App\Model\PostTagRelation;
-use Illuminate\Filesystem\Filesystem;
 
 class PostController extends Controller
 {
@@ -112,10 +111,14 @@ class PostController extends Controller
         }
     }
 
-
+    /**
+     * Editormd Upload Image
+     * @author Albin Wong 2019-05-06
+     * @param  Request $request
+     * @return Json
+     */
     public function uploadimage(Request $request)
     {
-        // dd($request->all());
         if ($request->file('editormd-image-file')) {
             $path="uploads/article/".date('Ymd');
             $pic = $request->file('editormd-image-file');

@@ -77,9 +77,16 @@
                             Albin Wong
                             <!-- <a href="/archive/category/{{$data->cate_id}}" title="{{$category[$data->cate_id]}}">{{$category[$data->cate_id]}}</a> -->
                         </span>
-                        <span class="comments">
-                            <a href="#" title="">0</a></span>
+                        <!-- <span class="comments">
+                            <a href="#" title="">0</a>
+                        </span> -->
                         <span class="pv-count">{{$data->page_view}}</span></div>
+
+                    <?php if ($data->intro) : ?>
+                        <blockquote>
+                            {!!$data->intro!!}
+                        </blockquote>
+                    <?php endif; ?>
                     <!-- end of post meta -->
                     {!!$data->content_html_code!!}
                 </article>

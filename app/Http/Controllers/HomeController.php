@@ -71,7 +71,7 @@ class HomeController extends Controller
         }
         $sidebar = 'archive';
         $cateName = '';
-        $articles = Posts::select('id', 'title', 'content_html_code', 'cate_id', 'page_view', 'created_at')->where('publish_status', 'published');
+        $articles = Posts::select('id', 'title', 'content_html_code', 'cate_id', 'page_view', 'created_at', 'intro')->where('publish_status', 'published');
         if ($type == 'list') {
             if (array_key_exists($cid, $this->cateList)) {
                 $cateName = $this->cateList[$cid];

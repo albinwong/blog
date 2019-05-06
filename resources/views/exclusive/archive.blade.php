@@ -34,9 +34,9 @@
                     <span class="category">
                         <a href="/archive/list/{{Hashids::encode($v['cate_id'])}}.html" title="{$cateList[$v['cate_id']]}}">{{$cateList[$v['cate_id']]}}</a>
                     </span>
-                    <span class="comments">
+                    <!-- <span class="comments">
                         <a href="#" title="">0</a>
-                    </span>
+                    </span> -->
                     <span class="pv-count">{{$v['page_view']}}</span>
                 </div>
                 <!-- end of post meta -->

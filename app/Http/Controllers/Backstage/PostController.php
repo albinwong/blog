@@ -95,7 +95,7 @@ class PostController extends Controller
      * @author Albin Wong 2019-03-19
      * @param  Request $request
      * @param  integer $id      Article ID
-     * @return Response
+     * @return Json
      */
     public function del(Request $request, $pid = 0)
     {
@@ -120,7 +120,7 @@ class PostController extends Controller
     public function uploadimage(Request $request)
     {
         if ($request->file('editormd-image-file')) {
-            $path="uploads/article/".date('Ymd');
+            $path= "uploads/article/".date('Ymd');
             $pic = $request->file('editormd-image-file');
             if ($pic->isValid()) {
                 $newName=md5(time() . rand(0, 10000)).".".$pic->getClientOriginalExtension();
@@ -144,7 +144,6 @@ class PostController extends Controller
 
         header('Content-Type:application/json;charset=utf8');
         exit(json_encode($data));
-
-
     }
+
 }

@@ -126,14 +126,14 @@ class PostController extends Controller
             $path= "uploads/article/".date('Ymd');
             $pic = $request->file('editormd-image-file');
             if ($pic->isValid()) {
-                $newName=md5(time() . rand(0, 10000)).".".$pic->getClientOriginalExtension();
+                $newName=md5(time() . rand(0, 100)).".".$pic->getClientOriginalExtension();
+                $filePath = $path.'/'.$newName;
                 if ($pic->move($path, $newName)) {
                     // $url = asset($path.'/'.$newName);
                     $message = '';
-                    OSS::privateUpload(env('ALIOSS_BUCKETNAME'), env('ALIOSS_KEYID'), $path.'/'.$newName, []);
+                    OSS::privateUpload(env('ALIOSS_BUCKETNAME'), env('ALIOSS_KEYID'), $filePath);
                     //获取上传图片的Url链接
-                    $url = OSS::getPublicObjectURL(env('ALIOSS_BUCKETNAME'), $path.'/'.$newName);
-
+                    $url = OSS::getPublicObjectURL(env('ALIOSS_BUCKETNAME'), $filePath);
                 } else {
                     $message="系统异常，文件保存失败";
                 }
@@ -146,7 +146,7 @@ class PostController extends Controller
         $data = array(
             'success' => empty($message) ? 1 : 0,  //1：上传成功  0：上传失败
             'message' => $message,
-            'url' => !empty($url) ? $url : ''
+            'url' => !empty($url) ? $url : '',
         );
 
         header('Content-Type:application/json;charset=utf8');

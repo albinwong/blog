@@ -9,6 +9,8 @@ use App\Model\Posts;
 use App\Model\Types;
 use App\Model\PostTagRelation;
 
+use App\Services\OSS;
+
 class PostController extends Controller
 {
     /**
@@ -119,14 +121,19 @@ class PostController extends Controller
      */
     public function uploadimage(Request $request)
     {
+        // dd($request->file('editormd-image-file')->pathname());
         if ($request->file('editormd-image-file')) {
             $path= "uploads/article/".date('Ymd');
             $pic = $request->file('editormd-image-file');
             if ($pic->isValid()) {
                 $newName=md5(time() . rand(0, 10000)).".".$pic->getClientOriginalExtension();
                 if ($pic->move($path, $newName)) {
-                    $url = asset($path.'/'.$newName);
+                    // $url = asset($path.'/'.$newName);
                     $message = '';
+                    OSS::privateUpload(env('ALIOSS_BUCKETNAME'), env('ALIOSS_KEYID'), $path.'/'.$newName, []);
+                    //获取上传图片的Url链接
+                    $url = OSS::getPublicObjectURL(env('ALIOSS_BUCKETNAME'), $path.'/'.$newName);
+
                 } else {
                     $message="系统异常，文件保存失败";
                 }

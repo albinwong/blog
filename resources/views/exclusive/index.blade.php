@@ -92,10 +92,12 @@
             <h3 class="title">分类 Categories</h3>
             <ul>
 @foreach ($cateList as $clKey => $clValue)
+    @if($cates[$clKey] ?? 0)
                 <li>
                     <a href="/archive/list/{{Hashids::encode($clKey)}}.html" title="{{$clValue}}">{{$clValue}}</a>
                     <span>({{$cates[$clKey] ?? 0}})</span>
                 </li>
+    @endif
 @endforeach
             </ul>
         </section>

@@ -43,7 +43,7 @@
 	</ul>
 </li> 
 <li id="menu-academico">
-	<a href="/admin/posts">
+	<a href="/admin/user">
 		<i class="fa fa-file-text" aria-hidden="true"></i>
 		<span>用户</span>
 		<span class="fa fa-angle-right" style="float: right"></span>
@@ -51,10 +51,10 @@
 	</a> 
 	<ul id="menu-academico-sub"> 
 		<li id="menu-academico-avaliacoes">
-			<a href="/admin/posts/index">用户列表</a>
+			<a href="/admin/user/index">用户列表</a>
 		</li> 
 		<li id="menu-academico-avaliacoes">
-			<a href="/admin/posts/edit">添加用户</a>
+			<a href="/admin/user/edit">添加用户</a>
 		</li> 
 	</ul>
 </li> 

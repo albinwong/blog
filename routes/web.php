@@ -54,5 +54,12 @@ Route::prefix('admin')->group(function () {
             Route::any('/edit', 'Backstage\PostController@edit');
             Route::delete('/del/{id}', 'Backstage\PostController@del')->where('id', '\d+');
         });
+
+        // User Management
+        Route::prefix('user')->group(function () {
+            Route::get('/index', 'Backstage\UserController@index');
+            Route::any('/edit', 'Backstage\UserController@edit');
+            Route::delete('/del/{id}', 'Backstage\UserController@del')->where('id', '\d+');
+        });
     });
 });

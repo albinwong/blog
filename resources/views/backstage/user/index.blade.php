@@ -1,9 +1,9 @@
-@extends('layout.backstage',['title' => '文章管理 --- Backstage'])
+@extends('layout.backstage',['title' => '用户管理 --- Backstage'])
 @section('css')
 <link rel="stylesheet" type="text/css" href="/backstage/css/table-style.css" />
 @endsection
 @section('breadcrumb')
-    <li class="breadcrumb-item active">文章管理</li>
+    <li class="breadcrumb-item active">用户管理</li>
 @endsection
 @section('content')
 <div class="gallery-grids">
@@ -15,45 +15,24 @@
     </div>
     <?php endif ?>
     <h3>文章列表</h3>
-    <a href="{{url('/admin/posts/edit')}}" class="hvr-icon-float-away pull-right">添加文章</a>
-    <div class="c-tab col-md-10 col-sm-8 col-xs-12">
-        <span type="button" class="btn btn-primary">
-          全部 <span class="badge badge-light"><?=$total?></span>
-        </span>
-        <?php foreach ($postNum as $key => $value) : ?>
-        <span type="button" class="btn btn-light">
-          {{$postStatus[$value->publish_status]}} <span class="badge badge-light">{{$value->num}}</span>
-        </span>
-        <?php endforeach ?>
-        <span type="button" class="btn btn-light">
-          隐藏 <span class="badge badge-light">1</span>
-        </span>
-        <span type="button" class="btn btn-light">
-          原创 <span class="badge badge-light">0</span>
-        </span>
-        <span type="button" class="btn btn-light">
-          转载 <span class="badge badge-light">20</span>
-        </span>
-        <span type="button" class="btn btn-light">
-          翻译 <span class="badge badge-light">5</span>
-        </span>
-        <span type="button" class="btn btn-light">
-          置顶 <span class="badge badge-light">22</span>
-        </span>
-    </div>
+    <a href="{{url('/admin/posts/edit')}}" class="hvr-icon-float-away pull-right">添加用户</a>
     <table id="table-two-axis" class="two-axis col-md col-md-12">
         <thead>
             <tr>
-                <th>文章名</th>
+                <th>用户名</th>
+                <th>Email</th>
+                <th>权限</th>
                 <th>创建时间</th>
                 <th>操作</th>
             </tr>
         </thead>
         <tbody>
-        <?php foreach ($data as $value) : ?>
+        <?php foreach ($users as $value) : ?>
             <tr>
-                <td><a href="/admin/posts/edit?id={{$value->id}}">{{$value['title']}}</a></td>
-                <td>{{$value['created_at']}}</td>
+                <td><a href="/admin/users/edit?id={{$value->id}}">{{$value->username}}</a></td>
+                <td>{{$value->email}}</td>
+                <td>{{$value->auth == 2 ? '管理员' : '用户'}}</td>
+                <td>{{date('Y-m-d H:i', $value->regtime)}}</td>
                 <td>
                     <i class="fa fa-trash" id="{{$value->id}}">删除</i>
                 </td>
@@ -63,7 +42,7 @@
     </table>
     <div class="pull-right">
         <nav>
-            {!!$data->links()!!}
+            {!!$users->links()!!}
         </nav>
     </div>
     <div class="clearfix"></div>
@@ -82,7 +61,7 @@
          });
 
          $('.fa-trash').on('click', function(){
-            layer.confirm('确认删除该文章?', {
+            layer.confirm('确认删除该用户?', {
                 btn: ['确认','取消'] //按钮
             }, function(){
                 var data = {
@@ -90,7 +69,7 @@
                 }
                 var id = $('.fa-trash').attr('id');
                 $.ajax({
-                    url: "/admin/posts/del/"+id,
+                    url: "/admin/user/del/"+id,
                     type:  "DELETE",
                     data: data,
                     success: function(res){

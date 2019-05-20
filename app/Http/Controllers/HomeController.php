@@ -92,4 +92,10 @@ class HomeController extends Controller
         $cateList = $this->cateList;
         return view('exclusive/archive', compact('sidebar', 'articles', 'cateName', 'cateList'));
     }
+
+    public function digiccy()
+    {
+        $sidebar = 'digiccy';
+        return view('exclusive/digiccy', compact('sidebar'));
+    }
 }

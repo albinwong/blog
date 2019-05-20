@@ -19,6 +19,7 @@ Route::get('/archive/{type}/{cid}.html', 'HomeController@archive');
 Route::get('/{id}.html', 'HomeController@single')->where('id', '\w{16}');
 Route::get('/contact', 'HomeController@contact');
 Route::get('/user', 'UserController@index');
+Route::get('/digiccy', 'HomeController@digiccy');
 Route::get('/404', function(){
     abort(404,'not found!!!');
 });

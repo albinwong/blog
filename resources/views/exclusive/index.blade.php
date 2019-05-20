@@ -124,9 +124,7 @@
 <!-- </div> -->
 @endsection
 @section('js')
-<script type='text/javascript' src="{{env('APP_CDN')}}/exclusive/js/jquery.easing.1.34e44.js"></script>
-<!-- <script type='text/javascript' src="{{env('APP_CDN')}}/exclusive/js/prettyphoto/jquery.prettyPhotoaeb9.js?ver=3.1.4"></script> -->
-<!-- <script type='text/javascript' src="{{env('APP_CDN')}}/exclusive/js/jquery.liveSearchd5f7.js?ver=2.0"></script> -->
-<script type='text/javascript' src="{{env('APP_CDN')}}/exclusive/js/jquery.formd471.js"></script>
-<script type='text/javascript' src="{{env('APP_CDN')}}/exclusive/js/jquery.validate.minfc6b.js"></script>
+        <script type='text/javascript' src="{{env('APP_CDN')}}/exclusive/js/jquery.easing.1.34e44.js"></script>
+        <script type='text/javascript' src="{{env('APP_CDN')}}/exclusive/js/jquery.formd471.js"></script>
+        <script type='text/javascript' src="{{env('APP_CDN')}}/exclusive/js/jquery.validate.minfc6b.js"></script>
 @endsection

@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="google-site-verification" content="JVIqOJwwheTUldJ-VflUIhkb7PmC_U5PPmMZBuJYD2M" />
         <meta name="baidu-site-verification" content="AYZCwj0i9n" />
+        <meta name="sogou_site_verification" content="o62AVopAMZ"/>
         <meta name="author" content="albinwong">
         <meta name="copyright" content="https://www.albinwong.com">
         <meta name="revisit-after" content="1day">
@@ -91,6 +92,9 @@
                                     </ul>
                                 </li>
                                 <!-- <li class="{!! isset($sidebar) && $sidebar == 'about' ? 'current-menu-item': '' !!}"><a href="/about">关于</a></li> -->
+                                <li class="{!! isset($sidebar) && $sidebar == 'digiccy' ? 'current-menu-item': '' !!}">
+                                    <a href="/digiccy">数字货币</a>
+                                </li>
                                 <li class="{!! isset($sidebar) && $sidebar == 'contact' ? 'current-menu-item': '' !!}">
                                     <a href="/contact">联系</a>
                                 </li>
@@ -221,45 +225,10 @@
         <a href="#top" id="scroll-top"></a>
         <!-- script -->
         <script type='text/javascript' src="{{env('APP_CDN')}}/exclusive/js/jquery-2.1.1.js"></script>
+        <script src="{{env('APP_CDN')}}/exclusive/js/subscribe.js"></script>
+        <script src="{{env('APP_CDN')}}/exclusive/js/analytics.js"></script>
         <script src="{{env('APP_CDN')}}/js/layer/layer.js"></script>
         <script src="{{env('APP_CDN')}}/exclusive/js/custom.js"></script>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137037174-1"></script>
-        <script>
-            var _hmt = _hmt || [];
-            (function() {
-              var hm = document.createElement("script");
-              hm.src = "https://hm.baidu.com/hm.js?59e2b1c07ab5e1abad93b236d38daeba";
-              var s = document.getElementsByTagName("script")[0]; 
-              s.parentNode.insertBefore(hm, s);
-            })();
-
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'UA-137037174-1');
-            $(function(){
-                var subscribe = $(".subscribe"),
-                    emailBox  = subscribe.find("input[name=subscibe_email]");
-                subscribe.find("button").on("click", function(){
-                    var email = emailBox.val(),
-                        data = 'email='+email;
-                    if (!email) {
-                        layer.alert('Email地址不能为空！');
-                        return false;
-                    }
-                    $.post('/api/subscribe', data, function(data){
-                        if(data.status){
-                            layer.alert('Congratulations! You`ve been subscribed.');
-                            emailBox.val('');
-                        }else {
-                            layer.alert(data.msg);
-                        }
-                    }, 'json');
-                });
-            });
-        </script>
-        @yield('js')
+@yield('js')
     </body>
 </html>

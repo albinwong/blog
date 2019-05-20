@@ -205,15 +205,14 @@
 </div>
 @endsection
 @section('js')
-<script src="{{env('APP_CDN')}}/highlight/highlight.pack.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-        hljs.initHighlightingOnLoad();
-          $('pre code').each(function(i, block) {
-            hljs.highlightBlock(block);
-            $(this).html("<ol><li>" + $(this).html().replace(/\n/g,"\n</li><li>") +"\n</li></ol>");
-
-          });
-        });
-    </script>
+        <script src="{{env('APP_CDN')}}/highlight/highlight.pack.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+            hljs.initHighlightingOnLoad();
+              $('pre code').each(function(i, block) {
+                hljs.highlightBlock(block);
+                $(this).html("<ol><li>" + $(this).html().replace(/\n/g,"\n</li><li>") +"\n</li></ol>");
+              });
+            });
+        </script>
 @endsection

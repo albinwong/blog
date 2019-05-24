@@ -31,7 +31,7 @@ class HomeController extends Controller
     public function index()
     {
         $articles = Posts::select('id', 'title', 'cate_id', 'content_html_code', 'page_view', 'created_at')->where('publish_status', 'published')->orderby('created_at', 'desc')->paginate(10);
-        $filing = DB::table('posts')->select(DB::raw('count(id) as num, year(created_at) as year, month(created_at) as month'))->where('publish_status', 'published')->groupBy('year', 'month')->get();
+        $filing = Posts::select(DB::raw('count(id) as num, year(created_at) as year, month(created_at) as month'))->where('publish_status', 'published')->groupBy('year', 'month')->get();
         $cate = Posts::where('publish_status', 'published')->groupBy('cate_id')->get([
             DB::raw('cate_id as id'),
             DB::raw('COUNT(*) as value')
@@ -47,6 +47,7 @@ class HomeController extends Controller
     public function single($pid = 0)
     {
         $pid = count(Hashids::connection('recommend')->decode($pid)) ? Hashids::connection('recommend')->decode($pid)[0] : abort(404);
+        // DB::connection()->enableQueryLog();  // 开启QueryLog
         $data = Posts::where('publish_status', 'published')->findOrFail($pid);
         $data->page_view += 1;
         $data->save();
@@ -54,6 +55,7 @@ class HomeController extends Controller
         $tags = array_column($tags, 'tid');
         $tags = Types::select('id', 'name')->where('status', 1)->whereIn('id', $tags)->get();
         $sidebar = 'archive';
+        // dump(DB::getQueryLog());
         return view('exclusive/single', compact('data', 'sidebar', 'tags'));
     }
 

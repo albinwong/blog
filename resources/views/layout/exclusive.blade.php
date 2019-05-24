@@ -224,7 +224,7 @@
         <!-- End of Footer -->
         <a href="#top" id="scroll-top"></a>
         <!-- script -->
-        <script type='text/javascript' src="{{env('APP_CDN')}}/exclusive/js/jquery-2.1.1.js"></script>
+        <script type="text/javascript" src="{{env('APP_CDN')}}/exclusive/js/jquery-2.1.1.js"></script>
         <script src="{{env('APP_CDN')}}/exclusive/js/subscribe.js"></script>
         <script src="{{env('APP_CDN')}}/exclusive/js/analytics.js"></script>
         <script src="{{env('APP_CDN')}}/js/layer/layer.js"></script>

@@ -5,6 +5,11 @@
         <meta property="og:description" content="Albin Wong`s Blog 个人博客网站是一个关注技术架构、互联网、运维、数据库、前端、后端、区块链、资讯等技术信息博客, 提供博主学习成果和工作中经验总结，是一个互联网从业者值得收藏的网站。独自穿越人群看着两岸的灯火,其实所有漂泊的人,不过是为了有一天能够不再漂泊,能用自己的力量撑起天空." />
         <meta property="twitter:description" content="Albin Wong`s Blog 个人博客网站是一个关注技术架构、互联网、运维、数据库、前端、后端、区块链、资讯等技术信息博客, 提供博主学习成果和工作中经验总结，是一个互联网从业者值得收藏的网站。独自穿越人群看着两岸的灯火,其实所有漂泊的人,不过是为了有一天能够不再漂泊,能用自己的力量撑起天空.">
 @endsection
+@section('css')
+        <link href="{{env('APP_CDN')}}/calender/fullcalendar.css" rel="stylesheet" />
+        <link href="{{env('APP_CDN')}}/calender/fullcalendar.print.css" rel="stylesheet" media="print" />
+        <link href="{{env('APP_CDN')}}/calender/calender.css" rel="stylesheet" media="print" />
+@endsection
 @section('content')
 <div class="div" style="margin-top: 30px;"></div>
 <div class="row">
@@ -28,7 +33,7 @@
                     <span class="pv-count">{{$v['page_view']}}</span>
                 </div>
             </header>
-        	@if(false)
+            @if(false)
             <a href="#" title="Using Images">
                 <img width="770" height="501" src="/exclusive/images/temp/living-room-770x501.jpg" class="attachment-std-thumbnail wp-post-image" alt="Living room">
             </a>
@@ -52,10 +57,11 @@
     <!-- end of page content -->
     <!-- start of sidebar -->
     <aside class="span4 page-sidebar">
-        <!-- <section class="widget">
-            <div class="support-widget">
-                <h3 class="title">Support</h3>
-                <p class="intro">Need more support? If you did not found an answer, contact us for further help.</p></div>
+        <section class="widget">
+            <div id="wrap">
+                <div id="calendar"></div>
+                <div style="clear:both"></div>
+            </div>
         </section>
         <section class="widget" style="display: none;">
             <h3 class="title">Featured Articles</h3>
@@ -87,17 +93,15 @@
                     <span class="like-count">6</span>
                 </li>
             </ul>
-        </section> -->
+        </section>
         <section class="widget">
             <h3 class="title">分类 Categories</h3>
             <ul>
 @foreach ($cateList as $clKey => $clValue)
-    @if($cates[$clKey] ?? 0)
                 <li>
                     <a href="/archive/list/{{Hashids::encode($clKey)}}.html" title="{{$clValue}}">{{$clValue}}</a>
                     <span>({{$cates[$clKey] ?? 0}})</span>
                 </li>
-    @endif
 @endforeach
             </ul>
         </section>
@@ -127,4 +131,7 @@
         <script type='text/javascript' src="{{env('APP_CDN')}}/exclusive/js/jquery.easing.1.34e44.js"></script>
         <script type='text/javascript' src="{{env('APP_CDN')}}/exclusive/js/jquery.formd471.js"></script>
         <script type='text/javascript' src="{{env('APP_CDN')}}/exclusive/js/jquery.validate.minfc6b.js"></script>
+        <script src="{{env('APP_CDN')}}/calender/jquery/jquery-ui.custom.min.js"></script>
+        <script src="{{env('APP_CDN')}}/calender/fullcalendar.js"></script>
+        <script src="{{env('APP_CDN')}}/calender/applycalendar.js"></script>
 @endsection

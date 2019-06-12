@@ -50,6 +50,17 @@
                 word-break: break-all;
                 word-wrap: break-word;
             }
+            table,table tr th, table tr td {
+                border:1px solid #E6E6E6;
+            }
+            table th, table td {
+                border: 1px solid #E6E6E6;
+                padding: 5px 8px;
+                word-break: normal;
+            }
+            table th {
+                background: #F3F3F3;
+            }
         </style>
 @endsection
 @section('content')

@@ -6,7 +6,7 @@
           width:500px;
           height:234px;
           margin:10px auto 80px;
-          background:url("//albinwongcdn.oss-cn-beijing.aliyuncs.com/blog/exclusive/images/404.jpg") no-repeat;
+          background:url("//albinwongcdn.oss-cn-beijing.aliyuncs.com/exclusive/images/404.jpg") no-repeat;
         }
         .txtbg404 {
           width:499px;

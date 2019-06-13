@@ -95,7 +95,14 @@ class HomeController extends Controller
         $articles = $articles->orderby('created_at', 'desc')->paginate(10);
         $cateList = $this->cateList;
         $filing = Posts::select(DB::raw('count(id) as num, year(created_at) as year, month(created_at) as month'))->where('publish_status', 'published')->groupBy('year', 'month')->get();
-        return view('exclusive/archive', compact('sidebar', 'articles', 'cateName', 'cateList', 'filing'));
+        $cate = Posts::where('publish_status', 'published')->groupBy('cate_id')->get([
+            DB::raw('cate_id as id'),
+            DB::raw('COUNT(*) as value')
+        ]);
+        foreach ($cate as $value) {
+            $cates[$value['id']] = $value['value'];
+        }
+        return view('exclusive/archive', compact('sidebar', 'articles', 'cateName', 'cateList', 'filing', 'cates'));
     }
 
     public function digiccy()

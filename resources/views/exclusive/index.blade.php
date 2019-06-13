@@ -125,12 +125,10 @@
     </aside>
     <!-- end of sidebar -->
 </div>
-<!-- </div> -->
 @endsection
 @section('js')
-        <!-- <script type='text/javascript' src="{{env('APP_CDN')}}/exclusive/js/jquery.easing.1.34e44.js"></script> -->
-        <script type='text/javascript' src="{{env('APP_CDN')}}/exclusive/js/jquery.formd471.js"></script>
-        <script type='text/javascript' src="{{env('APP_CDN')}}/exclusive/js/jquery.validate.minfc6b.js"></script>
+        <script type="text/javascript" src="{{env('APP_CDN')}}/exclusive/js/jquery.formd471.js"></script>
+        <script type="text/javascript" src="{{env('APP_CDN')}}/exclusive/js/jquery.validate.minfc6b.js"></script>
         <script src="{{env('APP_CDN')}}/calender/jquery/jquery-ui.custom.min.js"></script>
         <script src="{{env('APP_CDN')}}/calender/fullcalendar.js"></script>
         <script src="{{env('APP_CDN')}}/calender/applycalendar.js"></script>

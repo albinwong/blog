@@ -155,7 +155,7 @@
                             <h3 class="title">最新文章</h3>
                             <ul>
 @foreach($article as $articleValue)
-                                <li><a href="/{{Hashids::connection('recommend')->encode($articleValue['id'])}}.html" title="{{$articleValue['title']}}" target="_blank">{{$articleValue['title']}}</a></li>
+                                <li style="width: 300px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;"><a href="/{{Hashids::connection('recommend')->encode($articleValue['id'])}}.html" title="{{$articleValue['title']}}" target="_blank">{{$articleValue['title']}}</a></li>
 @endforeach
                             </ul>
                         </section>

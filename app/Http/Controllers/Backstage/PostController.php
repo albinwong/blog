@@ -104,9 +104,10 @@ class PostController extends Controller
         if ($request->ajax() && $request->input('_token') == csrf_token()) {
             $data = Posts::findOrFail($pid);
             if (Posts::destroy($data->id)) {
-                return response()->json(['status'=>true,'msg'=>'标签删除成功!']);
+                PostTagRelation::where('pid', $pid)->delete();
+                return response()->json(['status'=>true,'msg'=>'文章删除成功!']);
             } else {
-                return response()->json(['status'=>false,'msg'=>'标签删除失败!']);
+                return response()->json(['status'=>false,'msg'=>'文章删除失败!']);
             }
         } else {
             return response()->json(['status'=>false,'msg'=>'非法请求!']);

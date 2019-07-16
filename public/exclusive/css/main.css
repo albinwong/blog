@@ -1045,9 +1045,10 @@ input[type=text].error,
   background: url(../images/twitter.png) no-repeat 0 0;
 }
 .social-nav li.weibo a {
-  font: normal normal normal 14px/1 FontAwesome;  
-  /*background: url(../images/twitter.png) no-repeat 0 0;*/
-  /*background: url(../images/twitter.png) no-repeat 0 0;*/
+  background: url(../images/weibo.png) no-repeat 0 0;
+}
+.social-nav li.github a {
+  background: url(../images/github.png) no-repeat 0 0;
 }
 .social-nav li > a:hover {
   background-position: 0 -40px;

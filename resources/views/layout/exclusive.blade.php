@@ -205,13 +205,13 @@
                                 <li class="facebook">
                                     <a target="_blank" href="https://www.facebook.com/albin.wong.3958"></a>
                                 </li>
-                                <li>
+                                <li class="weibo">
                                     <a target="_blank" href="https://weibo.com/319333577"><i class="fa fa-weibo"></i></a>
                                 </li>
                                 <li>
                                     <a href="mailto:albinwong@sina.com"><i class="fa fa-mail-forward"></i></a>
                                 </li>
-                                <li>
+                                <li class="github">
                                     <a href="https://github.com/albinwong"><i class="fa fa-github"></i></a>
                                 </li>
                             </ul>

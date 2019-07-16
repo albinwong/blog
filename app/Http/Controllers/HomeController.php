@@ -32,7 +32,7 @@ class HomeController extends Controller
     {
         // DB::connection()->enableQueryLog();  // 开启QueryLog
         $articles = Posts::select('id', 'title', 'cate_id', 'content_html_code', 'page_view', 'created_at')->where('publish_status', 'published')->orderby('created_at', 'desc')->paginate(10);
-        $filing = Posts::select(DB::raw('count(id) as num, year(created_at) as year, month(created_at) as month'))->where('publish_status', 'published')->groupBy('year', 'month')->get();
+        $filing = Posts::select(DB::raw('count(id) as num, year(created_at) as year, month(created_at) as month'))->where('publish_status', 'published')->groupBy('year', 'month')->orderby('year', 'desc')->orderby('month', 'desc')->get();
         $cate = Posts::where('publish_status', 'published')->groupBy('cate_id')->get([
             DB::raw('cate_id as id'),
             DB::raw('COUNT(*) as value')
@@ -94,7 +94,7 @@ class HomeController extends Controller
         }
         $articles = $articles->orderby('created_at', 'desc')->paginate(10);
         $cateList = $this->cateList;
-        $filing = Posts::select(DB::raw('count(id) as num, year(created_at) as year, month(created_at) as month'))->where('publish_status', 'published')->groupBy('year', 'month')->get();
+        $filing = Posts::select(DB::raw('count(id) as num, year(created_at) as year, month(created_at) as month'))->where('publish_status', 'published')->groupBy('year', 'month')->orderby('year', 'desc')->orderby('month', 'desc')->get();
         $cate = Posts::where('publish_status', 'published')->groupBy('cate_id')->get([
             DB::raw('cate_id as id'),
             DB::raw('COUNT(*) as value')

@@ -35,9 +35,9 @@ class CommonController extends Controller
         $data['token'] = sha1(time().$data['email']);
         $result = Subscribe::create($data);
         if ($result) {
-            return response()->json(['status' => true, 'msg' => '订阅成功']);
+            return response()->json(['status' => true, 'msg' => 'Subscribe Success']);
         } else {
-            return response()->json(['status' => false, 'msg' => '订阅失败！']);
+            return response()->json(['status' => false, 'msg' => 'Subscribe Error']);
         }
     }
 
@@ -52,9 +52,9 @@ class CommonController extends Controller
         $data = $request->only(['name', 'email', 'subject', 'content']);
         $result = Contact::create($data);
         if ($result) {
-            return response()->json(['status' => true, 'msg' => '留言成功']);
+            return response()->json(['status' => true, 'msg' => 'Ok']);
         } else {
-            return response()->json(['status' => false, 'msg' => '留言失败！']);
+            return response()->json(['status' => false, 'msg' => 'Fail!']);
         }
     }
 }

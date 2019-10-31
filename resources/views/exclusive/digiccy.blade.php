@@ -39,12 +39,12 @@
       "enable_publishing": false,
       "allow_symbol_change": true,
       "details": false,
-      "watchlist": [
-        "HUOBI:BTCUSDT",
-        "HUOBI:ETHUSDT",
-        "HUOBI:EOSUSDT",
-        "HUOBI:LTCUSDT",
-      ],
+      // "watchlist": [
+      //   "HUOBI:BTCUSDT",
+      //   "HUOBI:ETHUSDT",
+      //   "HUOBI:EOSUSDT",
+      //   "HUOBI:LTCUSDT",
+      // ],
       "container_id": "tradingview_24a66"
     });
     </script>

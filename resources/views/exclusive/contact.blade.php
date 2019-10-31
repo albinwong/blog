@@ -24,7 +24,7 @@
                               90 Guangmao St,<br>
                               Daxing distinct, Peking<br>
                               China<br>
-                              <abbr title="Phone">P:</abbr> <a href="tel:+008616601119376">(86) 166-0111-9376</a>
+                              <!-- <abbr title="Phone">P:</abbr> <a href="tel:+008616601119376">(86) 166-0111-9376</a> -->
                             </address>
 
                             <address>

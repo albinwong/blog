@@ -79,7 +79,7 @@
                     </li>
                     <li class="active">{{$data->title}}</li>
                 </ul>
-                <article class=" type-post format-standard hentry clearfix">
+                <article class="type-post format-standard hentry clearfix">
                     <h1 class="post-title">
                         <a href="#">{{$data->title}}</a></h1>
                     <div class="post-meta clearfix">
@@ -224,6 +224,7 @@
                 hljs.highlightBlock(block);
                 $(this).html("<ol><li>" + $(this).html().replace(/\n/g,"\n</li><li>") +"\n</li></ol>");
               });
+
             });
         </script>
 @endsection

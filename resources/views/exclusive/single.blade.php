@@ -13,7 +13,8 @@
         '计算机理论与基础',
         '其他',
     ];
-    $description = mb_substr(str_replace("\n", "", strip_tags($data->content_html_code)), 0, 120, "utf-8");
+    $description = str_replace('[TOC]', '', $data->content_html_code);
+    $description = mb_substr(str_replace("\n", "", strip_tags($description)), 0, 120, "utf-8");
     ?>
 @extends('layout.exclusive',['title' => $data->title.' - '.$category[$data->cate_id].' - Albin Wong`s Blog'])
 @section('seo')
@@ -24,8 +25,11 @@
 @endsection
 @section('css')
         <link rel="stylesheet" href="{{env('APP_CDN')}}/highlight/styles/default.css">
+
+<link rel="stylesheet" type="text/css" href="/editor/css/editormd.min.css" />
+<link rel="stylesheet" href="/editor/css/editormd.css" />
         <style>
-            .hljs {
+            /*.hljs {
                 border: 0;
                 font-size: 12px;
                 background: #eee !important;
@@ -49,9 +53,9 @@
                 line-height: 14px;
                 word-break: break-all;
                 word-wrap: break-word;
-            }
+            }*/
             table,table tr th, table tr td {
-                border:1px solid #E6E6E6;
+                border:1px solid #FFF;
             }
             table th, table td {
                 border: 1px solid #E6E6E6;
@@ -61,10 +65,16 @@
             table th {
                 background: #F3F3F3;
             }
+            .editormd-html-preview {
+                padding: 0;
+                margin:0;
+                border-width: 0;
+                height: 100%;
+            }
         </style>
 @endsection
 @section('content')
-<div class="page-container">
+<!-- <div class="page-container"> -->
     <div class="container">
         <div class="row">
             <!-- start of page content -->
@@ -79,7 +89,7 @@
                     </li>
                     <li class="active">{{$data->title}}</li>
                 </ul>
-                <article class="type-post format-standard hentry clearfix">
+                <article class=" type-post format-standard hentry clearfix">
                     <h1 class="post-title">
                         <a href="#">{{$data->title}}</a></h1>
                     <div class="post-meta clearfix">
@@ -92,14 +102,15 @@
                             <a href="#" title="">0</a>
                         </span> -->
                         <span class="pv-count">{{$data->page_view}}</span></div>
-
                     <?php if ($data->intro) : ?>
                         <blockquote>
                             {!!$data->intro!!}
                         </blockquote>
                     <?php endif; ?>
                     <!-- end of post meta -->
-                    {!!$data->content_html_code!!}
+                    <div id="editormd" class="editormd" style="border:0; ">
+                        <textarea style="display:none;" name="editormd-markdown-doc">{!!$data->content!!}</textarea>
+                    </div>
                 </article>
                 <div class="like-btn">
                     <span class="tags">
@@ -212,19 +223,41 @@
                 <!-- end of comments --></div>
             <!-- end of page content -->
         </div>
-    </div>
-</div>
+    <!-- </div> -->
+<!-- </div> -->
 @endsection
 @section('js')
         <script src="{{env('APP_CDN')}}/highlight/highlight.pack.js"></script>
+        <script src="{{env('APP_CDN')}}/editor/lib/marked.min.js"></script>
+        <script src="{{env('APP_CDN')}}/editor/lib/prettify.min.js"></script>
+        <script src="{{env('APP_CDN')}}/editor/lib/raphael.min.js"></script>
+        <script src="{{env('APP_CDN')}}/editor/lib/underscore.min.js"></script>
+        <script src="{{env('APP_CDN')}}/editor/lib/sequence-diagram.min.js"></script>
+        <script src="{{env('APP_CDN')}}/editor/lib/flowchart.min.js"></script>
+        <script src="{{env('APP_CDN')}}/editor/lib/jquery.flowchart.min.js"></script>
+        <script src="{{env('APP_CDN')}}/editor/editormd.min.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
-            hljs.initHighlightingOnLoad();
-              $('pre code').each(function(i, block) {
-                hljs.highlightBlock(block);
-                $(this).html("<ol><li>" + $(this).html().replace(/\n/g,"\n</li><li>") +"\n</li></ol>");
-              });
+                hljs.initHighlightingOnLoad();
+                    $('pre code').each(function(i, block) {
+                        hljs.highlightBlock(block);
+                        $(this).html("<ol><li>" + $(this).html().replace(/\n/g,"\n</li><li>") +"\n</li></ol>");
+                    });
 
-            });
+                    editormd.markdownToHTML("editormd", {
+                        height: 100,
+                        htmlDecode      : "style,script,iframe",  // you can filter tags decode
+                        emoji           : true,
+                        taskList        : false,
+                        tex             : true,  // 默认不解析
+                        flowChart       : true,  // 默认不解析
+                        sequenceDiagram : true,  // 默认不解析
+                        tocm : false,//菜单
+                        tocContainer : "",
+                        tocDropdown   : true,
+                        emoji : true,
+                    });
+
+                })
         </script>
 @endsection

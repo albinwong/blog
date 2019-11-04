@@ -43,7 +43,11 @@
                 </div>
             </div>
             @endif
-            <p>{{mb_substr(strip_tags($v['content_html_code']), 0, 200, 'utf-8')}}... </p>
+            <?php 
+                $intro = str_replace('[TOC]', '', $v->content_html_code);
+                $intro = mb_substr(str_replace("\n", "", strip_tags($intro)), 0, 200, "utf-8");
+            ?>
+            <p>{{$intro}}... </p>
             <p>
                 <a class="readmore-link" href="/{{Hashids::connection('recommend')->encode($v['id'])}}.html">Read more</a>
             </p>

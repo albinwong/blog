@@ -36,6 +36,7 @@ blockquote p {
   background-color: #3b4348;
   width: 100%;
   height: auto;
+  margin-top: 10px;
 }
 .header-wrapper .container {
   position: relative;
@@ -219,14 +220,16 @@ form.search-form input.search-btn:hover {
 }
 
 /* Page - Container --------------------------------------------------------------------------------------------------*/
+@media (min-width: 979px){
 .page-container {
   width: 100%;
+  margin-top: 30px;
 }
 .page-container > .container {
   padding: 40px 35px;
   background-color: #fff;
 }
-
+}
 .breadcrumb {
   margin-bottom: 10px;
   background-color: #fcfcfc;
@@ -679,8 +682,8 @@ ul.articles li.article-entry:last-child {
   line-height: 30px;
 }
 .hentry.type-post h1.post-title {
-  font-size: 26px;
-  line-height: 36px;
+  font-size: 22px;
+  line-height: 32px;
   background-position: 0 6px;
 }
 .hentry.type-post h1.post-title a {

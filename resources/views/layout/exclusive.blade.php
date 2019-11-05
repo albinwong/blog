@@ -109,7 +109,6 @@
             </header>
         </div>
         <!-- End of Header -->
-        <div class="div" style="margin-top: 50px;"></div>
         <!-- Start of Search Wrapper -->
         <!-- <div class="search-area-wrapper">
             <div class="search-area container">
@@ -127,7 +126,7 @@
         <!-- Start of Page Container -->
         <div class="page-container">
             <div class="container">
-                @yield('content')
+            @yield('content')
             </div>
         </div>
         <!-- End of Page Container -->
@@ -223,13 +222,13 @@
         </footer>
         <!-- End of Footer -->
         <a href="#top" id="scroll-top"></a>
-        <!-- script -->
-        <script type="text/javascript" src="{{env('APP_CDN')}}/exclusive/js/jquery-2.1.1.js"></script>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137037174-1"></script>
-        <script src="{{env('APP_CDN')}}/exclusive/js/subscribe.js"></script>
-        <script src="{{env('APP_CDN')}}/exclusive/js/analytics.js"></script>
-        <script src="{{env('APP_CDN')}}/js/layer/layer.js"></script>
-        <script src="{{env('APP_CDN')}}/exclusive/js/custom.js"></script>
-@yield('js')
     </body>
+    <!-- script -->
+    <script type="text/javascript" src="{{env('APP_CDN')}}/exclusive/js/jquery-2.1.1.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137037174-1"></script>
+    <script async src="{{env('APP_CDN')}}/exclusive/js/subscribe.js"></script>
+    <script src="{{env('APP_CDN')}}/exclusive/js/analytics.js"></script>
+    <script src="{{env('APP_CDN')}}/js/layer/layer.js"></script>
+    <script src="{{env('APP_CDN')}}/exclusive/js/custom.js"></script>
+@yield('js')
 </html>

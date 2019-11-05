@@ -11,7 +11,7 @@
         <link href="{{env('APP_CDN')}}/calender/calender.css" rel="stylesheet" media="print" />
 @endsection
 @section('content')
-<div class="page-container">
+<!-- <div class="page-container"> -->
     <div class="container">
         <div class="row">
             <!-- start of page content -->
@@ -153,10 +153,10 @@
             </ul>
         </section>
     </aside>
-</div>
+<!-- </div> -->
 @endsection
 @section('js')
-        <script src="{{env('APP_CDN')}}/calender/jquery/jquery-ui.custom.min.js"></script>
-        <script src="{{env('APP_CDN')}}/calender/fullcalendar.js"></script>
-        <script src="{{env('APP_CDN')}}/calender/applycalendar.js"></script>
+    <script src="{{env('APP_CDN')}}/calender/jquery/jquery-ui.custom.min.js"></script>
+    <script src="{{env('APP_CDN')}}/calender/fullcalendar.js"></script>
+    <script src="{{env('APP_CDN')}}/calender/applycalendar.js"></script>
 @endsection

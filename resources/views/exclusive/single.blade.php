@@ -25,11 +25,10 @@
 @endsection
 @section('css')
         <link rel="stylesheet" href="{{env('APP_CDN')}}/highlight/styles/default.css">
-
-<link rel="stylesheet" type="text/css" href="/editor/css/editormd.min.css" />
-<link rel="stylesheet" href="/editor/css/editormd.css" />
+        <link rel="stylesheet" type="text/css" href="{{env('APP_CDN')}}/editor/css/editormd.min.css" />
+        <link rel="stylesheet" href="{{env('APP_CDN')}}/editor/css/editormd.css" />
         <style>
-            /*.hljs {
+            .hljs {
                 border: 0;
                 font-size: 12px;
                 background: #eee !important;
@@ -53,7 +52,7 @@
                 line-height: 14px;
                 word-break: break-all;
                 word-wrap: break-word;
-            }*/
+            }
             table,table tr th, table tr td {
                 border:1px solid #FFF;
             }
@@ -75,7 +74,7 @@
 @endsection
 @section('content')
 <!-- <div class="page-container"> -->
-    <div class="container">
+    <!-- <div class="container"> -->
         <div class="row">
             <!-- start of page content -->
             <div class="page-content">
@@ -101,7 +100,8 @@
                         <!-- <span class="comments">
                             <a href="#" title="">0</a>
                         </span> -->
-                        <span class="pv-count">{{$data->page_view}}</span></div>
+                        <span class="pv-count">{{$data->page_view}}</span>
+                    </div>
                     <?php if ($data->intro) : ?>
                         <blockquote>
                             {!!$data->intro!!}
@@ -220,7 +220,8 @@
                         </form>
                     </div>
                 </section> 
-                <!-- end of comments --></div>
+                <!-- end of comments -->
+            </div>
             <!-- end of page content -->
         </div>
     <!-- </div> -->
@@ -243,7 +244,6 @@
                         hljs.highlightBlock(block);
                         $(this).html("<ol><li>" + $(this).html().replace(/\n/g,"\n</li><li>") +"\n</li></ol>");
                     });
-
                     editormd.markdownToHTML("editormd", {
                         height: 100,
                         htmlDecode      : "style,script,iframe",  // you can filter tags decode

@@ -28,7 +28,7 @@
         <link rel="stylesheet" type="text/css" href="{{env('APP_CDN')}}/editor/css/editormd.min.css" />
         <link rel="stylesheet" href="{{env('APP_CDN')}}/editor/css/editormd.css" />
         <style>
-            .hljs {
+            /*.hljs {
                 border: 0;
                 font-size: 12px;
                 background: #eee !important;
@@ -39,12 +39,12 @@
                 font-weight: 200;
                 color: #333;
                 white-space: pre-wrap;
-            }
-            .hljs ol {
+            }*/
+            #editormd ol {
                 list-style: decimal;
                 margin: 0px 0px 0 40px !important;
             }
-            .hljs ol li {
+            #editormd ol li {
                 list-style: decimal-leading-zero;
                 border-left: 1px dashed #FF9912 !important;
                 padding: 5px!important;

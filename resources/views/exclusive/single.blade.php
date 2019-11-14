@@ -49,7 +49,7 @@
                 border-left: 1px dashed #FF9912 !important;
                 padding: 5px!important;
                 margin: 0 !important;
-                line-height: 14px;
+                /*line-height: 14px;*/
                 word-break: break-all;
                 word-wrap: break-word;
             }
@@ -70,6 +70,7 @@
                 border-width: 0;
                 height: 100%;
             }
+            
         </style>
 @endsection
 @section('content')

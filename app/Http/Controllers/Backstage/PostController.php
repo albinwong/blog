@@ -66,11 +66,12 @@ class PostController extends Controller
                 }
             }
         } else {
-            $defaultTag = [];
+            $defaultTag = $res = [];
             if ($request->input('id')) {
                 $res = Posts::find($request->input('id'));
                 $defaultTag = PostTagRelation::where('pid', $request->input('id'))->pluck('tid')->toArray();
             }
+            // dd($res);
             $tags = Types::select('id', 'name')->where('status', 1)->orderby('id', 'asc')->get();
             return view('backstage.posts.edit', compact('res', 'tags', 'defaultTag'));
         }

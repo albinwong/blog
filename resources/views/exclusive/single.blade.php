@@ -40,11 +40,11 @@
                 color: #333;
                 white-space: pre-wrap;
             }*/
-            #editormd ol {
+            #editormd pre ol {
                 list-style: decimal;
                 margin: 0px 0px 0 40px !important;
             }
-            #editormd ol li {
+            #editormd pre ol li {
                 list-style: decimal-leading-zero;
                 border-left: 1px dashed #FF9912 !important;
                 padding: 5px!important;
@@ -248,7 +248,7 @@
                     editormd.markdownToHTML("editormd", {
                         height: 100,
                         htmlDecode      : "style,script,iframe",  // you can filter tags decode
-                        emoji           : true,
+                        emoji           : false,
                         taskList        : false,
                         tex             : true,  // 默认不解析
                         flowChart       : true,  // 默认不解析
@@ -256,7 +256,6 @@
                         tocm : false,//菜单
                         tocContainer : "",
                         tocDropdown   : true,
-                        emoji : true,
                     });
 
                 })

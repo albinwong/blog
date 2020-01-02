@@ -18,10 +18,10 @@
     ?>
 @extends('layout.exclusive',['title' => $data->title.' - '.$category[$data->cate_id].' - Albin Wong`s Blog'])
 @section('seo')
-        <meta name="keywords" content="{{$data->seo}}albin,{{$category[$data->cate_id]}},albinwong"/>
+        <meta name="keywords" content="{{$data->seo}},albin,{{$category[$data->cate_id]}},albinwong" />
         <meta name="description" content="{{$description}}">
         <meta property="og:description" content="{{$description}}" />
-        <meta property="twitter:description" content="{{$description}}...">
+        <meta property="twitter:description" content="{{$description}}..." />
 @endsection
 @section('css')
         <link rel="stylesheet" href="{{env('APP_CDN')}}/highlight/styles/default.css">

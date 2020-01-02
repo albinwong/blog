@@ -4,13 +4,14 @@
         <!-- META TAGS -->
         <meta charset="UTF-8" />
         <title>{{$title}}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="google-site-verification" content="JVIqOJwwheTUldJ-VflUIhkb7PmC_U5PPmMZBuJYD2M" />
         <meta name="baidu-site-verification" content="AYZCwj0i9n" />
-        <meta name="sogou_site_verification" content="o62AVopAMZ"/>
-        <meta name="author" content="albinwong">
-        <meta name="copyright" content="https://www.albinwong.com">
-        <meta name="revisit-after" content="1day">
+        <meta name="sogou_site_verification" content="o62AVopAMZ" />
+        <meta name="msvalidate.01" content="1B6604F318075DAFFAA6A0E8B3462066" />
+        <meta name="author" content="albinwong" />
+        <meta name="copyright" content="https://www.albinwong.com" />
+        <meta name="revisit-after" content="7 days" />
         <meta property="og:title" content="{{$title}}" />
         <meta property="og:type" content="article" />
         <meta property="og:site_name" content="albinwong.com" />
@@ -18,20 +19,20 @@
         <meta property="og:image" content="{{env('APP_CDN')}}/logo.png" /> 
         <meta property="og:image:type" content="image/jpeg" />
         <meta property="og:image:alt" content="Albin Wong" />
-        <meta property="twitter:site" content="@albinwong">
-        <meta property="twitter:creator" content="@Albin_Wong">
-        <meta property="twitter:card" content="summary">
-        <meta property="twitter:title" content="{{$title}}">
+        <meta property="twitter:site" content="@albinwong" />
+        <meta property="twitter:creator" content="@Albin_Wong" />
+        <meta property="twitter:card" content="summary" />
+        <meta property="twitter:title" content="{{$title}}" />
         <meta property="twitter:url" content="{{URL::full()}}">
         <meta property="twitter:image" content="{{env('APP_CDN')}}/logo.png" />
-        <meta property="fb:fbid" content="Ciyqxd17HD5"> 
-        <meta property="fb:app_id" content="425855268165541"> 
+        <meta property="fb:fbid" content="Ciyqxd17HD5" /> 
+        <meta property="fb:app_id" content="425855268165541" /> 
+        <meta name="_token" content="{{csrf_token()}}" />
 @yield('seo')
-        <meta name="_token" content="{{csrf_token()}}">
         <link rel="shortcut icon" href="{{env('APP_CDN')}}/favicon.ico" />
-        <link rel="stylesheet" id="bootstrap-css-css"  href="{{env('APP_CDN')}}/exclusive/css/bootstrap.css" type="text/css" media="all" />
-        <link rel="stylesheet" id="responsive-css-css"  href="{{env('APP_CDN')}}/exclusive/css/responsive.css" type="text/css" media="all" />
-        <link rel="stylesheet" id="pretty-photo-css-css"  href="{{env('APP_CDN')}}/exclusive/js/prettyphoto/prettyPhotoaeb9.css" type="text/css" media="all" />
+        <link rel="stylesheet" id="bootstrap-css-css" href="{{env('APP_CDN')}}/exclusive/css/bootstrap.css" type="text/css" media="all" />
+        <link rel="stylesheet" id="responsive-css-css" href="{{env('APP_CDN')}}/exclusive/css/responsive.css" type="text/css" media="all" />
+        <link rel="stylesheet" id="pretty-photo-css-css" href="{{env('APP_CDN')}}/exclusive/js/prettyphoto/prettyPhotoaeb9.css" type="text/css" media="all" />
         <link rel="stylesheet" id="main-css-css"  href="{{env('APP_CDN')}}/exclusive/css/main.css" type="text/css" media="all" />
 @yield('css')
     </head>
@@ -189,7 +190,7 @@
                 <div id="footer-bottom" class="container">
                     <div class="row">
                         <div class="span6">
-                            <p class="copyright">&copy; 2016-2019 Albinwong.com All Rights Reserved. <br>
+                            <p class="copyright">&copy; 2016-<?echo date('Y');?> Albinwong.com All Rights Reserved. <br>
                             <a href="http://beian.miit.gov.cn/" target="_blank" title="" style="color: #fff;">ICP证：京ICP备17026115号</a> </p>
                         </div>
                         <div class="span6">

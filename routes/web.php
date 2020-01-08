@@ -14,12 +14,14 @@ Event::listen('illuminate.query', function ($query) {
     // var_dump($query);
 });
 // Front-end Routers Group
-Route::get('/', 'HomeController@index');
-Route::get('/archive/{type}/{cid}.html', 'HomeController@archive');
-Route::get('/{id}.html', 'HomeController@single')->where('id', '\w{16}');
-Route::get('/contact', 'HomeController@contact');
+Route::get('/', 'Frontend\HomeController@index');
+Route::get('/archive/{type}/{cid}.html', 'Frontend\HomeController@archive');
+Route::get('/{id}.html', 'Frontend\HomeController@single')->where('id', '\w{16}');
+Route::get('/contact', 'Frontend\HomeController@contact');
 Route::get('/user', 'UserController@index');
-Route::get('/digiccy', 'HomeController@digiccy');
+Route::get('/digiccy', 'Frontend\HomeController@digiccy');
+Route::get('/digiccyTest', 'Frontend\HuobiController@marketHistoryKline');
+// Route::get('/dd', 'Frontend\HuobiController@dingDingSMS');
 Route::get('/404', function(){
     abort(404,'not found!!!');
 });

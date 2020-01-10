@@ -1182,7 +1182,7 @@ input[type=text].error,
 
 /* Messages Styles -----------------------------------------------------------------------------------*/
 p.error {
-  padding: 10px 20px 10px 45px;
+  padding: 10px 20px 10px 15px;
   background: #F9E5E6;
   border: 1px solid #F7C7C9;
   border-left-width: 4px;

@@ -155,7 +155,9 @@
                             <h3 class="title">最新文章</h3>
                             <ul>
 @foreach($article as $articleValue)
-                                <li style="width: 210px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;"><a href="/{{Hashids::connection('recommend')->encode($articleValue['id'])}}.html" title="{{$articleValue['title']}}" target="_blank">{{$articleValue['title']}}</a></li>
+                                <li style="width: 210px;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">
+                                    <a href="/{{Hashids::connection('recommend')->encode($articleValue['id'])}}.html" title="{{$articleValue['title']}}" target="_blank">{{$articleValue['title']}}</a>
+                                </li>
 @endforeach
                             </ul>
                         </section>
@@ -190,7 +192,7 @@
                 <div id="footer-bottom" class="container">
                     <div class="row">
                         <div class="span6">
-                            <p class="copyright">&copy; 2016-<?echo date('Y');?> Albinwong.com All Rights Reserved. <br>
+                            <p class="copyright">&copy; 2016-2020 Albinwong.com All Rights Reserved. <br>
                             <a href="http://beian.miit.gov.cn/" target="_blank" title="" style="color: #fff;">ICP证：京ICP备17026115号</a> </p>
                         </div>
                         <div class="span6">

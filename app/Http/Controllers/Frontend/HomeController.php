@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Model\Posts;
 use App\Model\Types;
 use App\Model\PostTagRelation;
+use App\Model\ListAllCryptocurrencies;
 
 use Hashids;
 use DB;
@@ -109,11 +110,7 @@ class HomeController extends Controller
     public function digiccy()
     {
         $sidebar = 'digiccy';
-        $huobi = new HuobiController;
-        $result = $huobi->marketHistoryKline();
-        // $data = json_decode($result->getContent(),true);
-        $data = $result;
-        return view('exclusive/digiccy', compact('sidebar', 'data'));
+        $coins = ListAllCryptocurrencies::leftJoin('cryptocompare_coin_list', 'list_all_cryptocurrencies.symbol', '=', 'cryptocompare_coin_list.Symbol')->orderBy('list_all_cryptocurrencies.cmc_rank', 'asc')->select('list_all_cryptocurrencies.cmc_rank', 'list_all_cryptocurrencies.symbol', 'list_all_cryptocurrencies.name', 'list_all_cryptocurrencies.total_supply', 'cryptocompare_coin_list.ImageUrl')->get();
+        return view('exclusive/digiccy', compact('sidebar', 'coins'));
     }
-
 }

@@ -3,63 +3,148 @@
         @include('layout.meta')
         <meta name="keywords" content="比特币,albin,数字货币行情,Back-End Engineer" />
 @endsection
+@section('css')
+<style>
+.panel-body .table.table-coins.mt {
+    margin-top: 5px;
+}
+.table.table-coins {
+    background: #FFF;
+    width: 100%;
+    font-size: 16px;
+    color: #121212;
+    border-bottom: 1px solid #c5cedb;
+    border-collapse: separate;
+    margin-bottom: 0;
+}
+.table.table-coins>thead>tr>th {
+    color: #333;
+    padding: 5px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    font-weight: bold;
+    /*border-bottom: 1px solid #00d665;*/
+    font-size: 13px;
+}
+.table.table-coins>tbody>tr>td.place {
+    color: #97a4b5;
+    font-weight: bold;
+    text-align: center;
+    width: 10px;
+    border-right: 1px solid #DDD;
+    padding-right: 5px;
+}
+thead tr>th {
+  border-bottom: 3px double black;
+}
+.text-center {
+  text-align: center;
+}
+.table.table-coins>thead>tr>th.volume {
+    text-align: left;
+    width: 140px;
+    min-width: 140px;
+}
+.table.table-coins>thead>tr>th.full-volume {
+    text-align: left;
+    width: 140px;
+    min-width: 140px;
+}
+.table.table-coins>tbody>tr>td.thumb {
+    width: 30px;
+    line-height: 30px;
+    height: 30px;
+    text-align: center;
+}
+.table.table-coins>tbody>tr>td.thumb img {
+    width: 25px;
+}
+.table.table-coins>tbody>tr>td.name {
+    width: 50px;
+    max-width: 50px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+}
+.table.table-coins>tbody>tr>td {
+    vertical-align: middle;
+    text-align: left;
+    border-right: 1px solid #f5f5f5;
+    position: relative;
+}
+.table.table-coins>tbody>tr>td.price, .table.table-coins>tbody>tr>th.price {
+    width: 160px;
+    min-width: 160px;
+    max-width: 160px;
+}
+</style>
+@endsection
 @section('content')
 <!-- Start of Page Container -->
-    <div class="row">
-      <div class="span12 page-content">
-        <article class="type-page hentry clearfix">
-          <h1 class="post-title"><a href="#">行情数据</a></h1>
-          <hr>
-          <p class="error">风险提示及免责声明：本站所提供的行情数据与信息仅供参考，均不作为投资依据。投资有风险，入市需谨慎!<span id="riskTip" style="float:right;">X</span></p>
-          <h3>BTC OHLCV</h3>
-          <!-- <ul class="tabs-nav">
-              <li class="active" style=""><a href="#">First Tab</a></li>
-              <li><a href="#">Second Tab</a></li>
-              <li><a href="#">Third Tab</a></li>
-          </ul>
-          <div class="tabs-container">
-            <div class="tab-content">First lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</div>
-            <div class="tab-content">Second lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</div>
-            <div class="tab-content">Third lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</div>
-          </div> -->
-
-          <!-- <h3>Accordion</h3>
-          <dl class="accordion clearfix">
-            <dt><span></span>First Accordion Item</dt>
-            <dd>Although starting a prototype on a is sometimes easi problem-solve. When you need to ideate website prototype on a is sometimes easier, it’s not the best When you or to storyboard context Although starting a prototype on a is sometimes easi problem- solve. When you need to ideate website …</dd>
-
-            <dt><span></span>Second Accordion Item</dt>
-            <dd>Although starting a prototype on a is sometimes easi problem-solve. When you need to ideate website prototype on a is sometimes easier, it’s not the best When you or to storyboard context Although starting a prototype on a is sometimes easi problem- solve. When you need to ideate website …</dd>
-
-            <dt><span></span>Third Accordion Item</dt>
-            <dd>Although starting a prototype on a is sometimes easi problem-solve. When you need to ideate website prototype on a is sometimes easier, it’s not the best When you or to storyboard context Although starting a prototype on a is sometimes easi problem- solve. When you need to ideate website …</dd>
-          </dl>
-
-          <h3>Toggles</h3>
-          <dl class="toggle clearfix">
-            <dt><span></span>First Accordion Item</dt>
-            <dd>Although starting a prototype on a is sometimes easi problem-solve. When you need to ideate website prototype on a is sometimes easier, it’s not the best When you or to storyboard context Although starting a prototype on a is sometimes easi problem- solve. When you need to ideate website …</dd>
-
-            <dt><span></span>Second Accordion Item</dt>
-            <dd>Although starting a prototype on a is sometimes easi problem-solve. When you need to ideate website prototype on a is sometimes easier, it’s not the best When you or to storyboard context Although starting a prototype on a is sometimes easi problem- solve. When you need to ideate website …</dd>
-
-            <dt><span></span>Third Accordion Item</dt>
-            <dd>Although starting a prototype on a is sometimes easi problem-solve. When you need to ideate website prototype on a is sometimes easier, it’s not the best When you or to storyboard context Although starting a prototype on a is sometimes easi problem- solve. When you need to ideate website …</dd>
-          </dl>
-
-          <h3>Blockquote</h3>
-          <blockquote>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-          </blockquote>
-
-          <h3>Messages</h3>
-          <p class="error">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-          <p class="success">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-          <p class="info">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
-          <p class="notice">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p> -->
-       </article>
+    <div class="row" style="">
+      <h2 class="post-title">行情数据</h2>
+      <hr>
+      <p class="error">风险提示及免责声明：本站所提供的行情数据与信息仅供参考，均不作为投资依据。投资有风险，入市需谨慎!<span id="riskTip" style="float:right;">X</span></p>
+      <div class="span8 page_content">
+        <ul class="tabs-nav">
+          <li class="active" style=""><a href="#">币种 Coins</a></li>
+          <li><a href="#">交易所平台</a></li>
+        </ul>
+        <div class="tabs-container">
+          <div class="tab-content panel-body" style="display: block;">
+            <table class="table table-coins table-hover table-homepage mt" border="0" cellpadding="1" cellspacing="1" style="width: 100%; border-collapse: collapse">
+              <thead>
+                <tr>
+                  <th class="place text-center">#</th>
+                  <th class="thumb" style="text-align: center" colspan="2">币名</th>
+                  <th class="price text-center">市值</th>
+                  <th class="volume">价格</th>
+                  <th class="full-volume">流通数量</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($coins as $key => $value) : ?>
+                <tr>
+                  <td class="place" style="vertical-align: center;">{{$value['cmc_rank']}}</td> 
+                  <td class="thumb" style="border-right: none;">
+                    <img style="border-width: inherit;width: 100%;" src="{{$value['ImageUrl']}}" alt="">
+                  </td>
+                  <td class="name" style="border-right: 1px solid #DDD;">
+                      {{$value['symbol']}} <br>
+                      <i style="font-style: normal; font-size: 12px;" class="ng-binding">{{$value['name']}}</i>
+                  </td>
+                  <td class="price" style="border-right: 1px solid #DDD;">{{$value['total_supply']}}</td>
+                  <td class="volume">{{$value['total_supply']}}</td>
+                  <td class="full-volume">{{$value['total_supply']}}</td>
+                </tr>
+                <?php endforeach; ?>
+                <tr>
+                   <td>&nbsp;</td>
+                   <td>&nbsp;</td>
+                   <td>&nbsp;</td>
+                   <td>&nbsp;</td>
+                   <td>&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="tab-content" style="display: none;">...</div>
+          <!-- <div class="tab-content" style="display: none;">Third lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</div> -->
+        </div>
       </div>
-      <div class="span12 page-content" id="main" style="height: 880px;">111</div> 
+
+      <aside class="span4 page-sidebar">
+       <section class="widget" id="main" style="height: 330px;">
+         贪婪指数
+       </section>
+       <section class="widget">
+         涨跌排行榜
+       </section>
+      </aside>
+      <!-- <div class="span12 page-content" id="main" style="height: 880px;">111</div>  -->
     </div>
 <!-- End of Page Container -->
 @endsection

@@ -16,6 +16,7 @@ class HuobiController extends Controller
 {
     private $huobiClient;
     private $CMCClient;
+    protected $_notice;
 
     private $huobiClientEndpoint = 'https://api.huobi.io';
     private $CMCEndpoint = 'https://pro-api.coinmarketcap.com';
@@ -27,6 +28,7 @@ class HuobiController extends Controller
     {
         $this->huobiClient = new Client(['base_uri' => $this->huobiClientEndpoint]);
         $this->CMCClient = new Client(['base_uri' => $this->CMCEndpoint]);
+        $this->_notice = new \App\Http\Controllers\CommonController;
     }
 
     public function marketHistoryKline($uri = '/market/history/kline')
@@ -43,7 +45,7 @@ class HuobiController extends Controller
             $data = json_decode($data, true);
         } catch (Exception $e) {
             if ($e->getCode() != 200) {
-                $this->dingDingSMS($e->getMessage());
+                $this->_notice->dingDingSMS($e->getMessage());
             } else {
                 return false;
             }
@@ -51,30 +53,9 @@ class HuobiController extends Controller
         if ($data['status'] == 'ok') {
             return response()->json(['status' => 'success', 'data' => $data['data']]);
         } else {
-            $this->dingDingSMS('Huobi Market History Kline: '.$data['err-msg']);
+            $this->_notice->dingDingSMS('Huobi Market History Kline: '.$data['err-msg']);
             return response()->json(['status' => 'fail', 'msg' => $data['err-msg']]);
         }
-    }
-
-    public function dingDingSMS($msg = '數據測試')
-    {
-        $webhook = "https://oapi.dingtalk.com";
-        $param = [
-            'msgtype' => 'text',
-            'text' => ['content' => $msg],
-            "at" => [
-                "atMobiles" => ["18523977693", "16601119376"],
-                "isAtAll" => false,
-            ],
-        ];
-        $ddClient = new Client(['base_uri' => $webhook]);
-        $methodToken = '/robot/send?access_token='.env('DDTALK_ROBOT_TOKEN');
-        
-        $res = $ddClient->request('POST', $methodToken, ['json' => $param]);
-        if ($res->getStatusCode() == 200) {
-            return true;
-        }
-        return false;
     }
 
     public function listAllCryptoCurrencies()
@@ -93,9 +74,9 @@ class HuobiController extends Controller
             $res = json_decode($res, true);
         } catch (Exception $e) {
             if ($e->getCode() != 200) {
-                $this->dingDingSMS('[CoinmarketCap] Attention, '.$e->getMessage());
+                $this->_notice->dingDingSMS('[CoinmarketCap] Attention, '.$e->getMessage());
             } else {
-                $this->dingDingSMS('[CoinmarketCap] Attention, Request Cryptocurrency Listings Lastest Data Error!');
+                $this->_notice->dingDingSMS('[CoinmarketCap] Attention, Request Cryptocurrency Listings Lastest Data Error!');
             }
         }
         if ($res['status']['error_code'] == '0' && count($res['data'])) {
@@ -119,9 +100,9 @@ class HuobiController extends Controller
                 ];
                 ListAllCryptocurrencies::updateOrInsert(['cid' => $value['id']], $result);
             }
-            $this->dingDingSMS('Coinmarketcap List All Cryptocurrencies Sync Success ');
+            $this->_notice->dingDingSMS('Coinmarketcap List All Cryptocurrencies Sync Success ');
         } else {
-            $this->dingDingSMS('Oops, Coinmarketcap List All Cryptocurrencies Got Some Errors ');
+            $this->_notice->dingDingSMS('Oops, Coinmarketcap List All Cryptocurrencies Got Some Errors ');
         }
     }
 }

@@ -81,6 +81,11 @@ thead tr>th {
     min-width: 160px;
     max-width: 160px;
 }
+canvas {
+    display: block;
+            margin: 0 auto;
+            /*border:1px solid red;*/
+}
 </style>
 @endsection
 @section('content')
@@ -145,14 +150,18 @@ thead tr>th {
       </div>
 
       <aside class="span4 page-sidebar">
-        <h3 class="post-title">贪婪指数</h3>
-        <canvas id="board" height="150"></canvas>
-       <section style="text-align: center;margin-left: -50px;"   class="widget" id="main">
-            今日贪婪指数：49
-       </section>
-       <section class="widget">
+        <div class="post-title">
+            <span style="font-size: 22.75px;font-family: inherit;font-weight: bold;line-height: 22px;color: #3b4348;text-rendering: optimizelegibility;">贪婪指数</span>
+            <span class="date" style="float: right;">更新时间：<?=date('M dS', $fgi['timestamp']);?></span>
+        </div>
+        <canvas id="board" height="150" class="widget" style="text-align: center;"></canvas>
+        <section style="text-align: center;" class="widget" id="main">
+            今日贪婪指数：<?=$fgi['value'];?>
+        </section>
+        <hr>
+        <section class="widget">
          涨跌排行榜
-       </section>
+        </section>
       </aside>
       <!-- <div class="span12 page-content" id="main" style="height: 880px;">111</div>  -->
     </div>
@@ -190,9 +199,8 @@ thead tr>th {
         };  
          
         Panel = new panel("board", panelOption); 
-        var a = 90;
-        a *= 1.8
-        Panel.init(a);
+        var fgiValue = "{{$fgi['value']}}"*1.8;
+        Panel.init(fgiValue);
     });
 
     var panel = function(id, option) {  

@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         //
         \App\Console\Commands\ListAllCryptocurrencies::class,
+        \App\Console\Commands\Alternative::class,
     ];
 
     /**
@@ -26,7 +27,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('ListAllCryptocurrencies:update')->dailyAt('08:30');
-        // $schedule->command('ListAllCryptocurrencies:update')->everyMinute();
+        $schedule->command('Alternative:crontab')->dailyAt('12:01');
     }
 
     /**

@@ -109,8 +109,10 @@ class HomeController extends Controller
 
     public function digiccy()
     {
+        $redis = app('redis')->connection('blog');
+        $fgi = json_decode($redis->get('Alternative_FGI_Index'), true);
         $sidebar = 'digiccy';
         $coins = ListAllCryptocurrencies::leftJoin('cryptocompare_coin_list', 'list_all_cryptocurrencies.symbol', '=', 'cryptocompare_coin_list.Symbol')->orderBy('list_all_cryptocurrencies.cmc_rank', 'asc')->select('list_all_cryptocurrencies.cmc_rank', 'list_all_cryptocurrencies.symbol', 'list_all_cryptocurrencies.name', 'list_all_cryptocurrencies.total_supply', 'cryptocompare_coin_list.ImageUrl')->paginate(50);
-        return view('exclusive/digiccy', compact('sidebar', 'coins'));
+        return view('exclusive/digiccy', compact('sidebar', 'coins', 'fgi'));
     }
 }

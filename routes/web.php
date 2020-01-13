@@ -21,7 +21,7 @@ Route::get('/contact', 'Frontend\HomeController@contact');
 Route::get('/user', 'UserController@index');
 Route::get('/digiccy', 'Frontend\HomeController@digiccy');
 Route::get('/digiccyTest', 'Frontend\HuobiController@marketHistoryKline');
-Route::get('/dd', 'Frontend\HuobiController@test');
+Route::get('/dd', 'Frontend\AlternativeController@fgi');
 Route::get('/404', function(){
     abort(404,'not found!!!');
 });

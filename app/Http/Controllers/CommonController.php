@@ -9,6 +9,10 @@ use App\Model\Posts;
 use App\Model\Subscribe;
 use App\Model\Contact;
 
+use Guzzle\Http\Exception\RequestException;
+use GuzzleHttp\Client;
+use Exception;
+
 class CommonController extends Controller
 {
     public static function tags()
@@ -56,5 +60,26 @@ class CommonController extends Controller
         } else {
             return response()->json(['status' => false, 'msg' => 'Fail!']);
         }
+    }
+
+    public function dingDingSMS($msg = '數據測試')
+    {
+        $webhook = "https://oapi.dingtalk.com";
+        $param = [
+            'msgtype' => 'text',
+            'text' => ['content' => $msg],
+            "at" => [
+                "atMobiles" => ["18523977693", "16601119376"],
+                "isAtAll" => false,
+            ],
+        ];
+        $ddClient = new Client(['base_uri' => $webhook]);
+        $methodToken = '/robot/send?access_token='.env('DDTALK_ROBOT_TOKEN');
+        
+        $res = $ddClient->request('POST', $methodToken, ['json' => $param]);
+        if ($res->getStatusCode() == 200) {
+            return true;
+        }
+        return false;
     }
 }

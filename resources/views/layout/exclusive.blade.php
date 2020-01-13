@@ -32,7 +32,6 @@
         <link rel="shortcut icon" href="{{env('APP_CDN')}}/favicon.ico" />
         <link rel="stylesheet" id="bootstrap-css-css" href="{{env('APP_CDN')}}/exclusive/css/bootstrap.css" type="text/css" media="all" />
         <link rel="stylesheet" id="responsive-css-css" href="{{env('APP_CDN')}}/exclusive/css/responsive.css" type="text/css" media="all" />
-        <link rel="stylesheet" id="pretty-photo-css-css" href="{{env('APP_CDN')}}/exclusive/js/prettyphoto/prettyPhotoaeb9.css" type="text/css" media="all" />
         <link rel="stylesheet" id="main-css-css"  href="{{env('APP_CDN')}}/exclusive/css/main.css" type="text/css" media="all" />
 @yield('css')
     </head>

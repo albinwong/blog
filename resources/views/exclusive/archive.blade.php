@@ -5,8 +5,6 @@
 @endsection
 @section('css')
         <link href="{{env('APP_CDN')}}/calender/fullcalendar.css" rel="stylesheet" />
-        <link href="{{env('APP_CDN')}}/calender/fullcalendar.print.css" rel="stylesheet" media="print" />
-        <link href="{{env('APP_CDN')}}/calender/calender.css" rel="stylesheet" media="print" />
 @endsection
 @section('content')
 <!-- <div class="page-container"> -->
@@ -154,7 +152,6 @@
 <!-- </div> -->
 @endsection
 @section('js')
-    <script src="{{env('APP_CDN')}}/calender/jquery/jquery-ui.custom.min.js"></script>
     <script src="{{env('APP_CDN')}}/calender/fullcalendar.js"></script>
     <script src="{{env('APP_CDN')}}/calender/applycalendar.js"></script>
 @endsection

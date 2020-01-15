@@ -111,8 +111,23 @@ class HomeController extends Controller
     {
         $redis = app('redis')->connection('blog');
         $fgi = json_decode($redis->get('Alternative_FGI_Index'), true);
+        $otc = [];
+        /*$otc = $redis->ZREVRANGE('OTC_PRICE_LISTS', 0, -1);
+        foreach ($otc as $key => $value) {
+            $otc[$key] = json_decode($value, true);
+        }*/
         $sidebar = 'digiccy';
         $coins = ListAllCryptocurrencies::leftJoin('cryptocompare_coin_list', 'list_all_cryptocurrencies.symbol', '=', 'cryptocompare_coin_list.Symbol')->orderBy('list_all_cryptocurrencies.cmc_rank', 'asc')->select('list_all_cryptocurrencies.cmc_rank', 'list_all_cryptocurrencies.symbol', 'list_all_cryptocurrencies.name', 'list_all_cryptocurrencies.total_supply', 'cryptocompare_coin_list.ImageUrl')->paginate(50);
-        return view('exclusive/digiccy', compact('sidebar', 'coins', 'fgi'));
+        return view('exclusive/digiccy', compact('sidebar', 'coins', 'fgi', 'otc'));
+    }
+
+    public function otc()
+    {
+        $redis = app('redis')->connection('blog');
+        $otc = $redis->ZREVRANGE('OTC_PRICE_LISTS', 0, -1);
+        foreach ($otc as $key => $value) {
+            $otc[$key] = json_decode($value, true);
+        }
+        return response()->json(['status' => true, 'data' => $otc]);
     }
 }

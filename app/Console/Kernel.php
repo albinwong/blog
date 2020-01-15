@@ -27,7 +27,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('ListAllCryptocurrencies:update')->dailyAt('08:30');
-        $schedule->command('Alternative:crontab')->dailyAt('12:01');
+        $schedule->command('Alternative:crontab')->dailyAt('13:01');
+        $schedule->command('huobiOTC:updated')->everyFiveMinutes();
     }
 
     /**

@@ -4,21 +4,21 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class ListAllCryptocurrencies extends Command
+class OTC extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'ListAllCryptocurrencies:update';
+    protected $signature = 'huobiOTC:updated';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Table List All Cryptocurrencies Data Daily Update';
+    protected $description = 'Huobi OTC Price Updated Crontab';
 
     /**
      * Create a new command instance.
@@ -37,8 +37,7 @@ class ListAllCryptocurrencies extends Command
      */
     public function handle()
     {
-        //
-        $Cryptocurrency = new \App\Http\Controllers\Frontend\HuobiController;
-        $Cryptocurrency->listAllCryptoCurrencies();
+        $hb = new \App\Http\Controllers\Frontend\HuobiController;
+        $hb->otcPrice();
     }
 }

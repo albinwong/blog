@@ -13,19 +13,22 @@
 Event::listen('illuminate.query', function ($query) {
     // var_dump($query);
 });
-// Front-end Routers Group
-Route::get('/', 'Frontend\HomeController@index');
-Route::get('/archive/{type}/{cid}.html', 'Frontend\HomeController@archive');
-Route::get('/{id}.html', 'Frontend\HomeController@single')->where('id', '\w{16}');
-Route::get('/contact', 'Frontend\HomeController@contact');
-Route::get('/user', 'UserController@index');
-Route::get('/digiccy', 'Frontend\HomeController@digiccy');
-Route::get('/digiccyTest', 'Frontend\HuobiController@marketHistoryKline');
-Route::get('/otc', 'Frontend\HuobiController@otcPrice');
-Route::get('/dd', 'Frontend\AlternativeController@fgi');
-Route::get('/404', function(){
-    abort(404,'not found!!!');
+    // Front-end Routers Group
+Route::group(['middleware' => ['web']], function () {
+    Route::get('/', 'Frontend\HomeController@index');
+    Route::get('/archive/{type}/{cid}.html', 'Frontend\HomeController@archive');
+    Route::get('/{id}.html', 'Frontend\HomeController@single')->where('id', '\w{16}');
+    Route::get('/contact', 'Frontend\HomeController@contact');
+    Route::get('/user', 'UserController@index');
+    Route::get('/market', 'Frontend\HomeController@market');
+    Route::get('/digiccyTest', 'Frontend\HuobiController@marketHistoryKline');
+    Route::get('/otc', 'Frontend\HuobiController@otcPrice');
+    Route::get('/ticker', 'Frontend\AlternativeController@ticker');
+    Route::get('/404', function () {
+        abort(404, 'not found!!!');
+    });
 });
+
 
 
 

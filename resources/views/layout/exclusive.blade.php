@@ -92,8 +92,8 @@
                                     </ul>
                                 </li>
                                 <!-- <li class="{!! isset($sidebar) && $sidebar == 'about' ? 'current-menu-item': '' !!}"><a href="/about">关于</a></li> -->
-                                <li class="{!! isset($sidebar) && $sidebar == 'digiccy' ? 'current-menu-item': '' !!}">
-                                    <a href="/digiccy">数字货币</a>
+                                <li class="{!! isset($sidebar) && $sidebar == 'market' ? 'current-menu-item': '' !!}">
+                                    <a href="/market">数字货币</a>
                                 </li>
                                 <li class="{!! isset($sidebar) && $sidebar == 'contact' ? 'current-menu-item': '' !!}">
                                     <a href="/contact">联系</a>
@@ -228,7 +228,7 @@
     <!-- script -->
     <script type="text/javascript" src="{{env('APP_CDN')}}/exclusive/js/jquery-2.1.1.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137037174-1"></script>
-    <script async src="{{env('APP_CDN')}}/exclusive/js/subscribe.js"></script>
+    <script async src="/exclusive/js/subscribe.js"></script>
     <script src="{{env('APP_CDN')}}/exclusive/js/analytics.js"></script>
     <script src="{{env('APP_CDN')}}/js/layer/layer.js"></script>
     <script src="{{env('APP_CDN')}}/exclusive/js/custom.js"></script>

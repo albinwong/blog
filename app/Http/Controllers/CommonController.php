@@ -34,6 +34,7 @@ class CommonController extends Controller
      */
     public function subscribe(Request $request)
     {
+        return response()->json(['csrf_token'=> csrf_token(), 're' => $request->input('_token')]);
         $data = [];
         $data['email'] = $request->input('email');
         $data['token'] = sha1(time().$data['email']);
@@ -62,7 +63,7 @@ class CommonController extends Controller
         }
     }
 
-    public function dingDingSMS($msg = '數據測試')
+    public function dingTalk($msg = '數據測試')
     {
         $webhook = "https://oapi.dingtalk.com";
         $param = [

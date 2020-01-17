@@ -9,6 +9,7 @@ use App\Model\Posts;
 use App\Model\Types;
 use App\Model\PostTagRelation;
 use App\Model\ListAllCryptocurrencies;
+use App\Model\CryptoTicker;
 
 use Hashids;
 use DB;
@@ -107,7 +108,7 @@ class HomeController extends Controller
         return view('exclusive/archive', compact('sidebar', 'articles', 'cateName', 'cateList', 'filing', 'cates'));
     }
 
-    public function digiccy()
+    public function market()
     {
         $redis = app('redis')->connection('blog');
         $fgi = json_decode($redis->get('Alternative_FGI_Index'), true);
@@ -116,18 +117,23 @@ class HomeController extends Controller
         foreach ($otc as $key => $value) {
             $otc[$key] = json_decode($value, true);
         }*/
-        $sidebar = 'digiccy';
-        $coins = ListAllCryptocurrencies::leftJoin('cryptocompare_coin_list', 'list_all_cryptocurrencies.symbol', '=', 'cryptocompare_coin_list.Symbol')->orderBy('list_all_cryptocurrencies.cmc_rank', 'asc')->select('list_all_cryptocurrencies.cmc_rank', 'list_all_cryptocurrencies.symbol', 'list_all_cryptocurrencies.name', 'list_all_cryptocurrencies.total_supply', 'cryptocompare_coin_list.ImageUrl')->paginate(50);
-        return view('exclusive/digiccy', compact('sidebar', 'coins', 'fgi', 'otc'));
+        $sidebar = 'market';
+        // $coins = ListAllCryptocurrencies::leftJoin('cryptocompare_coin_list', 'list_all_cryptocurrencies.symbol', '=', 'cryptocompare_coin_list.Symbol')->orderBy('list_all_cryptocurrencies.cmc_rank', 'asc')->select('list_all_cryptocurrencies.cmc_rank', 'list_all_cryptocurrencies.symbol', 'list_all_cryptocurrencies.name', 'list_all_cryptocurrencies.total_supply', 'cryptocompare_coin_list.ImageUrl')->paginate(50);
+        $coins = CryptoTicker::select('name', 'symbol', 'price', 'rank', 'circulating_supply', 'total_supply', 'volume_daily', 'market_cap', 'change_rate_hourly', 'change_rate_daily', 'change_rate_weekly')->orderBy('rank', 'asc')->paginate(50);
+        return view('exclusive/market', compact('sidebar', 'coins', 'fgi', 'otc'));
     }
 
-    public function otc()
+    public function otc(Request $request)
     {
-        $redis = app('redis')->connection('blog');
-        $otc = $redis->ZREVRANGE('OTC_PRICE_LISTS', 0, -1);
-        foreach ($otc as $key => $value) {
-            $otc[$key] = json_decode($value, true);
+        if ($request->ajax()) {
+            $redis = app('redis')->connection('blog');
+            $otc = $redis->ZREVRANGE('OTC_PRICE_LISTS', 0, -1);
+            foreach ($otc as $key => $value) {
+                $otc[$key] = json_decode($value, true);
+            }
+            return response()->json(['code' => 200, 'status' => true, 'data' => $otc]);
+        } else {
+            return response()->json(['code' => 401, 'status' => false, 'msg' => 'error']);
         }
-        return response()->json(['status' => true, 'data' => $otc]);
     }
 }

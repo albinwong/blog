@@ -45,7 +45,7 @@ class HuobiController extends Controller
             $data = json_decode($data, true);
         } catch (Exception $e) {
             if ($e->getCode() != 200) {
-                $this->_notice->dingDingSMS($e->getMessage());
+                $this->_notice->dingTalk($e->getMessage());
             } else {
                 return false;
             }
@@ -53,7 +53,7 @@ class HuobiController extends Controller
         if ($data['status'] == 'ok') {
             return response()->json(['status' => 'success', 'data' => $data['data']]);
         } else {
-            $this->_notice->dingDingSMS('Huobi Market History Kline: '.$data['err-msg']);
+            $this->_notice->dingTalk('Huobi Market History Kline: '.$data['err-msg']);
             return response()->json(['status' => 'fail', 'msg' => $data['err-msg']]);
         }
     }
@@ -74,9 +74,9 @@ class HuobiController extends Controller
             $res = json_decode($res, true);
         } catch (Exception $e) {
             if ($e->getCode() != 200) {
-                $this->_notice->dingDingSMS('[CoinmarketCap] Attention, '.$e->getMessage());
+                $this->_notice->dingTalk('[CoinmarketCap] Attention, '.$e->getMessage());
             } else {
-                $this->_notice->dingDingSMS('[CoinmarketCap] Attention, Request Cryptocurrency Listings Lastest Data Error!');
+                $this->_notice->dingTalk('[CoinmarketCap] Attention, Request Cryptocurrency Listings Lastest Data Error!');
             }
         }
         if ($res['status']['error_code'] == '0' && count($res['data'])) {
@@ -100,9 +100,9 @@ class HuobiController extends Controller
                 ];
                 ListAllCryptocurrencies::updateOrInsert(['cid' => $value['id']], $result);
             }
-            $this->_notice->dingDingSMS('Coinmarketcap List All Cryptocurrencies Sync Success ');
+            $this->_notice->dingTalk('Coinmarketcap List All Cryptocurrencies Sync Success ');
         } else {
-            $this->_notice->dingDingSMS('Oops, Coinmarketcap List All Cryptocurrencies Got Some Errors ');
+            $this->_notice->dingTalk('Oops, Coinmarketcap List All Cryptocurrencies Got Some Errors ');
         }
     }
 
@@ -114,7 +114,7 @@ class HuobiController extends Controller
             $res = $otcClient->request('GET', '/v1/data/ticker/price');
         } catch (Exception $e) {
             if ($e->getCode() != 200) {
-                $this->_notice->dingDingSMS('[Huobi OTC Price] Attention: '.$e->getMessage());
+                $this->_notice->dingTalk('[Huobi OTC Price] Attention: '.$e->getMessage());
             }
         }
         $res = $res->getBody()->getContents();
@@ -149,7 +149,6 @@ class HuobiController extends Controller
                     'coinImgPath'  => '/media/coins/'.strtolower($coinName).'.png',
                 ];
             }
-
             array_multisort($newOTC, SORT_DESC, SORT_NUMERIC, $valueLists);
             $redis->zcard($OTCkey) ? $redis->del($OTCkey) : '';
             foreach ($newOTC as $k => $v) {
@@ -157,4 +156,5 @@ class HuobiController extends Controller
             }
         }
     }
+
 }

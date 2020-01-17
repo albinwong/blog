@@ -16,8 +16,10 @@ use Illuminate\Http\Request;
 /*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });*/
-Route::post('/subscribe', 'CommonController@subscribe');
-Route::post('/contact', 'CommonController@contact');
-Route::post('/admin/uploadimage','Backstage\PostController@uploadimage');
-Route::post('/digiccy', 'Frontend\HuobiController@marketHistoryKline');
-Route::get('/otc', 'Frontend\HomeController@otc');
+// Route::group(['middleware' => ['web']], function(){
+	Route::post('/subscribe', 'CommonController@subscribe');
+	Route::post('/contact', 'CommonController@contact');
+	Route::post('/admin/uploadimage','Backstage\PostController@uploadimage');
+	Route::post('/market', 'Frontend\HuobiController@marketHistoryKline');
+	Route::get('/otc', 'Frontend\HomeController@otc');
+// });

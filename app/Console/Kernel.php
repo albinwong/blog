@@ -16,6 +16,8 @@ class Kernel extends ConsoleKernel
         //
         \App\Console\Commands\ListAllCryptocurrencies::class,
         \App\Console\Commands\Alternative::class,
+        \App\Console\Commands\AlterNativeTicker::class,
+        \App\Console\Commands\OTC::class,
     ];
 
     /**
@@ -29,6 +31,7 @@ class Kernel extends ConsoleKernel
         $schedule->command('ListAllCryptocurrencies:update')->dailyAt('08:30');
         $schedule->command('Alternative:crontab')->dailyAt('13:01');
         $schedule->command('huobiOTC:updated')->everyFiveMinutes();
+        $schedule->command('Alternative:ticker')->everyFiveMinutes();
     }
 
     /**

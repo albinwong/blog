@@ -21,9 +21,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/contact', 'Frontend\HomeController@contact');
     Route::get('/user', 'UserController@index');
     Route::get('/market', 'Frontend\HomeController@market');
-    Route::get('/digiccyTest', 'Frontend\HuobiController@marketHistoryKline');
-    Route::get('/otc', 'Frontend\HuobiController@otcPrice');
-    Route::get('/ticker', 'Frontend\AlternativeController@ticker');
+    Route::get('/digiccyTest', 'Cli\HuobiController@marketHistoryKline');
+    Route::get('/otc', 'Cli\HuobiController@otcPrice');
+    Route::get('/ticker', 'Cli\AlternativeController@ticker');
     Route::get('/404', function () {
         abort(404, 'not found!!!');
     });

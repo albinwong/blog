@@ -37,7 +37,7 @@ class OTC extends Command
      */
     public function handle()
     {
-        $hb = new \App\Http\Controllers\Frontend\HuobiController;
+        $hb = new \App\Http\Controllers\Cli\HuobiController;
         $hb->otcPrice();
     }
 }

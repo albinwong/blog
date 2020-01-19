@@ -37,7 +37,7 @@ class Alternative extends Command
      */
     public function handle()
     {
-        $an = new \App\Http\Controllers\Frontend\AlternativeController;
+        $an = new \App\Http\Controllers\Cli\AlternativeController;
         $an->fgi();
     }
 }

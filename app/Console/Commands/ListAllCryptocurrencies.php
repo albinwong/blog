@@ -38,7 +38,7 @@ class ListAllCryptocurrencies extends Command
     public function handle()
     {
         //
-        $Cryptocurrency = new \App\Http\Controllers\Frontend\HuobiController;
+        $Cryptocurrency = new \App\Http\Controllers\Cli\HuobiController;
         $Cryptocurrency->listAllCryptoCurrencies();
     }
 }

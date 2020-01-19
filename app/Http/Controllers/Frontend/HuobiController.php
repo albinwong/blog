@@ -120,15 +120,17 @@ class HuobiController extends Controller
         $res = $res->getBody()->getContents();
         $res = json_decode($res, true);
         $newOTC = $chgRate = $oldderData = $valueLists= [];
-        $OTCkey = 'OTC_PRICE_LISTS';
-        if ($OTCkeyLen = $redis->zcard($OTCkey)) {
-            $oldderData = $redis->zrange($OTCkey, 0, $OTCkeyLen);
+        $OTCOpenkey = 'OTC_OPEN_PRICE_LISTS';
+        if ($OTCOenkeyLen = $redis->zcard($OTCOpenkey)) {
+            $oldderData = $redis->zrange($OTCOpenkey, 0, $OTCOenkeyLen);
             foreach ($oldderData as $oldderKey => $oldderValue) {
                 $value = json_decode($oldderValue, true);
                 $oldderData[$value['coinName']] = $value['price'];
                 unset($oldderData[$oldderKey]);
             }
         }
+
+        $OTCkey = 'OTC_PRICE_LISTS';
         if ($res['success'] && $res['code'] == 200) {
             $data = $res['data'];
             foreach ($data as $key => $value) {
@@ -153,6 +155,9 @@ class HuobiController extends Controller
             $redis->zcard($OTCkey) ? $redis->del($OTCkey) : '';
             foreach ($newOTC as $k => $v) {
                 $redis->zadd($OTCkey, $k, json_encode($v));
+                if (date('H:i') == '08:00') {
+                    $redis->zadd($OTCOpenkey, $k, json_encode($v));
+                }
             }
         }
     }

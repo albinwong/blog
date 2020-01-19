@@ -27,7 +27,7 @@
     font-weight: bold;
     font-size: 14px;
     text-align: center;
-    background: #fff url(https://cdn.datatables.net/1.10.16/images/sort_both.png) no-repeat;
+    background: #fff url(https://albinwongcdn.oss-cn-beijing.aliyuncs.com/exclusive/images/li-arrow.png) no-repeat;
     background-position: center right;
 }
 .table.table-coins>tbody>tr>td.place {
@@ -202,9 +202,9 @@ tbody tr:nth-child(odd) {
                               </td>
                               <td class="price">{{cyrptoPriceFormat($value['price'], '$')}}</td>
                               <td class="rate <?=$value['change_rate_daily'] < 0 ? 'fall' : 'rise';?>">{!!($value['change_rate_daily'] < 0) ? $value['change_rate_daily'] : '+'.$value['change_rate_daily'] !!}%</td>
-                              <td class="volume">{{CryptoVolumnFormat($value['volume_daily'], '$')}}</td>
-                              <td class="cap">{{CryptoVolumnFormat($value['market_cap'], '$')}}</td>
-                              <td class="full-volume">{{CryptoVolumnFormat($value['total_supply'], '')}}</td>
+                              <td class="volume">{{cryptoVolumnFormat($value['volume_daily'], '$')}}</td>
+                              <td class="cap">{{cryptoVolumnFormat($value['market_cap'], '$')}}</td>
+                              <td class="full-volume">{{cryptoVolumnFormat($value['total_supply'], '')}}</td>
                             </tr>
 <?php endforeach; ?>
                         </tbody>
@@ -231,7 +231,7 @@ tbody tr:nth-child(odd) {
                         <tr>
                           <th class="thumb" colspan="2" style="padding: 8px;">币种名</th>
                           <th class="price">场外价格 ¥</th>
-                          <th style="text-align: left; width: 75px;">5分钟涨跌幅</th>
+                          <th style="text-align: left; width: 75px;">涨跌幅</th>
                         </tr>
                     </thead>
                     <tbody>

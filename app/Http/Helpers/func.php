@@ -14,7 +14,7 @@ function cyrptoPriceFormat($price, $flag = '$')
     return $flag.$res;
 }
 
-function CryptoVolumnFormat($num, $flag = '', $locale = 'cn')
+function cryptoVolumnFormat($num, $flag = '', $locale = 'cn')
 {
     $res = null;
     if (empty($num)) {

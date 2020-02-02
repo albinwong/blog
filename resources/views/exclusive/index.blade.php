@@ -126,8 +126,62 @@
     </div>
 @endsection
 @section('js')
+ <script type="text/javascript" src="/exclusive/js/jquery.pagination.js"></script>
     <script type="text/javascript" src="{{env('APP_CDN')}}/exclusive/js/jquery.formd471.js"></script>
     <script type="text/javascript" src="{{env('APP_CDN')}}/exclusive/js/jquery.validate.minfc6b.js"></script>
     <script src="{{env('APP_CDN')}}/calender/fullcalendar.js"></script>
     <script src="{{env('APP_CDN')}}/calender/applycalendar.js"></script>
+    <script type="text/javascript">
+        $(function(){
+        /*页面加载完默认加载第一页*/
+            // queryNewsList(1);
+        });
+    function queryNewsList(page){
+        /*当前页展示条数，默认10条*/
+        var rows = 10;
+        /*总条数，假设总共有72条*/
+        var total = 72;
+        $.ajax({
+            cache: false,
+            type: "POST",
+            url:"getNewsList",
+            data:{
+                /*当前页码*/
+                page:page,
+                rows:rows,
+                total:total
+            },
+            async: false,
+            dataType:"json",
+            contentType:"application/x-www-form-urlencoded",
+            error: function(request) { },
+            success: function(data) {
+                $("#pagination").pagination({
+                    /*当前页码*/
+                    currentPage: page,
+                    /*总共有多少页*/
+                    totalPage: Math.ceil(total/rows),
+                    /*是否显示首页、尾页 true：显示 false：不显示*/
+                    isShow:true,
+                    /*分页条显示可见页码数量*/
+                    count:5,
+                    /*第一页显示文字*/
+                    homePageText:'首页',
+                    /*最后一页显示文字*/
+                    endPageText:'尾页',
+                    /*上一页显示文字*/
+                    prevPageText:'上一页',
+                    /* 下一页显示文字*/
+                    nextPageText:'下一页',
+                    /*点击翻页绑定事件*/
+                    callback: function(page) {
+                        queryNewsList(page);
+                    }
+                });
+                var newsList = Handlebars.compile($("#newsListTemplate").html());
+                $('#newsList').html(newsList(data));
+            }
+        });
+    }
+    </script>
 @endsection

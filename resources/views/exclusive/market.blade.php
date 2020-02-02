@@ -27,8 +27,9 @@
     font-weight: bold;
     font-size: 14px;
     text-align: center;
-    background: #fff url(https://albinwongcdn.oss-cn-beijing.aliyuncs.com/exclusive/images/li-arrow.png) no-repeat;
+    background: #fff url(http://q3bc76t00.bkt.clouddn.com/arrow_both.png) no-repeat;
     background-position: center right;
+    background-size: 10px 10px;
 }
 .table.table-coins>tbody>tr>td.place {
     color: #97a4b5;
@@ -245,6 +246,29 @@ tbody tr:nth-child(odd) {
 @endsection
 @section('js')
 <script type="text/javascript" src="/echarts/echarts.min.js"></script>
+<script>
+    $(function(){
+        var winH = $(window).height();  // 当前窗口高度
+
+        $(window).scroll(function(){
+            scrollHandler();
+        });
+        function scrollHandler() {
+            var pageH = $(document.body).height(); // 页面高度
+            var scrollT = $(window).scrollTop(); //滚动条top
+
+            var aa = (pageH - winH - scrollT) / winH;
+            // console.log(aa);
+            if (aa < 2) {
+                // 避免加载万书记 不停调用函数 进行的加载
+                // if (page_num<=rentDataPagge+1){
+                    // 滑动到地部 调用函数 加载数据
+                    // getData(page_num);
+                // }
+            }
+        }
+    });
+</script>
 <script>
     $(function(){ 
         var panelOption = {  

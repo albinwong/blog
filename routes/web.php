@@ -24,6 +24,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/digiccyTest', 'Cli\HuobiController@marketHistoryKline');
     Route::get('/otc', 'Cli\HuobiController@otcPrice');
     Route::get('/ticker', 'Cli\AlternativeController@ticker');
+    Route::get('/fgi', 'Cli\AlternativeController@fgi');
     Route::get('/404', function () {
         abort(404, 'not found!!!');
     });

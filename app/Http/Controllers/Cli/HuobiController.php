@@ -11,14 +11,14 @@ use Exception;
 
 use App\Model\ListAllCryptocurrencies;
 use DB;
-
+//3149930
 class HuobiController extends Controller
 {
     private $huobiClient;
     private $CMCClient;
     protected $_notice;
 
-    private $huobiClientEndpoint = 'https://api.huobi.io';
+    private $huobiClientEndpoint = 'https://api.huobi.vc';
     private $CMCEndpoint = 'https://pro-api.coinmarketcap.com';
 
     private $CoinMarketCapApiKey = 'af6eb3f8-98a3-4257-83f6-cafe83d58d4f';

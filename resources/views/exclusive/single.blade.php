@@ -70,6 +70,10 @@
                 border-width: 0;
                 height: 100%;
             }
+            p img {
+                /*width: 300px;*/
+                /*height: 300px;  */
+            }
             
         </style>
 @endsection

@@ -27,7 +27,7 @@
     font-weight: bold;
     font-size: 14px;
     text-align: center;
-    background: #fff url(http://q3bc76t00.bkt.clouddn.com/arrow_both.png) no-repeat;
+    background: #fff url(/exclusive/images/arrow_both.png) no-repeat;
     background-position: center right;
     background-size: 10px 10px;
 }
@@ -148,14 +148,13 @@ tbody tr:nth-child(odd) {
 @section('content')
 <!-- Start of Page Container -->
     <div class="row" style="">
-        <h2 class="post-title">行情数据</h2>
+        <h2 class="post-title">行情</h2>
         <hr>
         <p class="error">
             <svg height="18" class="octicon octicon-alert mr-1" viewBox="0 0 15 15" version="1.1" width="18" aria-hidden="true">
                 <path d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 000 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 00.01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z" fill-rule="evenodd" fill="#FF7F50"></path>
             </svg>
             风险提示及免责声明：本站所提供的行情数据与信息仅供参考，均不作为投资依据。投资有风险，入市需谨慎!
-
             <span id="riskTip" style="float:right;">&times;</span>
         </p>
         <div class="span8 page_content">
@@ -164,18 +163,21 @@ tbody tr:nth-child(odd) {
                     <a href="#">币种 Coins</a>
                 </li>
                 <li>
-                    <a href="#">交易所平台</a>
+                    <a href="#">交易所 Exchanges</a>
+                </li>
+                <li>
+                    <a href="#">钱包 Wallets</a>
                 </li>
             </ul>
             <div class="tabs-container">
                 <div class="tab-content panel-body" style="display: block;">
                     <table class="table table-coins table-hover table-homepage" border="0" cellpadding="1" cellspacing="1" style="width: 100%; border-collapse: collapse">
-                        <thead>
+                        <thead class="info-fix-top">
                             <tr>
                               <th class="place">#</th>
                               <th class="thumb"colspan="2">币名</th>
                               <th class="price">价格</th>
-                              <th class="rate">涨跌幅</th>
+                              <th class="rate">涨跌幅 %</th>
                               <th class="volume">24H成交量</th>
                               <th class="volume">市值</th>
                               <th class="full-volume">流通数量</th>
@@ -212,12 +214,13 @@ tbody tr:nth-child(odd) {
 
                     </table>
                 </div>
-                <div class="tab-content" style="display: none;">...</div>
+                <div class="tab-content exchanges" style="display: none;">...</div>
+                <div class="tab-content wallets" style="display: none;"></div>
             </div>
         </div>
         <aside class="span4 page-sidebar">
             <div class="post-title">
-                <span class="fgi">贪婪指数(<?=$fgi['value'];?>)</span>
+                <span id="fgi" class="fgi">贪婪指数(<?=$fgi['value'];?>)</span>
                 <span class="date" style="float: right;">Last updated:<?=date('M dS', $fgi['timestamp']);?></span>
             </div>
             <canvas id="board" height="150" class="widget" style="text-align: center;"></canvas>
@@ -232,7 +235,7 @@ tbody tr:nth-child(odd) {
                         <tr>
                           <th class="thumb" colspan="2" style="padding: 8px;">币种名</th>
                           <th class="price">场外价格 ¥</th>
-                          <th style="text-align: left; width: 75px;">涨跌幅</th>
+                          <th style="text-align: left; width: 75px;">涨跌幅 %</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -246,6 +249,7 @@ tbody tr:nth-child(odd) {
 @endsection
 @section('js')
 <script type="text/javascript" src="/echarts/echarts.min.js"></script>
+<script src="{{env('APP_CDN')}}/exclusive/js/panel.js"></script>
 <script>
     $(function(){
         var winH = $(window).height();  // 当前窗口高度
@@ -268,190 +272,6 @@ tbody tr:nth-child(odd) {
             }
         }
     });
-</script>
-<script>
-    $(function(){ 
-        var panelOption = {  
-            maxLength: 30,  
-            interval: 5,  
-            level: [//仪表盘需要呈现的数据隔离区域  
-                {
-                    start: 0,
-                    color: "#FF4500"
-                },{ 
-                    start: 45,
-                    color: "#FFA07A"
-                },{
-                    start: 81, 
-                    color: "#98FB98" 
-                },{
-                    start: 117,
-                    color: "#32CD32"
-                },{
-                    start: 135,
-                    color: "#006400"
-                }
-            ],  
-            outsideStyle: {
-                lineWidth: 0,
-                color: "rgba(100,100,100,1)" 
-            }  
-        };  
-         
-        Panel = new panel("board", panelOption); 
-        var fgiValue = "{{$fgi['value']}}"*1.8;
-        Panel.init(fgiValue);
-    });
-
-    var panel = function(id, option) {  
-        this.canvas = document.getElementById(id); //获取canvas元素  
-        this.cvs = this.canvas.getContext("2d"); //得到绘制上下文  
-        this.width = this.canvas.width; //对象宽度  
-        this.height = this.canvas.height; //对象高度  
-        this.level = option.level;  
-        this.outsideStyle = option.outsideStyle;  
-    } 
-
-    panel.prototype.init = function(value) {  
-        var p = this;  
-        var cvs = this.cvs;  
-        cvs.clearRect(0, 0, this.width, this.height);  
-         
-        p.drawArc();  
-        p.drawLevelArea(p.level);  
-        p.drawLine();  
-        p.drawSpanner(value);  
-    }
-
-    var panelOption = {  
-        maxLength: 30,  
-        interval: 5,  
-        level: [//仪表盘需要呈现的数据隔离区域  
-            {
-                start: 0,
-                color: "red"
-            },{
-                start: 30,
-                color: "yellow"
-            },{
-                start: 40,
-                color: "blue"
-            },{
-                start: 100,
-                color: "Lime"
-            }  
-        ],  
-        outsideStyle: 
-        {
-            lineWidth: 4,
-            color: "rgba(100,100,100,1)"
-        }  
-    }; 
-
-    panel.prototype.save = function(fn) {  
-        this.cvs.save();  
-        fn();  
-        this.cvs.restore();  
-    } 
-
-    panel.prototype.drawArc = function() {  
-        var p = this;  
-        var cvs = this.cvs;  
-        p.save(function() {  
-            cvs.translate(p.width / 2, p.height); //将坐标点移到矩形的底部的中间  
-            cvs.beginPath();  
-            cvs.lineWidth = p.outsideStyle.lineWidth;  
-            cvs.strokeStyle = p.outsideStyle.color;  
-            cvs.arc(0, 0, p.height - cvs.lineWidth, 0, Math.PI / 180 * 180, true); //画半圆  
-            cvs.stroke();  
-        });  
-    } 
-
-    panel.prototype.drawLevelArea = function(level) {  
-        var p = this;  
-        var cvs = this.cvs;  
-        for (var i = 0; i < level.length; i++) {  
-            p.save(function() {  
-                cvs.translate(p.width / 2, p.height);  
-                cvs.rotate(Math.PI / 180 * level[i].start);  
-                p.save(function() {  
-                    cvs.beginPath();  
-                    cvs.arc(0, 0, p.height - p.outsideStyle.lineWidth, Math.PI / 180 * 180, Math.PI / 180 * 360);  
-                    cvs.fillStyle = level[i].color;  
-                    cvs.fill();  
-                });  
-            });  
-        }  
-    } 
-
-    panel.prototype.drawLine = function() {  
-        var p = this;
-        var cvs = this.cvs;  
-        for (var i = 0; i <= 180; i++) {  
-            p.save(function() {  
-                cvs.translate(p.width / 2, p.height);  
-                cvs.rotate(Math.PI / 180 * i * 1.1);  
-                p.save(function() {  
-                    cvs.beginPath();  
-                    // cvs.lineTo(-(p.height - p.outsideStyle.lineWidth) + 10, 0);  
-                    // cvs.lineTo(-(p.height - p.outsideStyle.lineWidth) + 5, 0 );  
-                    cvs.stroke();
-
-                    /*0 - 25 Extreme Fear  25% 0
-                    26- 46 Fear          20% 45
-                    47 - 54 Neutral      10% 81
-                    55 - 75 Greed        20% 117
-                    76 - 100Extreme Greed 25% 135*/
-                    // var lineAreaValue = {0:"Extreme Fear",45:"Fear",81: "Neutral",117: "Greed",145: "Extreme Greed"};
-                    var lineAreaValue = {15:"极度恐惧",53:"恐惧",87: "中立",110: "贪婪",139: "极度贪婪"};
-                    if (lineAreaValue.hasOwnProperty(i)) {
-                        p.drawText(lineAreaValue[i], i);  
-                    }
-                });  
-            });  
-        }  
-    } 
-
-    panel.prototype.drawText = function(val, i) {  
-        var p = this;  
-        var cvs = this.cvs;  
-        p.save(function() { 
-            cvs.translate(3, -5);  
-            // cvs.rotate(0.1);  
-            cvs.beginPath();
-            cvs.lineWidth = 1;
-            cvs.strokeStyle = "#FFF";
-            cvs.font = '12px 宋体';
-            cvs.strokeText(val, -(p.height - p.outsideStyle.lineWidth), 0);  
-            cvs.fill();
-        });  
-    } 
-
-    panel.prototype.drawSpanner = function(value) {  
-        var p = this;  
-        var cvs = this.cvs;  
-        p.save(function() {  
-            cvs.translate(p.width / 2, p.height);  
-            cvs.moveTo(0, 0);  
-            cvs.arc(0, 0, p.height / 30, 0, (Math.PI / 180) * 360);  
-            cvs.lineWidth = 3;  
-            cvs.stroke();
-        });
-
-        p.save(function() {  
-            cvs.translate(p.width / 2, p.height);
-            cvs.rotate(Math.PI / 180 * -90);
-            p.save(function() {
-                cvs.rotate(Math.PI / 180 * value);
-                cvs.beginPath();
-                cvs.moveTo(5, -3);
-                cvs.lineTo(0, -p.height * 0.7);
-                cvs.lineTo(-5, -3);
-                cvs.lineTo(5, -3); 
-                cvs.fill();
-            });
-        });  
-    } 
 </script>
 <script>
     $(function(){

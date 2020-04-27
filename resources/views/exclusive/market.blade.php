@@ -248,7 +248,7 @@ tbody tr:nth-child(odd) {
 <!-- End of Page Container -->
 @endsection
 @section('js')
-<script type="text/javascript" src="/echarts/echarts.min.js"></script>
+<script type="text/javascript" src="{{env('APP_CDN')}}/echarts/echarts.min.js"></script>
 <script src="{{env('APP_CDN')}}/exclusive/js/panel.js"></script>
 <script>
     $(function(){

@@ -54,6 +54,7 @@ class AlternativeController extends Controller
         }
         $result = json_encode($data['data'][0], true);
         $redis->set('Alternative_FGI_Index', $result);
+        unset($data, $result);
         $this->_notice->dingTalk('Alternative FGI Sync Finished');
     }
 
@@ -90,6 +91,7 @@ class AlternativeController extends Controller
         }
         $data = $res->getBody()->getContents();
         $data = json_decode($data, true)['data'];
+        unset($res);
         if (count($data)) {
             foreach ($data as &$value) {
                 $quotes = $value['quotes']['USD'];
@@ -111,10 +113,18 @@ class AlternativeController extends Controller
                     'updated_at' => $value['last_updated'] ? date('Y-m-d H:i:s', $value['last_updated']) : '',
                 ];
                 CryptoTicker::updateOrInsert(['id' => $value['id']], $result);
+                unset($quotes, $result);
             }
         } else {
             $this->_notice->dingTalk('Alternative Ticker API Interface Request Data is Empty! ');
         }
+        unset($data);
         // $this->_notice->dingTalk('Alternative Ticker API Sync Successed!');
+    }
+
+    public function __destruct()
+    {
+        $this->client;
+        $this->__notice;
     }
 }

@@ -25,6 +25,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/otc', 'Cli\HuobiController@otcPrice');
     Route::get('/ticker', 'Cli\AlternativeController@ticker');
     Route::get('/fgi', 'Cli\AlternativeController@fgi');
+    Route::get('/cryexch', 'Cli\CryptoCompareController@exchangesGeneralInfo');
     Route::get('/404', function () {
         abort(404, 'not found!!!');
     });

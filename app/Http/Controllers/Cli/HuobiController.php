@@ -104,12 +104,13 @@ class HuobiController extends Controller
         } else {
             $this->_notice->dingTalk('Oops, Coinmarketcap List All Cryptocurrencies Got Some Errors ');
         }
+        unset($result, $data, $res);
     }
 
     public function otcPrice()
     {
         $redis = app('redis')->connection('blog');
-        $otcClient = new Client(['base_uri' => 'https://otc-api.huobi.io']);
+        $otcClient = new Client(['base_uri' => 'https://otc-api.huobi.me']);
         try {
             $res = $otcClient->request('GET', '/v1/data/ticker/price');
         } catch (Exception $e) {
@@ -152,14 +153,18 @@ class HuobiController extends Controller
                 ];
             }
             array_multisort($newOTC, SORT_DESC, SORT_NUMERIC, $valueLists);
+            unset($valueLists, $chgRate);
             $redis->zcard($OTCkey) ? $redis->del($OTCkey) : '';
+            date('H:i') == '08:00' && $redis->zcard($OTCOpenkey) ? $redis->del($OTCOpenkey) : '';
             foreach ($newOTC as $k => $v) {
                 $redis->zadd($OTCkey, $k, json_encode($v));
                 if (date('H:i') == '08:00') {
                     $redis->zadd($OTCOpenkey, $k, json_encode($v));
                 }
             }
+            unset($newOTC, $data);
         }
+        unset($res, $otcClient);
     }
 
 }

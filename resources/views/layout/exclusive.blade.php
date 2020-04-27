@@ -192,7 +192,7 @@
                     <div class="row">
                         <div class="span6">
                             <p class="copyright">&copy; 2016-2020 Albinwong.com All Rights Reserved. <br>
-                            <a href="http://beian.miit.gov.cn/" target="_blank" title="" style="color: #fff;">ICP证：京ICP备17026115号</a> </p>
+                            ICP证：<a href="http://www.beian.miit.gov.cn" target="_blank" title="" style="color: #ff6a00;">京ICP备17026115号-1</a></p>
                         </div>
                         <div class="span6">
                             <!-- Social Navigation -->

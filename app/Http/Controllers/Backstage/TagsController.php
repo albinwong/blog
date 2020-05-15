@@ -53,6 +53,7 @@ class TagsController extends Controller
                 }
             }
         } else {
+            $res = null;
             if ($request->input('id')) {
                 $res = Types::find($request->input('id'));
             }

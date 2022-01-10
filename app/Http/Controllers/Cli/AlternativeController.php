@@ -55,7 +55,7 @@ class AlternativeController extends Controller
         $result = json_encode($data['data'][0], true);
         $redis->set('Alternative_FGI_Index', $result);
         unset($data, $result);
-        $this->_notice->dingTalk('Alternative FGI Sync Finished');
+        $this->_notice->dingTalk('Alternative FGI Sync Finished:'.$result);
     }
 
     /**

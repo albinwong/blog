@@ -5,9 +5,7 @@ namespace App\Http\Controllers\Backstage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use App\Model\Types;
-
-class TagsController extends Controller
+class CateController extends Controller
 {
     /**
      * Tags List
@@ -16,8 +14,8 @@ class TagsController extends Controller
      */
     public function index()
     {
-        $data = Types::paginate(10);
-        return view('backstage.tags.index', compact('data'));
+        $data = Cate::paginate(10);
+        return view('backstage.cate.index', compact('data'));
     }
 
     /**
@@ -41,20 +39,20 @@ class TagsController extends Controller
             $data = $request->except(['_token']);
             if ($request->input('id')) {
                 if (Types::where('id', $request->input('id'))->update($data)) {
-                    return redirect('/admin/tags')->with('info', '标签更新成功!');
+                    return redirect('/admin/cate')->with('info', '标签更新成功!');
                 } else {
-                    return redirect('/admin/tags')->with('info', 'Oops, 标签更新失败!');
+                    return redirect('/admin/cate')->with('info', 'Oops, 标签更新失败!');
                 }
             } else {
                 if (Types::create($data)) {
-                    return redirect('/admin/tags')->with('info', '标签添加成功!');
+                    return redirect('/admin/cate')->with('info', '标签添加成功!');
                 } else {
                     return back()->with('info', 'Oops, 标签添加失败!');
                 }
             }
         } else {
             $res = $request->input('id') ? Types::find($request->input('id')) : null;
-            return view('backstage.tags.edit', compact('res'));
+            return view('backstage.cate.edit', compact('res'));
         }
     }
 

@@ -11,7 +11,6 @@ use Exception;
 
 use App\Model\ListAllCryptocurrencies;
 use DB;
-//3149930
 class HuobiController extends Controller
 {
     private $huobiClient;
@@ -110,9 +109,10 @@ class HuobiController extends Controller
     public function otcPrice()
     {
         $redis = app('redis')->connection('blog');
-        $otcClient = new Client(['base_uri' => 'https://otc-api.huobi.me']);
+        $otcClient = new Client(['base_uri' => 'https://otc-api.huobi.mn']);
         try {
             $res = $otcClient->request('GET', '/v1/data/ticker/price');
+            //$this->_notice->dingTalk(date('Y-m-d H:i:s'). 'Huobi OTC Price Updated');
         } catch (Exception $e) {
             if ($e->getCode() != 200) {
                 $this->_notice->dingTalk('[Huobi OTC Price] Attention: '.$e->getMessage());

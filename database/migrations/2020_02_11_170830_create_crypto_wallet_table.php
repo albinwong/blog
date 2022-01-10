@@ -1,50 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Cli;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-
-use Guzzle\Http\Exception\RequestException;
-use GuzzleHttp\Client;
-
-class CryptoCompareController extends Controller
+class CreateCryptoWalletTable extends Migration
 {
-    private $apiKey = 'e5b5a60b501813f5eba5fa18ee9f870840f53cc690409748932e4c00e209d70a';
-    private $endpoint = 'https://min-api.cryptocompare.com';
-
-    public function __construct()
-    {
-        $this->client = new Client(['base_uri' => $this->endpoint]);
-        $this->_notice = new \App\Http\Controllers\CommonController;
-    }
-
     /**
-     * All Exchanges General Info
-     * Returns general info and 24h volume for all the exchanges we have integrated with.
-     * Caching 120 seconds
-     * https://min-api.cryptocompare.com/data/exchanges/general
-     * @author Albin Wong 2020-02-09
-     * @return [type] [description]
+     * Run the migrations.
+     *
+     * @return void
      */
-    public function exchangesGeneralInfo()
+    public function up()
     {
-        try {
-            $res = $this->client->request('GET', '/data/exchanges/general', [
-                'query' => [
-                    // 'tsym' => '', // The currency symbol to convert into [ Min length - 1] [ Max length - 10] [ Default - BTC]
-                    // 'extraParams'   => 2, // The name of your application (we recommend you send it) [ Min length - 1] [ Max length - 2000] [ Default - NotAvailable]
-                    'sign' => false, // If set to true, the server will sign the requests (by default we don't sign them), this is useful for usage in smart contracts [ Default - false]
-                    'api_key' => $this->apiKey,
-                ],
-                // 'proxy' => 
-            ]);
-        } catch (Exception $e) {
-            $this->_notice->dingTalk('Alternative Ticker API Interface exception: '.$e->getMessage());
-        }
-        $data = json_decode($res->getBody()->getContents(), true)['Data'];
         /**
-         *  "Id": "2431",
+         *
+         "Id": "2431",
             "Name": "Bitstamp",
             "Url": "/exchanges/bitstamp/overview",
             "LogoUrl": "/media/34478497/bitstamp.jpg",
@@ -95,31 +66,23 @@ class CryptoCompareController extends Controller
                 "BTC": "Ƀ 8.83 K",
                 "USD": "$ 88.98 M"
             }
+         *
+         * 
          */
-        if (count($data)) {
-            foreach ($data as &$value) {
-                $quotes = $value['quotes']['USD'];
-                $result = [
-                    'id' => $value['id'],
-                    'name' => $value['name'],
-                    'symbol' => $value['symbol'],
-                    'slug' => $value['website_slug'],
-                    'rank' => $value['rank'],
-                    'circulating_supply' => $value['circulating_supply'] ?? 0,
-                    'total_supply' => $value['total_supply'] ?? '',
-                    'max_supply' => $value['max_supply'] ?? '',
-                    'price' =>  $quotes['price'], // 24小时成交量
-                    'volume_daily' =>  $quotes['volume_24h'], // 24小时成交量
-                    'market_cap' =>  $quotes['market_cap'],
-                    'change_rate_hourly' =>  $quotes['percentage_change_1h'],
-                    'change_rate_daily' =>  $quotes['percentage_change_24h'],
-                    'change_rate_weekly' =>  $quotes['percentage_change_7d'],
-                    'updated_at' => $value['last_updated'] ? date('Y-m-d H:i:s', $value['last_updated']) : '',
-                ];
-                CryptoTicker::updateOrInsert(['id' => $value['id']], $result);
-            }
-        } else {
-            $this->_notice->dingTalk('Alternative Ticker API Interface Request Data is Empty! ');
-        }
+        /*Schema::create('crypto_wallet', function (Blueprint $table) {
+            $table->increments('id');
+            // $table->
+            $table->timestamps();
+        });*/
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        // Schema::dropIfExists('crypto_wallet');
     }
 }

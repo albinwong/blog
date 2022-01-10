@@ -73,14 +73,30 @@
 			<a href="/admin/posts/edit">添加文章</a>
 		</li> 
 	</ul>
+</li>
+<li id="menu-academico">
+	<a href="/admin/posts">
+		<i class="fa fa-archive" aria-hidden="true"></i>
+		<span>分类</span>
+		<span class="fa fa-angle-right" style="float: right"></span>
+		<div class="clearfix"></div>
+	</a> 
+	<ul id="menu-academico-sub"> 
+		<li id="menu-academico-avaliacoes">
+			<a href="/admin/cate/index">分类列表</a>
+		</li> 
+		<li id="menu-academico-avaliacoes">
+			<a href="/admin/cate/edit">添加分类</a>
+		</li> 
+	</ul>
 </li> 
-<!-- <li id="menu-academico">
+ <!-- <li id="menu-academico">
 	<a href="charts.html">
 		<i class="fa fa-bar-chart"></i>
 		<span>Charts</span>
 		<div class="clearfix"></div>
 	</a>
-</li> 
+</li>
 <li id="menu-academico">
 	<a href="#">
 		<i class="fa fa-list-ul" aria-hidden="true"></i>

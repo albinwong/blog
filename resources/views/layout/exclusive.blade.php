@@ -191,8 +191,8 @@
                 <div id="footer-bottom" class="container">
                     <div class="row">
                         <div class="span6">
-                            <p class="copyright">&copy; 2016-2020 Albinwong.com All Rights Reserved. <br>
-                            ICP证：<a href="http://www.beian.miit.gov.cn" target="_blank" title="" style="color: #ff6a00;">京ICP备17026115号-1</a></p>
+                            <p class="copyright">&copy; 2016-2022 Albinwong.com All Rights Reserved. <br>
+                            ICP证：<a href="//beian.miit.gov.cn" target="_blank" style="color: #ff6a00;">京ICP备17026115号-1</a></p>
                         </div>
                         <div class="span6">
                             <!-- Social Navigation -->
@@ -228,7 +228,7 @@
     <!-- script -->
     <script type="text/javascript" src="{{env('APP_CDN')}}/exclusive/js/jquery-2.1.1.js"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137037174-1"></script>
-    <script async src="/exclusive/js/subscribe.js"></script>
+    <script async src="{{env('APP_CDN')}}/exclusive/js/subscribe.js"></script>
     <script src="{{env('APP_CDN')}}/exclusive/js/analytics.js"></script>
     <script src="{{env('APP_CDN')}}/js/layer/layer.js"></script>
     <script src="{{env('APP_CDN')}}/exclusive/js/custom.js"></script>

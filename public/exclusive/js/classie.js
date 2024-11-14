@@ -84,7 +84,7 @@ if ( typeof define === 'function' && define.amd ) {
 var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?59e2b1c07ab5e1abad93b236d38daeba";
+  hm.src = "https://hm.baidu.com/hm.js?30c94ebc8c39afbe678fe31d1ca81758";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
 })();

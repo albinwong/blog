@@ -3595,7 +3595,7 @@
 }
 
 .markdown-body img {
-  max-width: 100%;
+  max-width: 60%;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }

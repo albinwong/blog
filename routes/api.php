@@ -23,3 +23,4 @@ use Illuminate\Http\Request;
 	Route::post('/market', 'Cli\HuobiController@marketHistoryKline');
 	Route::get('/otc', 'Frontend\HomeController@otc');
 // });
+ 

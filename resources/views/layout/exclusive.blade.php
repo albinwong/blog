@@ -92,9 +92,9 @@
                                     </ul>
                                 </li>
                                 <!-- <li class="{!! isset($sidebar) && $sidebar == 'about' ? 'current-menu-item': '' !!}"><a href="/about">关于</a></li> -->
-                                <li class="{!! isset($sidebar) && $sidebar == 'market' ? 'current-menu-item': '' !!}">
+                                <!-- <li class="{!! isset($sidebar) && $sidebar == 'market' ? 'current-menu-item': '' !!}">
                                     <a href="/market">数字货币</a>
-                                </li>
+                                </li> -->
                                 <li class="{!! isset($sidebar) && $sidebar == 'contact' ? 'current-menu-item': '' !!}">
                                     <a href="/contact">联系</a>
                                 </li>
@@ -191,7 +191,7 @@
                 <div id="footer-bottom" class="container">
                     <div class="row">
                         <div class="span6">
-                            <p class="copyright">&copy; 2016-2022 Albinwong.com All Rights Reserved. <br>
+                            <p class="copyright">&copy; 2016-2023 Albinwong.com All Rights Reserved. <br>
                             ICP证：<a href="//beian.miit.gov.cn" target="_blank" style="color: #ff6a00;">京ICP备17026115号-1</a></p>
                         </div>
                         <div class="span6">

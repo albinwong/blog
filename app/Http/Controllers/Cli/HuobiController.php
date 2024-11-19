@@ -109,7 +109,7 @@ class HuobiController extends Controller
     public function otcPrice()
     {
         $redis = app('redis')->connection('blog');
-        $otcClient = new Client(['base_uri' => 'https://otc-api.huobi.mn']);
+        $otcClient = new Client(['base_uri' => 'https://otc-api.huobi.com']);
         try {
             $res = $otcClient->request('GET', '/v1/data/ticker/price');
             //$this->_notice->dingTalk(date('Y-m-d H:i:s'). 'Huobi OTC Price Updated');
